@@ -1,0 +1,221 @@
+// transition mixins e.g @include transition(color .3s ease);
+@mixin transition ($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin transition-property($property...) {
+  -moz-transition-property:    $property;
+  -o-transition-property:      $property;
+  -webkit-transition-property: $property;
+  transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+  -moz-transition-property:    $duration;
+  -o-transition-property:      $duration;
+  -webkit-transition-property: $duration;
+  transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+  -moz-transition-timing-function:    $timing;
+  -o-transition-timing-function:      $timing;
+  -webkit-transition-timing-function: $timing;
+  transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+  -moz-transition-delay:    $delay;
+  -o-transition-delay:      $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay:         $delay;
+}
+
+// <!-- end transition mixins -->
+
+// transform mixins
+
+// generic transform
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+ 
+// scale
+@mixin scale($scale) {
+  @include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+//transform origin
+@mixin transform-origin ($origin) {
+  moz-transform-origin: $origin;
+  -o-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+  transform-origin: $origin;
+}
+
+// <!-- end transition mixins -->
+
+//  Set a rem font size with pixel fallback e.g  @include font-size(14px)
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+// breakpoints e.g 
+// @include breakpoint(sm) { background: green; }
+
+
+$breakpoints: (
+  'xs'  : ( min-width:  399px ),
+  'sm'  : ( max-width: 599px ),
+  'sm-min'  : ( min-width: 600px ),
+  'md'  : ( min-width: 767px ),
+  'lg'  : ( min-width: 1025px ),
+  'xl'  : ( min-width: 1200px )
+);
+ 
+@mixin breakpoint($name) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $name) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $name))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$name}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+// Cross browser opacity e.g @include opacity(0.8);
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+
+//clearfix e.g @extend %clearfix;
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//visually hidden (for screen reader optimisation) e.g  @extend %visuallyhidden;
+
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+// box shadow e.g @include box-shadow(5px 0 5px #ccc)
+// @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+//   @if $inset {
+//     -webkit-box-shadow:inset $top $left $blur $color;
+//     -moz-box-shadow:inset $top $left $blur $color;
+//     box-shadow:inset $top $left $blur $color;
+//   } @else {
+//     -webkit-box-shadow: $top $left $blur $color;
+//     -moz-box-shadow: $top $left $blur $color;
+//     box-shadow: $top $left $blur $color;
+//   }
+// }
+@mixin box-shadow($left:0, $top:0, $blur:0, $inset:"3px", $color:#fff) {
+  -webkit-box-shadow:inset $left $top $blur #{$inset} $color;
+  -moz-box-shadow:inset $left $top $blur #{$inset} $color;
+  box-shadow:inset $left $top $blur #{$inset} $color;
+}
+@mixin box-shadow-noinset($left:0, $top:0, $blur:0, $color:$color-neutral-5) {
+  -webkit-box-shadow:$left $top $blur $color;
+  -moz-box-shadow:$left $top $blur $color;
+  box-shadow:$left $top $blur $color;
+}
+
+//border radius
+@mixin rounded($radius: 0.5em) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+//maintain aspect ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+///position
+/// example: @include absolute( $right:0, $bottom:0, $left:0);
+// @param {String} $position - Either `relative`, `absolute` or `fixed`
+// @param {Length} $top [null] - Top offset
+// @param {Length} $right [null] - Right offset
+// @param {Length} $bottom [null] - Bottom offset
+// @param {Length} $left [null] - Left offset
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+@mixin absolute($args...) {
+  @include position(absolute, $args...);
+}
+// don't really need relative
+// @mixin relative($args...) {
+//   @include position(relative, $args...);
+// }
+@mixin fixed($args...) {
+  @include position(fixed, $args...);
+}

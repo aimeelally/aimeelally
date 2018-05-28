@@ -1,0 +1,103 @@
+/*** FANCY INPUT BOXES ***/
+
+.fancy-input-boxes input[type="text"],
+.fancy-input-boxes input[type="search"],
+.fancy-input-boxes input[type="number"],
+.fancy-input-boxes input[type="color"],
+.fancy-input-boxes input[type="password"] {
+  outline: none;
+  padding: 0.3em;
+  font: inherit;
+  color: $font-on-light-bg;
+  @include rounded(2px);
+  @include border-2($color-neutral-5);
+  
+  &.correct {
+    @include border-2($color-success);
+  }
+  &.incorrect {
+    @include border-2($color-alert);
+    @include accessibility-border-bottom($color-alert);
+  }
+  
+  /*** STATES ***/
+  
+  //FOCUS
+  &:focus {
+    @include focus-box-shadow-input($color-1);
+    @include border-2($color-1);
+  }  
+  &.incorrect:focus {
+    @include focus-box-shadow-input($color-alert);
+    @include border-2($color-alert);
+    @include accessibility-border-bottom($color-alert);
+  }
+  &.correct:focus  {
+    @include focus-box-shadow-input($color-success);
+    @include border-2($color-success);
+  }
+  
+  //HOVER
+  &:not(:disabled):hover {
+    @include border-2($color-1);
+  }
+  &.incorrect:not(:disabled):hover {
+    @include border-2($color-1);
+    @include accessibility-border-bottom($color-1);
+  }
+  
+  //DISABLED
+  &:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+  
+  &.correct:disabled,
+  &.incorrect:disabled {
+    opacity: 1;
+    cursor: not-allowed;
+  }
+  
+} 
+
+.fancy-input-boxes input[type="color"] {
+  padding: 0;
+  background-color: $color-neutral-0;
+}
+
+.fancy-input-boxes.special-inline-border input[type="text"] {
+
+  //add 0.5em space on both sides of every inline input box
+  margin: 0 0.5em; 
+
+  @include special-inline-border();
+  
+  &.correct {
+    @include special-inline-border();
+  }
+  &.incorrect {
+    @include special-inline-border();
+  }
+  
+  //FOCUS
+  &:focus {
+    @include special-inline-border();
+  }  
+  &.incorrect:focus {
+    @include special-inline-border();
+  }
+  &.correct:focus  {
+    @include special-inline-border();
+  }
+  
+  //HOVER
+  &:not(:disabled):hover {
+    @include special-inline-border();
+  }
+  &.incorrect:not(:disabled):hover {
+    @include special-inline-border();
+  }
+}
+
+/*** /FANCY INPUT BOXES ***/
+

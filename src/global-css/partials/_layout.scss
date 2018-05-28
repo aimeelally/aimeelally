@@ -1,0 +1,268 @@
+body {
+  background: $background-color;
+}
+
+//header layout and anything that relies on the variable header height
+header{
+  position:relative;
+  z-index:99;
+}
+
+@media (max-width: 1024px){
+  $header-height: 70px;
+  header, 
+  header [class*='span-'] {
+    height:$header-height;
+  }
+  .main-content, .question-area-container{
+    min-height: calc(100vh - #{$header-height});
+  }
+  // .page-container{
+  //   height:calc(100vh - #{$header-height}); //70px is height of header
+  // }
+}
+@media (min-width: 1025px){
+  $header-height: 100px;
+  header, 
+  header [class*='span-'] {
+    height:$header-height;
+  }
+  .main-content, .question-area-container{
+    min-height: calc(100vh - #{$header-height});
+  }
+  // .page-container{
+  //   height:calc(100vh - #{$header-height}); //70px is height of header
+  // }
+}
+
+.equal-width-children{
+  display: table;
+  table-layout: fixed;
+  width:100%;
+}
+
+.equal-width-children > *{
+  display: table-cell;
+}
+
+//set the thing that appears on the left to absolute position
+//to take it out of the scope of the header, otherwise it won't 
+//center-horizontally
+.header-left{
+  position:absolute;
+  top:1em;
+  left:1em;
+}
+
+.spacer{
+  height:16px;
+}
+
+// ****** margins ******
+
+.xsm-margin-bottom{
+  margin-bottom: 3.2px;
+}
+.sm-margin-bottom{
+  margin-bottom: 8px;
+}
+.margin-bottom{
+  margin-bottom: 16px;
+}
+.lg-margin-bottom{
+  margin-bottom: 24px;
+}
+.xlg-margin-bottom{
+  margin-bottom: 32px;
+}
+.xxlg-margin-bottom{
+  margin-bottom: 48px;
+}
+.xsm-margin-r{
+  margin-right: 4px;
+}
+.sm-margin-r{
+  margin-right: 8px;
+}
+.margin-r{
+  margin-right: 16px;
+}
+.lg-margin-r{
+  margin-right: 24px;
+}
+.xlg-margin-r{
+  margin-right: 32px;
+}
+.xxlg-margin-r{
+  margin-right: 48px;
+}
+.sm-margin-l{
+  margin-left: 8px;
+}
+.margin-l{
+  margin-left: 16px;
+}
+.margin-l-sm{
+  margin-left: 8px;
+}
+.lg-margin-l{
+  margin-left: 24px;
+}
+.xlg-margin-l{
+  margin-left: 32px;
+}
+.margin-lr{
+  margin: 0 16px;
+}
+.margin-top{
+  margin-top: 16px;
+}
+
+// ****** margins ******
+
+// ****** padding ******
+
+.padding-standard{
+  padding: 16px;
+}
+.padding-top{
+  padding-top: 16px;
+}
+.padding-left{
+  padding-left: 16px;
+}
+.padding-l{
+  padding-left: 16px;
+}
+.sm-padding-l{
+  padding-left: 8px;
+}
+.padding-right{
+  padding-right: 16px;
+}
+.padding-r{
+  padding-right: 16px;
+}
+.no-padding{
+  padding: 0;
+}
+
+// ****** padding ******
+
+.touch-icons, .touch-icons-spacer{
+  height:35px;
+}
+.touch-icons{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background-color:grey;
+}
+.truncate{
+  white-space: nowrap;              
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom:0.1em;
+  /* &:hover{
+    text-overflow: inherit;
+    overflow: visible;
+  } */
+}
+.hidden{
+  display:none;
+}
+.clearfix{
+  clear:both;
+}
+
+.clear-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+// styles that were in _positioning.scss
+.center-vertically{
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateX(0) translateY(-50%);
+  -moz-transform: translateX(0) translateY(-50%);
+  -ms-transform: translateX(0) translateY(-50%);
+  transform: translateX(0) translateY(-50%);
+}
+.center-horizontally{
+  position: relative;
+  left: 50%;
+  display:inline-block;
+  -webkit-transform: translateX(-50%) translateY(0);
+  -moz-transform: translateX(-50%) translateY(0);
+  -ms-transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(0);
+}
+table.center-horizontally{
+  display:table;
+}
+.center-vertically-and-horizontally, .center-horizontally.center-vertically{
+  position: relative;
+  left: 50%;
+  top:50%;
+  display:inline-block;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+
+// ******** layout ********
+
+.pull-right{
+  float:right;
+}
+.pull-left{
+  float:left;
+}
+.inline-block{
+  display:inline-block;
+}
+.inline{
+  display:inline;
+}
+.block{
+  display:block;
+}
+.relative{
+  position: relative;
+}
+.vertical-align-middle{
+  vertical-align: middle;
+}
+.vertical-align-top{
+  vertical-align: top;
+}
+.vertical-align-bottom{
+  vertical-align: bottom;
+}
+
+// ******** /layout ********
+
+
+// ******** text ********
+
+.center-text{
+  text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+.right-align-text{
+  text-align: right;
+}
+.left-align-text{
+  text-align: left;
+}
+
+// ******** /text ********

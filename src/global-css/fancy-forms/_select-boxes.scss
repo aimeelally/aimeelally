@@ -1,0 +1,72 @@
+/*** FANCY SELECT BOX ***/
+
+.fancy-select-boxes {
+  .fa-chevron-down { 
+    color: $color-1;
+    margin-left: -2em;
+  }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: $color-neutral-0;
+    // background: url(assets/common/arrow-selectbox.svg) no-repeat;
+    // background-position: 90%;
+    // background-size: 11px;
+    outline: none;
+    padding: 0.3em 2em 0.3em 0.3em;
+    font: inherit;
+    color: $color-1;
+    @include border-2($color-1);
+    @include rounded(2px);
+    
+    /*** STATES ***/
+    
+    //FOCUS
+    &:focus {
+      @include focus-box-shadow($color-1);
+    }  
+    &.incorrect:focus {
+      @include focus-box-shadow($color-alert);
+    }
+    &.correct:focus {
+      @include focus-box-shadow($color-success);
+    }
+    
+    //SELECTED
+    &.incorrect option:checked {
+      color: $color-alert;
+    }
+    
+    //HOVER
+    &:not(:disabled):hover {
+      @include border-2($color-1);
+    }
+
+    &.incorrect:not(:disabled):hover {
+      @include accessibility-border-bottom($color-1);
+    }
+    
+    //DISABLED
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    &.correct:disabled,
+    &.incorrect:disabled {
+      opacity: 1;
+      cursor: not-allowed;
+    }
+    
+    &.incorrect {
+      @include border-2($color-alert);
+      @include accessibility-border-bottom($color-alert);
+    }
+    &.correct {
+      @include border-2($color-success);
+    }
+    
+  }
+}
+
+/*** /FANCY SELECT BOX ***/

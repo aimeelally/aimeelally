@@ -1,0 +1,77 @@
+@for $i from 1 through $grid-columns {
+  .span-#{$i} { 
+    width: 100% / $grid-columns * $i;
+  }
+}
+
+[class*='span-']:after {
+  content: "";
+  display: table;
+  clear: both; 
+}
+
+[class*='span-'] {
+  float: left;
+}
+
+[class*='span-'].padding-standard {
+  padding: 16px;
+}
+
+[class*='span-'].padding-horizontal {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+[class*='span-'].padding-vertical {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+[class*='span-'].padding-top {
+  padding-top: 16px;
+}
+
+[class*='span-'].padding-bottom {
+  padding-bottom: 16px;
+}
+
+@media (max-width: 767px){
+  .span-8.md-screen,
+  .span-7.md-screen,
+  .span-6.md-screen,
+  .span-5.md-screen,
+  .span-4.md-screen{
+    width:100%;
+  }
+  .span-3.md-screen{
+    width:50%;
+  }
+}
+
+@media (max-width: 400px){
+  .span-9.sm-screen,
+  .span-8.sm-screen,
+  .span-7.sm-screen,
+  .span-6.sm-screen,
+  .span-5.sm-screen,
+  .span-4.sm-screen,
+  .span-3.sm-screen{
+    width: 100%;
+  }
+  .span-2.sm-screen{
+    width: 50%;
+  }
+}
+
+.span-fixed-left{
+  float:left;
+}
+.span-fixed-right{
+  float:right;
+}
+.span-fluid-main, .span-fluid-main:last-of-type{
+  width:auto;
+  overflow:hidden;
+  float:none;
+}

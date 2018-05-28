@@ -1,0 +1,103 @@
+<div id="camel-caser" class="span-12 padding-standard fancy-checkboxes">
+  
+  <h1 class="span-12 padding-standard center-text">Caramello Camel Caser</h1>
+
+  <div class="span-4 md-screen margin-bottom">
+      
+    <div class="relative margin-bottom">
+      <input
+        id="standardCamelCaseConversion"
+        type="checkbox" 
+        ng-model="standardCamelCaseConversion"
+        />
+      <label for="standardCamelCaseConversion"></label>
+      <label for="standardCamelCaseConversion">Convert to Camel Case</label>
+    </div>
+
+    <div class="relative margin-bottom">
+      <input
+        id="capitaliseFirstLetter"
+        type="checkbox" 
+        ng-model="capitaliseFirstLetter"
+        />
+      <label for="capitaliseFirstLetter"></label>
+      <label for="capitaliseFirstLetter">Capitalise First Letter</label>
+    </div>
+
+    <div class="relative margin-bottom">
+      <input
+        id="stripSpecialCharacters"
+        type="checkbox" 
+        ng-model="stripSpecialCharacters"
+        />
+      <label for="stripSpecialCharacters"></label>
+      <label for="stripSpecialCharacters">Strip Special Characters</label>
+    </div>
+
+    <div class="relative margin-bottom">
+      <input
+        id="stripNumbers"
+        type="checkbox" 
+        ng-model="stripNumbers"
+        />
+      <label for="stripNumbers"></label>
+      <label for="stripNumbers">Strip Numbers</label>
+    </div>
+
+    <div class="relative margin-bottom">
+      <input
+        id="stripHTML"
+        type="checkbox" 
+        ng-model="stripHTML"
+        />
+      <label for="stripHTML"></label>
+      <label for="stripHTML">Strip HTML</label>
+    </div>
+
+    <div class="relative margin-bottom">
+      <input
+        id="returnAsObject"
+        type="checkbox" 
+        ng-model="returnAsObject"
+        />
+      <label for="returnAsObject"></label>
+      <label for="returnAsObject">Return result as an object</label>
+    </div>
+
+  </div>
+
+  <div class="span-8 md-screen">
+
+    <textarea 
+      ng-model="inputText"
+      class="span-12 padding-standard margin-bottom">
+    </textarea>
+    
+    <div class="span-12">
+      <button 
+        ng-click="startStrip()"
+        class="btn-1 center-horizontally margin-bottom">
+        Do it!
+      </button>
+      
+      <button 
+        class="btn-4 block center-horizontally margin-bottom" 
+        ng-if="outputText"
+        ng-click="copyToClipboard()">
+        Copy to clipboard
+      </button>
+    </div>
+    
+    <textarea 
+      ng-model="outputText" 
+      id="copyArea">
+    </textarea>
+    <pre
+      ng-if="outputText"
+      class="span-12 padding-standard">{{outputText}}</pre>
+
+  </div>
+  
+  
+
+</div>

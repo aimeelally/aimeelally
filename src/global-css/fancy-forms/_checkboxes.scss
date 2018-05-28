@@ -1,0 +1,108 @@
+/* FANCY CHECKBOX */
+.fancy-checkboxes {
+  position: relative;
+  
+  input[type="checkbox"] {
+    opacity: 0;
+  } 
+  
+  input[type="checkbox"] + label {
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    left: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    background: $color-neutral-0;
+    @include border-2($color-neutral-5);
+  }
+  
+  input[type="checkbox"] + label:after {
+    content: '';
+    opacity: 0;
+    width: 12px;
+    height: 8px;
+    position: absolute;
+    top: 0.3em;
+    left: 0.25em;
+    transform: rotate(-45deg);
+    @include border-tick($color-1);
+  }
+   
+  
+  input[type="checkbox"] + label + label {
+    margin-left: 0.1em;
+    cursor: pointer;
+  }
+  
+  
+  
+  /*** STATES ***/
+
+  //FOCUS
+  input[type="checkbox"]:focus + label {
+    @include focus-box-shadow-checkbox($color-1);
+  }  
+  input[type="checkbox"].incorrect:focus + label {
+    @include focus-box-shadow-checkbox($color-alert);
+  }
+  input[type="checkbox"].correct:focus + label {
+    @include focus-box-shadow-checkbox($color-success);
+  }
+
+  //HOVER
+  input[type="checkbox"]:not(:disabled):hover + label {
+    @include border-2($color-1);
+  }
+
+  //CHECKED
+  input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+  }
+  input[type="checkbox"]:checked + label {
+    border-color: $color-1;
+  }
+  input[type="checkbox"].correct:checked + label {
+    border-color: $color-success
+  }
+  input[type="checkbox"].incorrect:checked + label {
+    border-color: $color-alert;
+  } 
+
+  //DISABLED
+  input[type="checkbox"]:disabled + label,
+  input[type="checkbox"]:disabled + label + label {
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+
+  input[type="checkbox"].correct:disabled + label,
+  input[type="checkbox"].correct:disabled + label + label,
+  input[type="checkbox"].incorrect:disabled + label,
+  input[type="checkbox"].incorrect:disabled + label + label {
+    opacity: 1;
+    cursor: not-allowed;
+  }
+
+  //CORRECT & INCORRECT NOT SELECTED  
+  input[type="checkbox"].incorrect + label:after {
+    @include border-tick($color-alert);
+  }
+  input[type="checkbox"].correct + label:after {
+    @include border-tick($color-success);
+  }
+
+  //ACCESSIBILITY
+  input[type="checkbox"].incorrect + label:before {
+    border-bottom: 2px solid $color-alert;
+    width: 1em;
+    display: block;
+    content: ' ';
+    position: absolute;
+    bottom: -0.4em;
+    left: 3px;
+  }
+   
+}
+
+/* /FANCY-CHECKBOX */

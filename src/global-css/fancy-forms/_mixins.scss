@@ -1,0 +1,33 @@
+@mixin border-1($color) {
+  border: 1px solid $color;
+}
+@mixin border-2($color) {
+  border: 2px solid $color;
+}
+@mixin border-tick ($color) {
+  border-left: 5px solid $color;
+  border-bottom: 5px solid $color;
+}
+@mixin special-inline-border() {
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+}
+@mixin accessibility-border-bottom($color) {
+  border-bottom: 5px double $color;
+}
+@mixin focus-box-shadow($color) {
+  box-shadow: 1px 1px 10px 1px $color; //1px 1px required to place the focus background shadow correctly
+}
+@mixin focus-box-shadow-radio($color) {
+  box-shadow: 0px 0px 4px 2px $color;
+}
+@mixin resting-box-shadow-radio($color) {
+  box-shadow: 0px 0px 0px 2px $color;
+}
+@mixin focus-box-shadow-input($color) {
+  box-shadow: 0px 0px 10px 0px $color;
+}
+@mixin focus-box-shadow-checkbox($color) {
+  box-shadow: 0px 0px 10px 0px $color;
+}

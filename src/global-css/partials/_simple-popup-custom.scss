@@ -1,0 +1,25 @@
+// ******** all the stuff that appears outside the modal ********
+
+.popup-overlay{
+  opacity: 0.55 !important;
+  background-color: $color-3 !important;
+}
+.popup-content {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  border-radius: 1em; 
+}
+
+// ******** all the stuff that appears outside the modal ********
+
+
+// ******** all the stuff that appears inside the modal ********
+
+.popup-modal section{
+  background: #f3e7e9;  /* fallback for old browsers */
+  background: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+}
+
+// ******** end of stuff that appears inside the modal ********

@@ -1,0 +1,51 @@
+.fancy-labels{
+
+  label {
+    border: $border-standard;
+    background-color: $color-neutral-0;
+    cursor: pointer;
+    padding: 0.5em;
+    text-align: center;
+    margin-bottom: 0.2em; //provides a gap between options on smaller screens
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      border: $border-primary;
+      color: $color-1;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  input {
+    opacity: 0;
+    position: absolute;
+    &:focus + label {
+      @include focus-box-shadow-input($color-1)
+    }
+    &:checked + label,
+    &:active + label {
+      background-color: $color-1;
+      border: $border-primary;
+      color: $color-neutral-0;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+}
+
+/*
+EXAMPLE USE: RADIO BUTTONS
+<radiogroup class="fancy-labels splan-12">
+  <input ng-model="po.selectCourse" type="radio" id="jc" value="1" name="selectCourse" checked="checked"></input>
+  <label class="splan-6" for="jc">Junior Cert</label>
+  <input ng-model="po.selectCourse" class="" type="radio" value="2" id="ty" name="selectCourse"></input>
+  <label class="splan-6" for="ty">Transition Year</label>
+</radiogroup>
+
+EXAMPLE USE: CHECKBOXES
+<div class="fancy-labels splan-12">
+  <input ng-model="jc" type="checkbox" id="jc"></input>
+  <label for="jc" class="splan-3">Junior Cert</label>
+  <input ng-model="ty" type="checkbox" id="ty"></input>
+  <label for="ty" class="splan-3">Transition Year</label>
+</div>
+*/

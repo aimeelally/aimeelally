@@ -1,0 +1,167 @@
+/*** FANCY RADIO BUTTONS & FANCY RADIO BUTTONS WITH IMAGES ***/
+
+.fancy-radio-buttons {
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+  input[type="radio"] + label {
+    position: relative;
+    padding-left: 1.5em;
+    vertical-align: middle;
+    cursor: pointer;
+    display:inline-block;
+    box-sizing: initial;
+  }
+ 
+  input[type="radio"] + label:before{
+    content: "";
+    position: absolute;
+    left: 0; //required for firefox alignment issue
+    top: 0;
+    height: .65em;
+    width: .65em;
+    border-radius: 1em;
+    border: .3em solid $color-neutral-0;
+    @include resting-box-shadow-radio($color-neutral-5);
+  }
+  
+  input[type="radio"] ~ .image-bg {
+    @include border-2($color-neutral-5);
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    cursor: pointer;
+  }
+
+  //ACCESSIBILITY
+  input[type="radio"].incorrect + label:after {
+      border-bottom: 2px solid $color-alert;
+      width: 8px;
+      display: block;
+      position: absolute;
+      content: ' ';
+      bottom: -0.2em;
+      left:6px;
+    }
+
+
+
+  //THE TARGET
+  input[type="radio"] + label:before {
+    background: $color-neutral-0;
+    z-index: 1;
+  }
+  
+  
+  /*** STATES ***/
+  
+
+  //HOVER
+  input[type="radio"]:not(:disabled):hover + label:before,
+  input[type="radio"]:not(:disabled):hover ~ .image-bg {
+    @include resting-box-shadow-radio($color-1);
+  }
+  
+  //CHECKED
+  input[type="radio"]:checked + label:before {
+    background: $color-1;
+    @include resting-box-shadow-radio($color-1);
+  }
+  input[type="radio"]:checked ~ .image-bg {
+    @include border-2($color-1);
+  }
+  input[type="radio"].incorrect:checked + label:before {
+    background: $color-alert;
+    @include resting-box-shadow-radio($color-alert);
+  }
+  input[type="radio"].incorrect:checked ~ .image-bg {
+    @include border-2($color-alert);
+  }
+  input[type="radio"].correct:checked + label:before {
+    background: $color-success;
+    @include resting-box-shadow-radio($color-success);
+  }
+  input[type="radio"].correct:checked ~ .image-bg {
+    @include border-2($color-success);
+  }
+
+  //FOCUS
+  input[type="radio"]:focus + label:before,
+  input[type="radio"]:focus ~ .image-bg {
+    @include focus-box-shadow-radio($color-1);
+  }  
+  input[type="radio"].incorrect:focus + label:before,
+  input[type="radio"].incorrect:focus ~ .image-bg {
+    @include focus-box-shadow-radio($color-alert);
+  }
+  input[type="radio"].correct:focus + label:before,
+  input[type="radio"].correct:focus ~ .image-bg {
+    @include focus-box-shadow-radio($color-success);
+  }  
+  
+  //DISABLED
+  input[type="radio"]:disabled + label,
+  input[type="radio"]:disabled + label:before,
+  input[type="radio"]:disabled ~ .image-bg {
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+  
+  input[type="radio"].correct:disabled + label,
+  input[type="radio"].correct:disabled + label:before,
+  input[type="radio"].correct:disabled ~ .image-bg,
+  input[type="radio"].incorrect:disabled + label,
+  input[type="radio"].incorrect:disabled + label:before,
+  input[type="radio"].incorrect:disabled ~ .image-bg {
+    opacity: 1;
+    cursor: not-allowed;
+  }
+  
+  //CORRECT & INCORRECT NOT SELECTED  
+  input[type="radio"].incorrect + label:before,
+  input[type="radio"].incorrect ~ .image-bg {
+    @include resting-box-shadow-radio($color-alert);
+  }
+  input[type="radio"].correct + label:before,
+  input[type="radio"].correct ~ .image-bg {
+    @include resting-box-shadow-radio($color-success);
+  }
+  
+  /*** WITH IMAGE ***/
+  .image-container{
+    border-radius: 5px;
+    display: block;
+    position: relative;
+    padding: 1em;
+  }
+  &.with-image {
+    display: flex;
+    flex-direction: column;
+    input[type="radio"] + label {
+      display: block;
+    }
+    input[type="radio"] + label:before,
+    input[type="radio"] + label:after {
+      top: calc(50% - 0.5em); //50% + half the height of a radio button so it lines up correctly
+    }
+    //ACCESSIBILITY
+    input[type="radio"].incorrect + label:after {
+      border-bottom: 2px solid $color-alert;
+      width: 8px;
+      display: block;
+      position: absolute;
+      content: ' ';
+      top: calc(50% + 1em);
+      bottom: initial;
+      left:6px;
+    }
+  }
+  
+}
+
+/*** /FANCY RADIO BUTTONS & FANCY RADIO BUTTONS WITH IMAGES ***/

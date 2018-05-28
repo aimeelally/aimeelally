@@ -1,0 +1,91 @@
+.formula.d-is-m-over-v,
+.formula.m-is-d-times-v,
+.formula.v-is-m-over-d {
+  background: $color-neutral-0;
+  min-width: 260px;
+  text-align: center;
+  padding: 1em;
+  .d, .m, .v {
+    padding: 1em;
+    display: inline-block;
+    color: $color-neutral-0;
+  }
+  .d { 
+    background: #3d4859;
+  }
+  .m { 
+    background: #b77d95;
+  }
+  .v { 
+    background: #ff8c5f;
+  }
+  .others { 
+    padding: 1em;
+    color: $color-neutral-6;
+  }
+  .divider {
+    height: 2px;
+    margin: 1em 0;
+    background: $color-neutral-6;
+  }
+}
+
+.formula.d-m-v-triangle {
+  transform: scale(1.5);
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 50px 86.6px 50px;
+  border-color: transparent transparent #d5586e transparent;
+  .d, .m, .v {
+    color: $color-neutral-0;
+    font-weight: bold;
+    position: absolute;
+  }
+  .m {
+    left: -6px;
+    top: 20px;
+  }
+  .d {
+    bottom: -80px;
+    right: 20px;
+  }
+  .v {
+    bottom: -80px;
+    left: 20px;
+  }
+  .others { 
+    color: #3d4859;
+    font-weight: bold;
+    position: absolute;
+  }
+  .divider-left {
+    top: 40px;
+    left: -20px;
+  }
+  .divider-right {
+    top: 40px;
+    right: -20px;
+  }
+  .times {
+    bottom: -80px;
+    left: -2px;
+  }
+  .inner-triangle {
+    position: absolute;
+    top: 40px;
+    left: -11px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 12.5px 21.7px 12.5px;
+    border-color: transparent transparent #3d4859 transparent;
+  }
+}
+
+
+
+

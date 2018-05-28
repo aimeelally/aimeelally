@@ -1,0 +1,245 @@
+%btn{
+  font-weight:bold;
+  cursor:pointer;
+  font-family:$font;
+  font-size: 1.125rem;
+  @include transition(all .5s ease);
+  text-align: center;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.btn-1{
+  @extend %btn;
+  background: $color-1;
+  border: 2px solid $color-1;
+  padding:.5em 2em;
+  @include rounded(2em);
+  color:$color-neutral-0;
+  &:hover{
+    text-decoration:none;
+    background-color:$color-1-hover;
+    background-image: $color-1-hover;
+    border: 2px solid $color-1-hover;
+  }
+  &:active{
+    background-color:$color-1;
+    border: 2px solid $color-1-hover;
+  }
+  &:focus{
+    animation: pulse 2s infinite;
+    background-color:$color-1;
+    border: 2px solid $color-1;
+    box-shadow: 1px 1px 20px 1px $color-1;
+  }
+  &[disabled]{
+    background-color: $color-neutral-5;
+    border: 2px solid $color-neutral-5;
+    color: $color-neutral-0;
+    cursor: not-allowed;
+  }
+  &.waiting{
+    background-color:$color-1;
+    border: 2px solid $color-1;
+    color:$color-neutral-0;
+  }
+  &.waiting::after{
+    content:' ...';
+    width:0px;
+    display:inline-block;
+    overflow:visible;
+  } 
+  &.inactive{
+    background-color: $color-neutral-5;
+    border: 2px solid $color-neutral-5;
+    color: $color-neutral-0;
+  }
+  &[disabled].inactive::after{
+    content:'';
+  }
+}
+
+.btn-2{
+  @extend %btn;
+  background-color:transparent;
+  border: 2px solid $color-1;
+  padding:.5em 2em;
+  @include rounded(2em);
+  color:$color-1;
+  &:hover{
+    text-decoration:none;
+    color:$color-1-hover;
+    border: 2px solid $color-1-hover;
+  }
+  &:active {
+    color:$color-1-hover;
+    border: 2px solid $color-1-hover;
+  }
+  &:focus{
+    animation: pulse 2s infinite;
+    box-shadow: 1px 1px 20px 1px $color-1;
+  }
+  &[disabled]{
+    background-color:transparent;
+    border: 2px solid $color-1;
+    color: $color-neutral-5;
+  }
+  &.waiting {
+    color: $color-neutral-0;
+  }
+}
+
+.btn-3{
+  @extend %btn;
+  color: $color-neutral-5;
+  border: none;
+  background: none;
+  &:hover{
+    text-decoration:underline;
+    color:$color-1-hover
+  }
+  &:active {
+    text-decoration:underline;
+  }
+  &:focus{
+    animation: pulse 2s infinite;
+    text-decoration:underline;
+  }
+  &[disabled]{
+    color: $color-neutral-5;
+  }
+}
+
+.btn-4{
+  @extend %btn;
+  color:$color-1;
+  border: none;
+  background: none;
+  &:hover{
+    text-decoration:underline;
+  }
+  &:focus{
+    animation: pulse 2s infinite;
+  }
+  &[disabled]{
+    color: $color-neutral-5;
+    text-decoration: none;
+  }
+}
+
+//buttons on dark background
+.btn-5{ //btn-1
+  @extend %btn;
+  background-color: $color-neutral-0;
+  border: 2px solid $color-neutral-0;
+  padding:.5em 2em;
+  @include rounded(2em);
+  color:$color-1;
+  &:hover{
+    color:$color-neutral-0;
+    text-decoration:none;
+    background-color:$color-1-hover;
+    border: 2px solid $color-1-hover;
+  }
+  &:active{
+    color:$color-neutral-0;
+    background-color:$color-1;
+    border: 2px solid $color-1-hover;
+  }
+  &:focus{
+    animation: pulse 2s infinite;
+    background-color: $color-1;
+    color: $color-neutral-0;
+    border: 2px solid $color-1;
+    box-shadow: 1px 1px 10px 1px $color-3;
+  }
+  &[disabled]{
+    color: $color-neutral-0;
+    background-color: $color-1;
+    border: 2px solid $color-1-hover;
+  }
+  &.inactive{
+    color:$color-neutral-0;
+    background-color: $color-neutral-5;
+    border: 2px solid $color-neutral-5;
+  }
+}
+.btn-6{ //btn-2
+  @extend %btn;
+  background-color: transparent;
+  border: 2px solid $color-neutral-0;
+  padding:.5em 2em;
+  @include rounded(2em);
+  color: $color-neutral-0;
+  &:hover{
+    text-decoration:none;
+    color:$color-1-hover;
+    border: 2px solid $color-1-hover;
+  }
+  &:focus{
+    animation: pulse 2s infinite;
+  }
+}
+.btn-7{ //btn-3
+  @extend %btn;
+  color:$color-neutral-3;
+  border: none;
+  background: none;
+  &:hover{
+    color:$color-1;
+  }
+  &:focus{
+    animation: pulse 2s infinite;
+  }
+}
+.btn-8{ //btn-4
+  @extend %btn;
+  color:$color-neutral-0;
+  border: none;
+  background: none;
+  &:hover{
+    text-decoration:underline;
+  }
+  &:focus{
+    animation: pulse 2s infinite;
+  }
+}
+
+button:focus, 
+a:focus {
+  outline-style: none;
+}
+.button-fullwidth{
+  width:100%;
+}
+
+[class*='btn-']:hover, [class*='btn-']:active {
+  @include transition(all .5s ease);
+}
+
+[class*='btn-'][disabled] {
+  opacity: 0.5; //aimee: may not want this everywhere
+  cursor: not-allowed; 
+}
+
+/* [class*='btn-'][disabled]::after{
+  content:' ...';
+  width:0px;
+  display:inline-block;
+  overflow:visible;
+} */
+
+@media screen and (min-width: 600px) {
+  .btn-1, .btn-2, .btn-5, .button-style{
+    min-width: 150px;
+  }
+}
+
+.btn-1.loading-15[disabled]{
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AcZDjU7XAVzvwAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAMSURBVAjXYzBddg8AAs0Bus8pBfAAAAAASUVORK5CYII=');
+  background-size:0% 100%;
+  transition:background-size 6s linear;
+  background-repeat:no-repeat;
+  &.loading-go{
+    background-size:100% 100%;
+  }
+}

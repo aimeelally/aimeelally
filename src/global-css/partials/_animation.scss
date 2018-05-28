@@ -1,0 +1,72 @@
+  // make keyframes that tell the start state and the end state of our object
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 $color-1;
+  }
+  50% {
+    box-shadow: 0 0 10px 0 $color-1;
+  }
+  100% {
+    box-shadow: 0 0 0 0 $color-1;
+  }
+}
+ 
+.fade-in {
+ opacity:0;  //make things invisible upon start
+ -webkit-animation:fadeIn ease-in 1;  //call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time
+ -moz-animation:fadeIn ease-in 1;
+ animation:fadeIn ease-in 1;
+ 
+ -webkit-animation-fill-mode:forwards;  // makes sure that after animation is done we remain at the last keyframe value (opacity: 1)
+ -moz-animation-fill-mode:forwards;
+ animation-fill-mode:forwards;
+ 
+ -webkit-animation-duration: 0.5s;
+ -moz-animation-duration: 0.5s;
+ animation-duration: 0.5s;
+}
+
+//slides down and also fades in
+.slide-down{
+  .ng-enter,
+  .ng-leave,
+  .ng-move {
+    -webkit-transition: 1s ease-in-out all;
+    -moz-transition: 1s ease-in-out all;
+    -o-transition: 1s ease-in-out all;
+    transition: 1s ease-in-out all;
+  }
+
+  .ng-leave.ng-leave-active,
+  .ng-enter,
+  .ng-move {
+    opacity: 0;
+    overflow: hidden;
+  }
+  .ng-enter-stagger {
+    // this will have a 500ms delay between each successive leave animation
+    transition-delay: 0.3s;
+    // in case the stagger doesn't work then the duration value
+    //  must be set to 0 to avoid an accidental CSS inheritance
+    transition-duration: 0s;
+  }
+
+  .ng-leave,
+  .ng-move.ng-move-active,
+  .ng-enter.ng-enter-active {
+    opacity: 1;
+  }
+}
+
+// .slide-down.ng-leave {
+//   opacity: 1;
+//   overflow: hidden;
+// }
+
+// .slide-down.ng-leave.ng-leave-active {
+//   opacity: 0;
+// }

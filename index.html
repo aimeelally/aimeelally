@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unit.js tests in the browser with Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./mocha/mocha.css" />
+  </head>
+  <body>
+    <h1>Unit.js tests in the browser with Mocha</h1>
+    <div id="mocha"></div>
+    <script src="./mocha/mocha.js"></script>
+    <script src="./mocha/unit.js"></script>
+    <script>
+      mocha.setup('bdd');
+    </script>
+    <script type="module">
+      import Tests from './mocha/tests.js';
+      mocha.run();
+    </script>
+    <script>
+      
+    </script>
+  </body>
+</html>

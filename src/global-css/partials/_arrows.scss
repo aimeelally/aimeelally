@@ -1,0 +1,45 @@
+// arrows
+  .arrow{
+    fill:$color-neutral-5;
+    transition: fill 0.5s ease;
+  }
+  .arrow:hover{
+    fill:$color-neutral-4;
+    transition: fill 0.5s ease;
+    cursor:pointer;
+  }
+  .teacher-arrow svg{
+    width:1.4em;
+    height:1.4em;
+    fill:$color-neutral-5;
+    &:hover{
+      fill:$color-3;
+    }
+  }
+  .arrow-1 svg{
+    fill:$color-1;
+    transition: fill 0.5s ease;
+    &:hover{
+      fill:$color-1;
+      transition: fill 0.5s ease;
+      cursor:pointer;
+    }
+  }
+  .arrow-left svg{
+    @extend .arrow;
+    @include rotate(-90);
+  }
+  .arrow-right svg{
+    @extend .arrow;
+    @include rotate(90);
+  }
+  .arrow-down svg{
+    @extend .arrow;
+    @include rotate(180);
+  }
+  .arrow-up svg{
+    @extend .arrow;
+    @include rotate(0);
+  }
+
+// <!-- end of arrows -->

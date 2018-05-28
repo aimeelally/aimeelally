@@ -1,0 +1,170 @@
+/* CSS talk bubble */
+speech-bubble:last-of-type .talk-bubble{
+  background-color: $color-neutral-0;
+  box-shadow: 0px 5px 20px $color-neutral-5;
+}
+speech-bubble:last-of-type .tri-right.btm-left-in:after {
+  border-top-color: $color-neutral-0;
+}
+
+@keyframes wobble {
+  0% { transform: translate(0,0); }
+  12.5% { transform: translate(10px,0); }
+  37.5% { transform: translate(-7.5px,0); }
+  62.5% { transform: translate(5px,0); }
+  87.5% { transform: translate(-2.5px,0); }
+  100% { transform: translate(0,0); }
+}
+
+//add a wobble to the last speech bubble unless it also has an animated order of entry
+speech-bubble:last-of-type {
+  animation-name: wobble;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+.talk-bubble {
+  display: inline-block;
+  position: relative;
+  float: right;
+  height: auto;
+  margin-bottom: 2em;
+  background-color: $color-neutral-2;
+}
+
+.border{
+  border: 2px solid $color-neutral-5;
+}
+.round{
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+
+}
+
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left-in:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 70%;
+  width: 0;
+  height: 0;
+  border: 24px solid transparent;
+  border-top-color: $color-neutral-5;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -12px;
+  margin-bottom: -25px;
+}
+.tri-right.btm-left-in:after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 70%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: $color-neutral-2;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -10px;
+  margin-bottom: -20px;
+}
+
+.tri-right.border.top:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 70%;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-bottom-color: $color-neutral-5;
+  border-top: 0;
+  margin-left: -12px;
+  margin-top: -12px;
+}
+.tri-right.top:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 70%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom-color: $color-neutral-0;
+  border-top: 0;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+.tri-right.border.right:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: $color-neutral-5;
+  border-right: 0;
+  margin-top: -12px;
+  margin-right: -10px;
+}
+.tri-right.right:after{
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: $color-neutral-0;
+  border-right: 0;
+  margin-top: -12px;
+  margin-right: -8px;
+}
+
+.tri-right.border.left:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: $color-neutral-5;
+  border-left: 0;
+  margin-top: -12px;
+  margin-left: -10px;
+}
+.tri-right.left:after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: $color-neutral-0;
+  border-left: 0;
+  margin-top: -12px;
+  margin-left: -8px;
+}
+
+
+/* talk bubble contents */
+.talktext{
+  font-family: $font;
+  padding: 1em;
+  text-align: left;
+  line-height: 1.5em;
+}
+.talktext p{
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}

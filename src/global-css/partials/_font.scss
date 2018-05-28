@@ -1,0 +1,26 @@
+$modularscale: (
+  base: 1em,
+  ratio: 1.125
+);
+
+$line-height: 1.3;
+
+@mixin modular-font-size($size) {
+  font-size: ms($size);
+  line-height: calc(#{ms($size)} * #{$line-height});
+}
+
+// target everythings and set it to 16em unless otherwise specified
+* { 
+  @include modular-font-size(0);
+  font: inherit; //target all imported elements (svgs) and force them to take the font-family
+}
+h1 { @include modular-font-size(5); }
+h2 { @include modular-font-size(4); }
+h3 { @include modular-font-size(3); }
+h4 { @include modular-font-size(2); }
+h5, h6, p { @include modular-font-size(1); }
+
+.error-handling{
+  color:$color-alert;
+}
