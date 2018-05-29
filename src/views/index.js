@@ -1,7 +1,7 @@
 "use strict";
 
 // CONTROLLERS
-import "./camel-caser/CamelCaserController";
+import "./landing-page/LandingPageController";
 
 
 

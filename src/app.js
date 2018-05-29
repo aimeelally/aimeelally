@@ -12,7 +12,7 @@ import * as services from './services/services';
 import * as controllers from "./views";
 
 angular
-  .module("caramelloApp", [
+  .module("aimeeLallyApp", [
     "ngRoute",
     "ui.router",
     "services",
@@ -22,7 +22,7 @@ angular
     "pascalprecht.translate",
 
     //MISC
-    "camelCaser"
+    "landingPage"
 
   ])
   .config([
@@ -33,20 +33,20 @@ angular
     function config($locationProvider, $routeProvider, $stateProvider, $urlRouterProvider) {
       
       $locationProvider.hashPrefix("!");
-      $urlRouterProvider.when("", '/camel-caser');
+      $urlRouterProvider.when("", '/landing-page');
 
       //MISC
       $stateProvider.state({
-        name: "camelCaser",
-        url: "/camel-caser",
-        component: "camelCaser"
+        name: "landingPage",
+        url: "/landing-page",
+        component: "landingPage"
       });
 
     }
   ]);
 
   //Route Authorisation
-  angular.module('caramelloApp').run([
+  angular.module('aimeeLallyApp').run([
       '$rootScope',
       '$state',
       '$window',

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "grunt build",
     "start": "npm run build && webpack-dev-server",
-    "test": "http-server -p8200 -o"
+    "test": "http-server -p8100 -o"
   },
   "author": "",
   "license": "ISC",
