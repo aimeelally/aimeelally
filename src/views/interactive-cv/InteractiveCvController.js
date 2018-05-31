@@ -13,6 +13,11 @@ angular.module("interactiveCv", [])
                 .css('height', windowHeight);
 
             var keysdown = {};
+            var speedVSlow = 5,
+                speedSlow = 200,
+                speedMed = 300,
+                speedFast = 800,
+                speedVFast = 1000;
 
 
             function animateRight(element, distance) {
@@ -60,6 +65,32 @@ angular.module("interactiveCv", [])
               // }
             }
 
+            /*var lastScrollTop = 0;
+            $('div#interactive-cv').scroll(function(){
+              debugger;
+               var st = $(this).scrollTop();
+               if (st > lastScrollTop){
+                   // downscroll code
+                   $('.susie').removeClass('face-left');
+                    $('.susie').addClass('face-right');
+                    animateRight('.susie', 0);
+                    
+                    animateLeft('.med-moving-items', speedMed);
+                    animateLeft('.slow-moving-items', speedSlow);
+                    animateLeft('.v-slow-moving-items', speedVSlow);
+               } else {
+                  // upscroll code
+                  $('.susie').removeClass('face-right');
+                  $('.susie').addClass('face-left');
+                  animateLeft('.susie', 0);
+
+                  animateRight('.med-moving-items', speedMed);
+                  animateRight('.slow-moving-items', speedSlow);
+                  animateRight('.v-slow-moving-items', speedVSlow);
+               }
+               lastScrollTop = st;
+            });*/
+
             $('body').keydown(function(e) {
 
               //console.log($('.ground-container').offset().left);
@@ -75,21 +106,20 @@ angular.module("interactiveCv", [])
                 $('.susie').removeClass('face-left');
                 $('.susie').addClass('face-right');
                 animateRight('.susie', 0);
-                animateLeft('.ground-container', 200);
-                animateLeft('.sky', 5);
-                  // $('.susie')
-                  //     .addClass('right')
-                  //     .removeClass('left down')
-                  //     .stop()
-                  //     .animate({
-                  //       left: '+=100'
-                  //     });
+                
+                animateLeft('.med-moving-items', speedMed);
+                animateLeft('.slow-moving-items', speedSlow);
+                animateLeft('.v-slow-moving-items', speedVSlow);
+
                 }
               else if(e.keyCode == 37 || e.keyCode == 40) { // left or down key
                 $('.susie').removeClass('face-right');
                 $('.susie').addClass('face-left');
                 animateLeft('.susie', 0);
-                animateRight('.ground-container', 200);
+
+                animateRight('.med-moving-items', speedMed);
+                animateRight('.slow-moving-items', speedSlow);
+                animateRight('.v-slow-moving-items', speedVSlow);
               }
 
             }).keyup(function(e){ 
