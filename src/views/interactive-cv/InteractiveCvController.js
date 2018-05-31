@@ -13,6 +13,7 @@ angular.module("interactiveCv", [])
                 .css('height', windowHeight);
 
             var keysdown = {};
+            var hasMadeFirstMove = false;
             var speedVSlow = 5,
                 speedSlow = 200,
                 speedMed = 300,
@@ -21,6 +22,7 @@ angular.module("interactiveCv", [])
 
 
             function animateRight(element, distance) {
+              console.log($('.ground-container').offset().left);
               if(!isValidMove(element, distance)) {
                 return;
               }
@@ -37,6 +39,7 @@ angular.module("interactiveCv", [])
             }
 
             function animateLeft(element, distance) {
+              console.log($('.ground-container').offset().left)
               if(!isValidMove(element, distance)) {
                 return;
               }
@@ -103,6 +106,7 @@ angular.module("interactiveCv", [])
               keysdown[e.keyCode] = true;
               
               if(e.keyCode == 38 || e.keyCode == 39) { // up or right key
+                
                 $('.susie').removeClass('face-left');
                 $('.susie').addClass('face-right');
                 animateRight('.susie', 0);
@@ -111,8 +115,9 @@ angular.module("interactiveCv", [])
                 animateLeft('.slow-moving-items', speedSlow);
                 animateLeft('.v-slow-moving-items', speedVSlow);
 
-                }
+              }
               else if(e.keyCode == 37 || e.keyCode == 40) { // left or down key
+               
                 $('.susie').removeClass('face-right');
                 $('.susie').addClass('face-left');
                 animateLeft('.susie', 0);

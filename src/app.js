@@ -34,7 +34,7 @@ angular
     function config($locationProvider, $routeProvider, $stateProvider, $urlRouterProvider) {
       
       $locationProvider.hashPrefix("!");
-      $urlRouterProvider.when("", '/landing-page');
+      $urlRouterProvider.when("", '/interactive-cv');
 
       //MISC
       $stateProvider.state({
