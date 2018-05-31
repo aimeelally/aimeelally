@@ -8,3 +8,5 @@ tmp
 .idea
 *.psd
 src/assets/*.psd
+*.ai
+src/assets/*.ai
