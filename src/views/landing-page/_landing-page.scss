@@ -1,5 +1,5 @@
 #landing-page {
- /*  aside {
+  aside {
     height: 100vh;
     background: black;
   }
@@ -16,78 +16,6 @@
   .profile-container {
     background: white;
     border-radius: 100%;
-  } */
-
-  //background: #666666;
-  
-  .ground,
-  .sky,
-  .susie {
-    position: absolute;
   }
-
-  .ground-container {
-    position: absolute;
-    left: 0;
-    top: 80%;
-    width: 8100px;
-    height: 90%;
-  }
-  .grass {
-    width: 100%;
-    height: 70px;
-    background: url(/assets/grass.png);
-  }
-  .ground {
-    width: 100%;
-    height: 70px;
-    background: url(/assets/ground.png);
-  }
-  
-  .susie {
-    width: 104px;
-    height: 169px;
-    
-    //box-sizing: border-box;
-    //margin: auto;
-    background: url(/assets/susie-sprite-sheet.png) -355px -19px;
-    left: 1em;
-    top: 50%; 
-  }
-
-  .susie.right{
-    background-position: -187px -19px;
-    animation: moveright .8s steps(1) infinite; 
-  }
-  @keyframes moveright {
-     100% { background-position: -19px -19px; }
-  }
-
-  .susie.left{
-    background-position: -187px -205px;
-    animation: moveleft .8s steps(1) infinite;  
-  }
-  @keyframes moveleft {
-    100% { background-position: -19px -205px; }
-  }
-
-  /* .box.up{
-      background-position: -434px -180px;
-      animation: upmove .8s steps(7) infinite;
-      width: 35px;
-  }
-  @keyframes upmove {
-     100% { background-position:-14px -180px; }
-  }
-
-  .box.down{
-        background-position: -8px 0px;
-      animation: downmove .8s steps(7) infinite;
-      width: 40px;
-      height: 60px;
-  }
-  @keyframes downmove {
-     100% { background-position:-434px 0px; }
-  } */
 
 }

@@ -22,7 +22,8 @@ angular
     "pascalprecht.translate",
 
     //MISC
-    "landingPage"
+    "landingPage",
+    "interactiveCv"
 
   ])
   .config([
@@ -40,6 +41,12 @@ angular
         name: "landingPage",
         url: "/landing-page",
         component: "landingPage"
+      });
+
+      $stateProvider.state({
+        name: "interactiveCv",
+        url: "/interactive-cv",
+        component: "interactiveCv"
       });
 
     }
