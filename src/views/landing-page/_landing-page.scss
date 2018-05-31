@@ -1,0 +1,21 @@
+#landing-page {
+  aside {
+    height: 100vh;
+    background: black;
+  }
+
+  .profile {
+    background-repeat: no-repeat;
+    background-image: url(/assets/profile-character.jpg);
+    height: 200px;
+    background-position: 20px 15px;
+    background-size: 100%;
+    border-radius: 100%;
+    transform: rotate(-1deg);
+  }
+  .profile-container {
+    background: white;
+    border-radius: 100%;
+  }
+
+}

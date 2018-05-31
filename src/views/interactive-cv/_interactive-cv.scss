@@ -1,0 +1,124 @@
+#interactive-cv {
+
+  @import 'susie';
+
+  .blocking-ground {
+
+  }
+
+  .v-slow-moving-items,
+  .slow-moving-items,
+  .med-moving-items {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    //overflow: hidden;
+  }
+
+  .section-container {
+    position: absolute;
+    top: 20px;
+    width: 1000px;
+  }
+  .details {
+    left: 100px;
+  }
+
+  .education {
+    left: 1000px;
+  }
+  .work-experience {
+    left: 2000px;
+  }
+  .skills {
+    left: 3000px;
+  }
+  .testimonials-header {
+    position: absolute;
+    top: 267px;
+    width: 100px;
+    left: 3900px;
+    transform: rotate(-90deg);
+    h1 { width: 400px; }
+  }
+  .testimonials {
+    left: 4000px;
+    width: 3000px;
+    p { margin-bottom: 2em; }
+    .testimonial-text {
+      width: 600px;
+      float: left;
+      margin-right: 5em;
+    }
+  }
+
+  .sky {
+    position: absolute;
+    left: -500px;
+    top: 0;
+    width: 8100px;
+    height: 100%;
+    background: url(/assets/sky.png);
+  }
+  .rock-1 {
+    position: absolute;
+    z-index: 99;
+    left: 15px;
+    top: 64%;
+    width: 100%;
+    height: 100%;
+    background: url(/assets/rock-1.png);
+    background-repeat: no-repeat;
+  }
+
+
+
+  .ground-container {
+    position: absolute;
+    left: -1000px;
+    top: 77%;
+    width: 15000px;
+    height: 100%;
+  }
+  .grass {
+    width: 100%;
+    height: 50px;
+    background: url(/assets/grass.png);
+  }
+  .ground {
+    width: 100%;
+    height: 100%;
+    background: url(/assets/ground.png);
+  }
+
+  .blocking-ground-container {
+    position: absolute;
+    left: 0;
+    top: 77%;
+    width: 11000px;
+    height: 100%;
+  }
+  .blocking-grass {
+    width: 100%;
+    height: 50px;
+    background: url(/assets/grass.png);
+  }
+  .blocking-ground {
+    width: 100%;
+    height: 100%;
+    background: url(/assets/ground.png);
+  }
+  
+  
+
+}

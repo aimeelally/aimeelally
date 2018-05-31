@@ -22,7 +22,8 @@ angular
     "pascalprecht.translate",
 
     //MISC
-    "landingPage"
+    "landingPage",
+    "interactiveCv"
 
   ])
   .config([
@@ -33,13 +34,19 @@ angular
     function config($locationProvider, $routeProvider, $stateProvider, $urlRouterProvider) {
       
       $locationProvider.hashPrefix("!");
-      $urlRouterProvider.when("", '/landing-page');
+      $urlRouterProvider.when("", '/interactive-cv');
 
       //MISC
       $stateProvider.state({
         name: "landingPage",
         url: "/landing-page",
         component: "landingPage"
+      });
+
+      $stateProvider.state({
+        name: "interactiveCv",
+        url: "/interactive-cv",
+        component: "interactiveCv"
       });
 
     }

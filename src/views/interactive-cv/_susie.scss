@@ -1,0 +1,39 @@
+$susie_face_straight: -355px -19px;
+$susie_face-right: -19px -19px;
+$susie_face_left: -19px -205px;
+
+$susie_bounce_left: -522px -205px;
+$susie_bounce_right: -522px -19px;
+
+.susie {
+  width: 104px;
+  height: 169px;
+  position: absolute;
+  background: url(/assets/susie-sprite-sheet.png);
+  left: 45%;
+  top: 65%;
+  &.face-left {
+    background-position: $susie_face_left;
+  } 
+  &.face-right {
+    background-position: $susie_face_right;
+  } 
+}
+
+
+
+.susie.left{
+  background-position: $susie_bounce_left;
+  animation: moveleft .8s steps(1) infinite;  
+}
+@keyframes moveleft {
+  100% { background-position: $susie_face_left; }
+}
+
+.susie.right{
+  background-position: $susie_bounce_right;
+  animation: moveright .8s steps(1) infinite;
+}
+@keyframes moveright {
+  100% { background-position: $susie_face_right; }
+}

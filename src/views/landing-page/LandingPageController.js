@@ -5,7 +5,8 @@ angular.module("landingPage", [])
     template: require("./landing-page.html"), 
     controller: [ '$scope',
       function LandingPageController($scope) {
-      
+        
+
       }
         
     ]
