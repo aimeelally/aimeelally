@@ -6,4 +6,5 @@ bower_components/
 tmp
 .DS_Store
 .idea
-assets/*.psd
+*.psd
+src/assets/*.psd

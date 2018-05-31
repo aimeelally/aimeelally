@@ -33,11 +33,15 @@
     width: 8100px;
     height: 90%;
   }
-  .ground {
-    position: absolute;
+  .grass {
     width: 100%;
     height: 70px;
     background: url(/assets/grass.png);
+  }
+  .ground {
+    width: 100%;
+    height: 70px;
+    background: url(/assets/ground.png);
   }
   
   .susie {
