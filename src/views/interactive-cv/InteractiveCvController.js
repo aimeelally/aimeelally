@@ -76,6 +76,7 @@ angular.module("interactiveCv", [])
               if (ek==40) movLeft=0;
 
               $('.susie').removeClass('right left');
+              $('.susie-shadow').addClass('show-animation');
 
             });
 
@@ -89,6 +90,8 @@ angular.module("interactiveCv", [])
                 if(!isValidMove('right')) {
                   return;
                 }
+
+                $('.susie-shadow').removeClass('show-animation');
 
                 $('.susie').removeClass('face-left');
                 $('.susie').addClass('face-right');
@@ -106,6 +109,8 @@ angular.module("interactiveCv", [])
                 if(!isValidMove('left')) {
                   return;
                 }
+
+                $('.susie-shadow').removeClass('show-animation');
 
                 $('.susie').removeClass('face-right');
                 $('.susie').addClass('face-left');
@@ -133,4 +138,3 @@ angular.module("interactiveCv", [])
     ]
   });
   
-  //
