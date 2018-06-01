@@ -12,6 +12,7 @@ $susie_bounce_right: -522px -19px;
   background: url(/assets/susie-sprite-sheet.png);
   left: 45%;
   top: 65%;
+  animation: bounce 1s infinite alternate; 
   &.face-left {
     background-position: $susie_face_left;
   } 
@@ -20,6 +21,14 @@ $susie_bounce_right: -522px -19px;
   } 
 }
 
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
 
 
 .susie.left{
@@ -35,5 +44,7 @@ $susie_bounce_right: -522px -19px;
   animation: moveright .8s steps(1) infinite;
 }
 @keyframes moveright {
-  100% { background-position: $susie_face_right; }
+  100% { 
+    background-position: $susie_face_right; 
+  }
 }

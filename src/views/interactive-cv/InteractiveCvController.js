@@ -8,9 +8,9 @@ angular.module("interactiveCv", [])
         
         $(document).ready(function(){
             
-            var windowHeight = $(window).height();
+            /*var windowHeight = $(window).height();
             $('.setPageHeight')
-                .css('height', windowHeight);
+                .css('height', windowHeight);*/
 
             var keysdown = {};
             var hasMadeFirstMove = false;
@@ -21,11 +21,30 @@ angular.module("interactiveCv", [])
                 speedVFast = 1000;
 
 
+            /*// Bind the swipeHandler callback function to the swipe event on div.box
+            $( "div#interactive-cv" ).on( "swipe", swipeHandler );
+           
+            // Callback function references the event target and adds the 'swipe' class to it
+            function swipeHandler( event ){
+              $( event.target ).addClass( "swipe" );
+            }
+
+            $('body').scroll(function() {
+              debugger;
+                didScroll = true;
+            });*/
+
+            
+
+
+
+
+            //press button
+            //check if a move is valid before anything else
+            //if valid continue
+
+
             function animateRight(element, distance) {
-              console.log($('.ground-container').offset().left);
-              if(!isValidMove(element, distance)) {
-                return;
-              }
               $(element)
                 .addClass('right')
                 .removeClass('left down')
@@ -39,10 +58,6 @@ angular.module("interactiveCv", [])
             }
 
             function animateLeft(element, distance) {
-              console.log($('.ground-container').offset().left)
-              if(!isValidMove(element, distance)) {
-                return;
-              }
               $(element)
                 .addClass('left')
                 .removeClass('right down up')
@@ -52,20 +67,24 @@ angular.module("interactiveCv", [])
                });
             }
 
-            function isValidMove(el, dist) {
-              return true;
-              // console.log($('.ground-container').offset().left)
-              //   console.log($('.ground-container').offset().left - dist)
-              // if($('.ground-container').offset().left <= 0) {
-              //   return true;
-              // }
-              // if($('.ground-container').offset().left - dist <= -200) {
-              //   return true;
-              // }
-              // else {
-              //   console.log($('.ground-container').offset().left)
-              //   console.log($('.ground-container').offset().left - dist)
-              // }
+            function isValidMove(direction) {
+
+              const FARTHEST_POINT_LEFT = 200;
+              const FARTHEST_POINT_RIGHT = 1000;
+              
+              var blockerPosition = $("#stop-scroll").offset().left;
+              var blockerPositionAfterMove = blockerPosition - speedMed;
+
+              
+              if(direction === 'left' && blockerPositionAfterMove <= 200) {
+                return true;
+              }
+              else if(direction === 'right' && blockerPositionAfterMove >= -8000) {
+                return true;
+              }
+
+              return;
+
             }
 
             /*var lastScrollTop = 0;
@@ -107,6 +126,10 @@ angular.module("interactiveCv", [])
               
               if(e.keyCode == 38 || e.keyCode == 39) { // up or right key
                 
+                if(!isValidMove('right')) {
+                  return;
+                }
+
                 $('.susie').removeClass('face-left');
                 $('.susie').addClass('face-right');
                 animateRight('.susie', 0);
@@ -117,7 +140,10 @@ angular.module("interactiveCv", [])
 
               }
               else if(e.keyCode == 37 || e.keyCode == 40) { // left or down key
-               
+                if(!isValidMove('left')) {
+                  return;
+                }
+
                 $('.susie').removeClass('face-right');
                 $('.susie').addClass('face-left');
                 animateLeft('.susie', 0);
@@ -130,7 +156,10 @@ angular.module("interactiveCv", [])
             }).keyup(function(e){ 
               // On keyup all direction classes are moved
               delete keysdown[e.keyCode];
-              $('.susie').removeClass('right left');
+              setTimeout(function() {
+                $('.susie').removeClass('right left');
+              }, 500);
+              
             });
           });
 
