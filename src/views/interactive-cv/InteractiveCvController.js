@@ -52,8 +52,41 @@ angular.module("interactiveCv", [])
           return;
 
         }
+
+        function stoppedScrolling() {
+          $('.susie').removeClass('right left');
+          $('.susie-shadow').addClass('show-animation');
+        }
         
         $(document).ready(function(){
+
+
+
+          var scrollPosition = 0;
+          $(window).scroll(function() {
+              var currentScrolledPosition = $(document).scrollLeft();
+              if (scrollPosition > currentScrolledPosition) {
+                console.log('scroll right');
+                scrollPosition = currentScrolledPosition;
+
+                $('.susie-shadow').removeClass('show-animation');
+                $('.susie').removeClass('face-right');
+                $('.susie').addClass('face-left');
+                animateLeft('.susie', 0);
+                setInterval(stoppedScrolling,500);
+              }
+              else if (scrollPosition < currentScrolledPosition) {
+                console.log('scroll left');
+                scrollPosition = currentScrolledPosition;
+
+                $('.susie-shadow').removeClass('show-animation');
+                $('.susie').removeClass('face-left');
+                $('.susie').addClass('face-right');
+                animateRight('.susie', 0);
+                setInterval(stoppedScrolling,500);
+              }
+              
+          });
             
             $('body').keydown(function(e) {
 
@@ -82,7 +115,6 @@ angular.module("interactiveCv", [])
 
             // Move one pixel for each direction and check if move is valid.
             function movTick() {
-              console.log('tick');
 
               var moved = 0;
               if (movRight) { 

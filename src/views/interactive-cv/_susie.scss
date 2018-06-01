@@ -9,7 +9,7 @@ $susie_bounce_right: -522px -19px;
 .susie {
   width: 104px;
   height: 169px;
-  position: absolute;
+  position: fixed;
   background: url(/assets/susie-sprite-sheet.png);
   left: 45%;
   top: 65%;
@@ -25,7 +25,7 @@ $susie_bounce_right: -522px -19px;
 .susie-shadow.show-animation {
   width: 104px;
   height: 169px;
-  position: absolute;
+  position: fixed;
   background: url(/assets/susie-sprite-sheet.png) $susie_shadow;
   left: 45%;
   top: 65.5%;
