@@ -1,4 +1,15 @@
+// NODE MODULES
 @import '~modularscale-sass/stylesheets/modularscale';
+
+$ff-color-primary: #F90093;
+$ff-color-answer-correct: #70C1B3;
+$ff-color-answer-incorrect: #ff6666;
+$ff-color-bg: #ffffff;
+$ff-color-initial-state: #a1a1a1;
+@import '~fancy-forms/styles/fancy-forms/variables-for-fancy-forms';
+@import '~fancy-forms/styles/fancy-forms/base';
+
+
 
 // MODULES
 @import 'modules/mixins',
@@ -22,12 +33,12 @@
         'partials/simple-popup-custom';
 
 // FANCY FORMS
-@import 'fancy-forms/mixins',
-        'fancy-forms/radio-buttons',
-        'fancy-forms/checkboxes',
-        'fancy-forms/input-boxes',
-        'fancy-forms/select-boxes',
-        'fancy-forms/fancy-radio-labels';
+// @import 'fancy-forms/mixins',
+//         'fancy-forms/radio-buttons',
+//         'fancy-forms/checkboxes',
+//         'fancy-forms/input-boxes',
+//         'fancy-forms/select-boxes',
+//         'fancy-forms/fancy-radio-labels';
 
 // DIRECTIVES
            
