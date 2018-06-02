@@ -18,6 +18,7 @@
     "babel-preset-env": "^1.5.2",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^2.1.2",
+    "fancy-forms": "^1.0.2",
     "file-loader": "^0.11.2",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.1.0",
