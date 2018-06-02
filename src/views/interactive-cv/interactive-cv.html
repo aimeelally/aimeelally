@@ -91,6 +91,33 @@
         </div>
 
       </div>
+
+      <div class="section-container contact details">
+        <h1>Get In Touch</h1>
+        <form ng-submit="submitContactForm()">
+          <label class="block sm-margin-bottom">Who are you?</label>
+          <input 
+            type="text" 
+            class="span-12 margin-bottom"
+            ng-model="contactForm.uname" />
+          
+          <label class="block sm-margin-bottom">Your email</label>
+          <input 
+            type="email" 
+            class="span-12 margin-bottom"
+            ng-model="contactForm.email" />
+          
+          <label class="block sm-margin-bottom">What do you want to say?</label>
+          <textarea 
+            type="text"  
+            class="span-12 margin-bottom"
+            ng-model="contactForm.message">
+          </textarea>
+          <button class="btn-1 block">Submit</button>
+        </form>
+      </div>
+
+
     </div>
 
     <div class="med-moving-items">

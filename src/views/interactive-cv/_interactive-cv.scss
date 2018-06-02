@@ -50,6 +50,14 @@
   .skills {
     left: 3000px;
   }
+  .contact {
+    left: 7500px;
+    width: 500px;
+    z-index: 999;
+    textarea {
+      min-height: 120px;
+    }
+  }
   .testimonials-header {
     position: absolute;
     top: 267px;
@@ -134,7 +142,7 @@
   .path {
     width: 100%;
     position: absolute;
-    top: 80px;
+    top: 56px;
     height: 100px;
     background: url(/assets/path.png);
     background-size: contain;

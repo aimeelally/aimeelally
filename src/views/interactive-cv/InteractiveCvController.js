@@ -17,8 +17,16 @@ angular.module("interactiveCv", [])
             speedFast = 800,
             speedVFast = 1000;
 
+        $scope.contactForm = {};
+
         var keysdown = {},
             scrollTracker = {};
+
+        $scope.submitContactForm = function() {
+          console.log($scope.contactForm.uname);
+          console.log($scope.contactForm.email);
+          console.log($scope.contactForm.message);
+        }
 
         function animateRight(element, distance) {
           $(element)
