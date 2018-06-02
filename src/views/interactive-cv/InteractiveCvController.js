@@ -27,6 +27,18 @@ angular.module("interactiveCv", [])
           return ContactService.sendMessage(contactForm);
         }; 
 
+        init();
+
+        function init() {
+          $('.susie').addClass('animate-in');
+
+          setTimeout(function() {
+            $('.susie').removeClass('animate-in');
+            $('.susie').addClass('show-animation');
+            $('.susie-shadow').addClass('show-animation');
+          },1000);
+        }
+
         function animateRight(element, distance) {
           $(element)
             .addClass('right')
