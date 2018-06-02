@@ -3,8 +3,8 @@
 angular.module("interactiveCv", [])
   .component("interactiveCv", {
     template: require("./interactive-cv.html"), 
-    controller: [ '$scope',
-      function InteractiveCvController($scope) {
+    controller: [ '$scope', 'ContactService',
+      function InteractiveCvController($scope, ContactService) {
 
         const FARTHEST_POINT_LEFT = 200;
         const FARTHEST_POINT_RIGHT = -8000;
@@ -23,10 +23,9 @@ angular.module("interactiveCv", [])
             scrollTracker = {};
 
         $scope.submitContactForm = function() {
-          console.log($scope.contactForm.uname);
-          console.log($scope.contactForm.email);
-          console.log($scope.contactForm.message);
-        }
+          var contactForm = JSON.stringify($scope.contactForm);
+          return ContactService.sendMessage(contactForm);
+        }; 
 
         function animateRight(element, distance) {
           $(element)
@@ -72,7 +71,7 @@ angular.module("interactiveCv", [])
         $(document).ready(function(){
 
           $(window).on('swipeleft', function() {
-            console.log('swiped left');
+            //console.log('swiped left');
           });
 
           var scrollPosition = 0;
@@ -84,7 +83,7 @@ angular.module("interactiveCv", [])
             
             var currentScrolledPosition = $(document).scrollLeft();
               if (scrollPosition > currentScrolledPosition) {
-                console.log('scroll right');
+                //console.log('scroll right');
                 scrollPosition = currentScrolledPosition;
 
                 $('.susie-shadow').removeClass('show-animation');
@@ -97,7 +96,7 @@ angular.module("interactiveCv", [])
                 },500);
               }
               else if (scrollPosition < currentScrolledPosition) {
-                console.log('scroll left');
+                //console.log('scroll left');
                 scrollPosition = currentScrolledPosition;
 
                 $('.susie-shadow').removeClass('show-animation');

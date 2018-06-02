@@ -7,6 +7,7 @@
     background: $color-1;
 }
 #interactive-cv {
+  //*:not(.contact) {display: none;}
 
   @import 'susie';
 
