@@ -77,7 +77,7 @@
     height: 100%;
     background: url(/assets/sky.png);
   }
-  .rock-1 {
+  /* .rock-1 {
     position: absolute;
     z-index: 99;
     left: 15px;
@@ -85,6 +85,18 @@
     width: 300px;
     height: 200px;
     background: url(/assets/rock-1.png);
+    background-repeat: no-repeat;
+  } */
+
+  .rock-1 {
+    position: absolute;
+    z-index: 99;
+    left: -200px;
+    bottom: -120px;
+    width: 500px;
+    height: 300px;
+    background: url(/assets/rock-1.png);
+    background-size: contain;
     background-repeat: no-repeat;
   }
 
@@ -107,7 +119,7 @@
     top: 77%;
     bottom: 0;
     width: $width_of_ground;
-    //height: 100%;
+    height: 230px;
   }
   .grass {
     width: 100%;
@@ -119,23 +131,13 @@
     height: 100%;
     background: url(/assets/ground.png);
   }
-
-  .blocking-ground-container {
+  .path {
+    width: 100%;
     position: absolute;
-    left: 0;
-    top: 77%;
-    width: 11000px;
-    height: 100%;
-  }
-  .blocking-grass {
-    width: 100%;
-    height: 50px;
-    background: url(/assets/grass.png);
-  }
-  .blocking-ground {
-    width: 100%;
-    height: 100%;
-    background: url(/assets/ground.png);
+    top: 80px;
+    height: 100px;
+    background: url(/assets/path.png);
+    background-size: contain;
   }
   
   

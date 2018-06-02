@@ -17,6 +17,9 @@ angular.module("interactiveCv", [])
             speedFast = 800,
             speedVFast = 1000;
 
+        var keysdown = {},
+            scrollTracker = {};
+
         function animateRight(element, distance) {
           $(element)
             .addClass('right')
@@ -60,11 +63,18 @@ angular.module("interactiveCv", [])
         
         $(document).ready(function(){
 
-
+          $(window).on('swipeleft', function() {
+            console.log('swiped left');
+          });
 
           var scrollPosition = 0;
           $(window).scroll(function() {
-              var currentScrolledPosition = $(document).scrollLeft();
+            //dont do the scroll animation if also pressing keys
+            if (keysdown.keydown) return;
+
+            scrollTracker.isScrolling = true;
+            
+            var currentScrolledPosition = $(document).scrollLeft();
               if (scrollPosition > currentScrolledPosition) {
                 console.log('scroll right');
                 scrollPosition = currentScrolledPosition;
@@ -73,7 +83,10 @@ angular.module("interactiveCv", [])
                 $('.susie').removeClass('face-right');
                 $('.susie').addClass('face-left');
                 animateLeft('.susie', 0);
-                setInterval(stoppedScrolling,500);
+                setTimeout(function() {
+                  stoppedScrolling();
+                  scrollTracker.isScrolling = false;
+                },500);
               }
               else if (scrollPosition < currentScrolledPosition) {
                 console.log('scroll left');
@@ -83,12 +96,21 @@ angular.module("interactiveCv", [])
                 $('.susie').removeClass('face-left');
                 $('.susie').addClass('face-right');
                 animateRight('.susie', 0);
-                setInterval(stoppedScrolling,500);
+                setTimeout(function() {
+                  stoppedScrolling();
+                  scrollTracker.isScrolling = false;
+                },500);
               }
               
           });
             
             $('body').keydown(function(e) {
+              
+              //dont do the scroll animation if also pressing keys
+              if (scrollTracker.isScrolling) return;
+              
+              // Remember it's down
+              keysdown.keydown = true;
 
               var ek = e.keyCode;
               if (ek==39) movRight=1;
@@ -102,6 +124,10 @@ angular.module("interactiveCv", [])
 
             // Keyup listener
             $("body").keyup(function(e) {
+
+              // Remember it's down
+              keysdown.keydown = false;
+
               var ek = e.keyCode;
               if (ek==39) movRight=0;
               if (ek==38) movRight=0;
