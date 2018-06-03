@@ -3,13 +3,17 @@
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 /* optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-    background: $color-1;
-}
+// ::-webkit-scrollbar-thumb {
+//     background: $color-1;
+// }
 #interactive-cv {
-  //*:not(.contact) {display: none;}
+  &.night .sky { background: url(/assets/sky-3.jpg); }
+  &.day .sky { background: url(/assets/sky-2.jpg); }
+  &.morning .sky { background: url(/assets/sky-2.jpg); }
+  &.evening .sky { background: url(/assets/sky.png); }
 
   @import 'susie';
+  @import 'susie-chat-bot';
 
   $width_of_sky: 9500px;
   $width_of_ground: calc(#{$width_of_sky} + 500px);
@@ -22,6 +26,9 @@
     top: 0;
     width: 100%;
     height: 100%;
+  }
+  .v-slow-moving-items {
+    width: $width_of_sky;
   }
 
   // .container {
@@ -82,10 +89,19 @@
     position: absolute;
     left: -500px;
     top: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat;
+  }
+
+  /* .sky {
+    position: absolute;
+    left: -500px;
+    top: 0;
     width: $width_of_sky;
     height: 100%;
     background: url(/assets/sky.png);
-  }
+  } */
   /* .rock-1 {
     position: absolute;
     z-index: 99;
@@ -143,7 +159,7 @@
   .path {
     width: 100%;
     position: absolute;
-    top: 56px;
+    top: 107px;
     height: 100px;
     background: url(/assets/path.png);
     background-size: contain;

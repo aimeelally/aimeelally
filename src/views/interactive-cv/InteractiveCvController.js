@@ -3,8 +3,8 @@
 angular.module("interactiveCv", [])
   .component("interactiveCv", {
     template: require("./interactive-cv.html"), 
-    controller: [ '$scope', 'ContactService',
-      function InteractiveCvController($scope, ContactService) {
+    controller: [ '$scope', 'ContactService', 'ChatbotService',
+      function InteractiveCvController($scope, ContactService, ChatbotService) {
 
         const FARTHEST_POINT_LEFT = 200;
         const FARTHEST_POINT_RIGHT = -8000;
@@ -19,6 +19,14 @@ angular.module("interactiveCv", [])
 
         $scope.contactForm = {};
 
+        $scope.yes = function() {
+          var response = ChatbotService.yes();
+        }
+
+        $scope.no = function() {
+          var response = ChatbotService.no();
+        }
+
         var keysdown = {},
             scrollTracker = {};
 
@@ -30,6 +38,7 @@ angular.module("interactiveCv", [])
         init();
 
         function init() {
+          getTimeBasedStyleSheet();
           $('.susie').addClass('animate-in');
 
           setTimeout(function() {
@@ -37,6 +46,37 @@ angular.module("interactiveCv", [])
             $('.susie').addClass('show-animation');
             $('.susie-shadow').addClass('show-animation');
           },1000);
+        }
+
+        function getTimeBasedStyleSheet() {
+          
+          var currentTime = new Date().getHours();
+          if (0 <= currentTime&&currentTime < 5) {
+            $('#interactive-cv')
+              .removeClass('day night morning evening')
+              .addClass('night');
+          }
+          if (5 <= currentTime&&currentTime < 11) {
+            $('#interactive-cv')
+              .removeClass('day night morning evening')
+              .addClass('morning');
+          }
+          if (11 <= currentTime&&currentTime < 16) {
+            $('#interactive-cv')
+              .removeClass('day night morning evening')
+              .addClass('day');
+          }
+          if (16 <= currentTime&&currentTime < 22) {
+            $('#interactive-cv')
+              .removeClass('day night morning evening')
+              .addClass('evening');
+          }
+          if (22 <= currentTime&&currentTime <= 24) {
+            $('#interactive-cv')
+              .removeClass('day night morning evening')
+              .addClass('night');
+          }
+          
         }
 
         function animateRight(element, distance) {
