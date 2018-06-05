@@ -51,7 +51,7 @@ angular.module("interactiveCv", [])
         function makeBackground(time) {
           $('#interactive-cv')
             .removeClass('day night morning evening')
-            .addClass('morning');
+            .addClass('day');
         }
 
         function getTimeBasedStyleSheet() {
