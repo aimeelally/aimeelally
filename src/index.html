@@ -9,8 +9,20 @@
     <!-- <script src="https://use.fontawesome.com/08137fc2ad.js"></script> -->
     <script src="./app.bundle.js"></script>
     <script src="./aws-sdk/dist/aws-sdk.min.js"></script>
+
+    <script>
+      function downLoad(){
+        if (document.all){
+            document.all["preloader"].style.visibility="hidden";
+            document.all["interactive-cv"].style.visibility="visible";
+        } else if (document.getElementById){
+            node = document.getElementById("preloader").style.visibility='hidden';
+            node = document.getElementById("interactive-cv").style.visibility='visible';
+        }
+      }
+    </script>
   </head>
-  <body>
+  <body onload="downLoad()">
     <ui-view></ui-view>
   </body>
 </html>

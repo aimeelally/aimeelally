@@ -49,6 +49,7 @@ angular.module("interactiveCv", [])
           },1000);
         }
 
+
         function makeBackground(time) {
           $('#interactive-cv')
             .removeClass('day night morning evening')

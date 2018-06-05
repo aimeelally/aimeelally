@@ -14,7 +14,7 @@ $susie_offset_top: 72%;
   position: fixed;
   background: url(/assets/interactive-cv/susie-sprite-sheet.png);
   background-position: $susie_face_straight;
-  left: 45%;
+  left: 50%;
   top: $susie_offset_top;
   &.face-left {
     background-position: $susie_face_left;
@@ -44,7 +44,7 @@ $susie_offset_top: 72%;
   height: 169px;
   position: fixed;
   background: url(/assets/interactive-cv/susie-sprite-sheet.png) $susie_shadow;
-  left: 45%;
+  left: 50%;
   top: calc(#{$susie_offset_top} + 0.5%);
   animation: shadowScale 1s infinite alternate;
   transform-origin: center;
