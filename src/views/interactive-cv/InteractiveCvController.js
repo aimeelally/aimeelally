@@ -3,15 +3,15 @@
 angular.module("interactiveCv", [])
   .component("interactiveCv", {
     template: require("./interactive-cv.html"), 
-    controller: [ '$scope', 'ContactService', 'ChatbotService',
-      function InteractiveCvController($scope, ContactService, ChatbotService) {
+    controller: [ '$scope', 'ContactService', 'ChatbotService', 'AnimateService',
+      function InteractiveCvController($scope, ContactService, ChatbotService, AnimateService) {
 
         const FARTHEST_POINT_LEFT = 200;
         const FARTHEST_POINT_RIGHT = -8000;
 
         var movLeft = 0;
         var movRight = 0;
-        var speedVSlow = 5,
+        var speedVSlow = 0,
             speedSlow = 200,
             speedMed = 300,
             speedFast = 800,
@@ -79,25 +79,7 @@ angular.module("interactiveCv", [])
           
         }
 
-        function animateRight(element, distance) {
-          $(element)
-            .addClass('right')
-            .removeClass('left down')
-            .stop()
-            .animate({
-              left: '+='+distance
-            });
-        }
-
-        function animateLeft(element, distance) {
-          $(element)
-            .addClass('left')
-            .removeClass('right down up')
-            .stop()
-            .animate({
-               left: '-='+distance
-           });
-        }
+        
 
         function isValidMove(direction) {
           
@@ -122,9 +104,9 @@ angular.module("interactiveCv", [])
         
         $(document).ready(function(){
 
-          $(window).on('swipeleft', function() {
+          /*$(window).on('swipeleft', function() {
             //console.log('swiped left');
-          });
+          });*/
 
           var scrollPosition = 0;
           $(window).scroll(function() {
@@ -137,11 +119,17 @@ angular.module("interactiveCv", [])
               if (scrollPosition > currentScrolledPosition) {
                 //console.log('scroll right');
                 scrollPosition = currentScrolledPosition;
+                activateMovingLeftAnimations();
 
-                $('.susie-shadow').removeClass('show-animation');
-                $('.susie').removeClass('face-right');
-                $('.susie').addClass('face-left');
-                animateLeft('.susie', 0);
+                // $('.susie-shadow').removeClass('show-animation');
+                // $('.susie').removeClass('face-right');
+                // $('.susie').addClass('face-left');
+                // AnimateService.animateLeft('.susie', 0);
+
+                // AnimateService.animateRight('.med-moving-items', speedMed);
+                // AnimateService.animateRight('.slow-moving-items', speedSlow);
+                // AnimateService.animateRight('.v-slow-moving-items', speedVSlow);
+
                 setTimeout(function() {
                   stoppedScrolling();
                   scrollTracker.isScrolling = false;
@@ -150,11 +138,18 @@ angular.module("interactiveCv", [])
               else if (scrollPosition < currentScrolledPosition) {
                 //console.log('scroll left');
                 scrollPosition = currentScrolledPosition;
+                activateMovingRightAnimations();
 
-                $('.susie-shadow').removeClass('show-animation');
-                $('.susie').removeClass('face-left');
-                $('.susie').addClass('face-right');
-                animateRight('.susie', 0);
+                // $('.susie-shadow').removeClass('show-animation');
+                // $('.susie').removeClass('face-left');
+                // $('.susie').addClass('face-right');
+                // AnimateService.animateRight('.susie', 0);
+
+                // AnimateService.animateLeft('.med-moving-items', speedMed);
+                // AnimateService.animateLeft('.slow-moving-items', speedSlow);
+                // AnimateService.animateLeft('.v-slow-moving-items', speedVSlow);
+
+
                 setTimeout(function() {
                   stoppedScrolling();
                   scrollTracker.isScrolling = false;
@@ -177,12 +172,12 @@ angular.module("interactiveCv", [])
               if (ek==37) movLeft=1;
               if (ek==40) movLeft=1;
               
-              setInterval(movTick(), 1000); // Setup interval. Delay controlls tickrate.
+              setInterval(movTick(), 100); // Setup interval. Delay controlls tickrate.
 
             });
 
             // Keyup listener
-            $("body").keyup(function(e) {
+            $('body').keyup(function(e) {
 
               // Remember it's down
               keysdown.keydown = false;
@@ -208,18 +203,9 @@ angular.module("interactiveCv", [])
                   return;
                 }
 
-                $('.susie-shadow').removeClass('show-animation');
-
-                $('.susie').removeClass('face-left');
-                $('.susie').addClass('face-right');
-                
-                animateRight('.susie', 0);
-                
-                animateLeft('.med-moving-items', speedMed);
-                animateLeft('.slow-moving-items', speedSlow);
-                animateLeft('.v-slow-moving-items', speedVSlow);
-                
+                activateMovingRightAnimations();
                 moved = 1;
+
               }
 
               if (movLeft) { 
@@ -227,17 +213,9 @@ angular.module("interactiveCv", [])
                   return;
                 }
 
-                $('.susie-shadow').removeClass('show-animation');
-
-                $('.susie').removeClass('face-right');
-                $('.susie').addClass('face-left');
-                animateLeft('.susie', 0);
-
-                animateRight('.med-moving-items', speedMed);
-                animateRight('.slow-moving-items', speedSlow);
-                animateRight('.v-slow-moving-items', speedVSlow);
-
+                activateMovingLeftAnimations();
                 moved = 1;
+
               }
               
 
@@ -247,6 +225,36 @@ angular.module("interactiveCv", [])
 
 
           });
+
+          
+          function activateMovingLeftAnimations() {
+            $('.susie-shadow').removeClass('show-animation');
+            $('.susie').removeClass('face-right');
+            $('.susie').addClass('face-left');
+            AnimateService.animateLeft('.susie', 0);
+
+            AnimateService.animateMoonriseRight('.sun-moon', 2);
+            AnimateService.animateRight('.stars', 1);
+
+            AnimateService.animateRight('.med-moving-items', speedMed);
+            AnimateService.animateRight('.slow-moving-items', speedSlow);
+            AnimateService.animateRight('.v-slow-moving-items', speedVSlow);
+          }
+
+          function activateMovingRightAnimations() {
+            $('.susie-shadow').removeClass('show-animation');
+            $('.susie').removeClass('face-left');
+            $('.susie').addClass('face-right');
+            AnimateService.animateRight('.susie', 0);
+
+            //AnimateService.animateLeft('.sun-moon', 1);
+            AnimateService.animateMoonriseLeft('.sun-moon', 2);
+            AnimateService.animateLeft('.stars', 1);
+
+            AnimateService.animateLeft('.med-moving-items', speedMed);
+            AnimateService.animateLeft('.slow-moving-items', speedSlow);
+            AnimateService.animateLeft('.v-slow-moving-items', speedVSlow);
+          }
 
 
 

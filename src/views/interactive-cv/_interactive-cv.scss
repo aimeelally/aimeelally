@@ -2,15 +2,8 @@
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
 }
-/* optional: show position indicator in red */
-// ::-webkit-scrollbar-thumb {
-//     background: $color-1;
-// }
+
 #interactive-cv {
-  &.night .sky { background: url(/assets/sky-3.jpg); }
-  &.day .sky { background: url(/assets/sky-2.jpg); }
-  &.morning .sky { background: url(/assets/sky-2.jpg); }
-  &.evening .sky { background: url(/assets/sky.png); }
 
   @import 'susie';
   @import 'susie-chat-bot';
@@ -18,6 +11,50 @@
   $width_of_sky: 9500px;
   $width_of_ground: calc(#{$width_of_sky} + 500px);
 
+  $purple: #65568f;
+  $orange: #c85316;
+
+
+  &.morning {
+    .sky { background: url(/assets/interactive-cv/morning-sky.png); }
+    .hill { background: url(/assets/interactive-cv/morning-hill.png); }
+    .grass { background: url(/assets/interactive-cv/morning-grass.png); }
+    .sun-moon {
+      background: url(/assets/interactive-cv/morning-sun.png);
+    }
+  }
+  &.day {
+    .sky { background: url(/assets/interactive-cv/night-sky.png); }
+    .hill { background: url(/assets/interactive-cv/day-hill.png); }
+    .grass { background: url(/assets/interactive-cv/day-grass.png); }
+    .sun-moon {
+      background: url(/assets/interactive-cv/day-sun.png);
+    }
+  }
+  &.evening {
+    .sky { background: $orange }
+    .sky { background: linear-gradient($purple, $orange); }
+    .hill { background: url(/assets/interactive-cv/evening-hill.png); }
+    .grass { background: url(/assets/interactive-cv/evening-grass.png); }
+    .stars { background: url(/assets/interactive-cv/evening-stars.png); }
+    .sun-moon {
+      background: url(/assets/interactive-cv/evening-moon.png);
+    }
+  }
+  &.night {
+    .sky { background: url(/assets/interactive-cv/night-sky.png); }
+    .hill { background: url(/assets/interactive-cv/night-hill.png); }
+    .grass { background: url(/assets/interactive-cv/night-grass.png); }
+    .sun-moon {
+      background: url(/assets/interactive-cv/night-moon.png);
+      background-repeat: no-repeat;
+      top: 20%;
+      right: 43%;
+    }
+  }
+
+
+  
   .v-slow-moving-items,
   .slow-moving-items,
   .med-moving-items {
@@ -31,14 +68,40 @@
     width: $width_of_sky;
   }
 
-  // .container {
-  //   position: fixed;
-  //   left: 0;
-  //   top: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   overflow: hidden;
-  // }
+
+  .sky, .hill, .stars {
+    position: absolute;
+    left: -500px;
+    top: 0;
+    width: $width_of_sky;
+    height: 100%;
+    background-repeat: repeat;
+  }
+
+  .stars {
+    position: fixed;
+  }
+
+  .sun-moon {
+    position: fixed;
+    width: 112px;
+    height: 112px;
+    bottom: 30%;
+    left: 45%;
+  }
+
+  .sky { z-index: 1 }
+  .stars { z-index: 2 }
+  .sun-moon { z-index: 3 }
+  .hill { z-index: 4 }
+  .slow-moving-items { z-index: 3 }
+  .susie, .susie-shadow { z-index: 5 }
+  .rock-1 { z-index: 6 }
+  .ground-container { z-index: 7 }
+  
+  .susie-speech-container { z-index: 9 }
+
+
 
   .section-container {
     position: absolute;
@@ -61,7 +124,6 @@
   .contact {
     left: 7500px;
     width: 500px;
-    z-index: 999;
     textarea {
       min-height: 120px;
     }
@@ -85,14 +147,7 @@
     }
   }
 
-  .sky {
-    position: absolute;
-    left: -500px;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-repeat: repeat;
-  }
+  
 
   /* .sky {
     position: absolute;
@@ -115,12 +170,11 @@
 
   .rock-1 {
     position: absolute;
-    z-index: 99;
     left: -200px;
     bottom: -120px;
     width: 500px;
     height: 300px;
-    background: url(/assets/rock-1.png);
+    background: url(/assets/interactive-cv/rock-1.png);
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -141,27 +195,25 @@
   .ground-container {
     position: absolute;
     left: -1000px;
-    top: 77%;
     bottom: 0;
     width: $width_of_ground;
-    height: 230px;
   }
   .grass {
     width: 100%;
     height: 50px;
-    background: url(/assets/grass.png);
+    background: url(/assets/interactive-cv/grass.png);
   }
   .ground {
     width: 100%;
     height: 100%;
-    background: url(/assets/ground.png);
+    background: url(/assets/interactive-cv/ground.png);
   }
   .path {
     width: 100%;
     position: absolute;
     top: 107px;
     height: 100px;
-    background: url(/assets/path.png);
+    background: url(/assets/interactive-cv/path.png);
     background-size: contain;
   }
   
