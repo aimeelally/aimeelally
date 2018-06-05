@@ -11,6 +11,8 @@
   $width_of_sky: 9500px;
   $width_of_ground: calc(#{$width_of_sky} + 500px);
 
+  $pos_of_first_section: 1000px;
+
   $light-purple: #9b84db;
   $light-blue: #fff;
   $med-purple: #65568f;
@@ -18,6 +20,13 @@
   $med-blue: #c0eaff;
   $med-yellow: #ffc80d;
   $dark-purple: #38304f;
+
+  #stop-scroll { 
+    position: absolute;
+    left: 100px;
+    width: 1px;
+    height: 1px;
+  }
 
   .sky { z-index: 1 }
   .sun-moon { z-index: 2 }
@@ -87,6 +96,21 @@
     }
   }
 
+  .sign-container {
+    width: 400px;
+    height: 400px;
+  }
+
+  .sign {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 500px;
+    z-index: 999;
+    background-size: contain;
+    background: url(/assets/interactive-cv/sign.png);
+  }
+
 
   
   .v-slow-moving-items,
@@ -136,41 +160,41 @@
     width: 1000px;
   }
   .details {
-    left: 100px;
+    left: $pos_of_first_section;
   }
 
   .education {
-    left: 1000px;
+    left: calc( #{$pos_of_first_section} + 500px );
   }
   .work-experience {
-    left: 2000px;
+    left: calc( #{$pos_of_first_section} + 1000px );
   }
   .skills {
-    left: 3000px;
-  }
-  .contact {
-    left: 7500px;
-    width: 500px;
-    textarea {
-      min-height: 120px;
-    }
+    left: calc( #{$pos_of_first_section} + 2000px );
   }
   .testimonials-header {
     position: absolute;
     top: 267px;
     width: 100px;
-    left: 3900px;
+    left: calc( #{$pos_of_first_section} + 3500px );
     transform: rotate(-90deg);
     h1 { width: 400px; }
   }
   .testimonials {
-    left: 4000px;
+    left: calc( #{$pos_of_first_section} + 4000px );
     width: 3000px;
     p { margin-bottom: 2em; }
     .testimonial-text {
       width: 600px;
       float: left;
       margin-right: 5em;
+    }
+  }
+  .contact {
+    left: calc( #{$pos_of_first_section} + 7000px );
+    width: 500px;
+    textarea {
+      min-height: 120px;
     }
   }
 

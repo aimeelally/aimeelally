@@ -2,11 +2,23 @@
   position: fixed;
   bottom: 0;
   //height: 100px;
+  left: -40%;
   width: 40%;
   padding: 0.5em;
   background: rgba(255,255,255, 0.9);
+  animation: slideIn 1s forwards;
 
   .strike {
     text-decoration: line-through;
   }
+
+  @keyframes slideIn {
+    from {
+      left: -40%;
+    }
+    to {
+      left: 0;
+    }
+  }
+
 }
