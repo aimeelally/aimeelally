@@ -23,12 +23,18 @@ export default ['$state', '$rootScope',function($state, $rootScope){
   }
 
   function animateMoonriseRight(element, distance) {
+    var posFromTop = $(element).position().top;
+    var posFromLeft = $(element).position().left;
+    //debugger;
+    if( posFromTop < 150 || posFromLeft > 500 ) {
+      return;
+    }
     $(element)
       .stop()
       .animate( 
         { 
           left: '+='+distance,
-          top: '-='+distance 
+          top: '-='+distance
         }, 
         'slow', 
         'linear' 

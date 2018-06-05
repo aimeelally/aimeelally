@@ -48,33 +48,29 @@ angular.module("interactiveCv", [])
           },1000);
         }
 
+        function makeBackground(time) {
+          $('#interactive-cv')
+            .removeClass('day night morning evening')
+            .addClass('morning');
+        }
+
         function getTimeBasedStyleSheet() {
           
           var currentTime = new Date().getHours();
           if (0 <= currentTime&&currentTime < 5) {
-            $('#interactive-cv')
-              .removeClass('day night morning evening')
-              .addClass('night');
+            makeBackground('night');
           }
           if (5 <= currentTime&&currentTime < 11) {
-            $('#interactive-cv')
-              .removeClass('day night morning evening')
-              .addClass('morning');
+            makeBackground('morning');
           }
           if (11 <= currentTime&&currentTime < 16) {
-            $('#interactive-cv')
-              .removeClass('day night morning evening')
-              .addClass('day');
+            makeBackground('day');
           }
           if (16 <= currentTime&&currentTime < 22) {
-            $('#interactive-cv')
-              .removeClass('day night morning evening')
-              .addClass('evening');
+            makeBackground('evening');
           }
           if (22 <= currentTime&&currentTime <= 24) {
-            $('#interactive-cv')
-              .removeClass('day night morning evening')
-              .addClass('night');
+            makeBackground('night');
           }
           
         }
@@ -233,8 +229,8 @@ angular.module("interactiveCv", [])
             $('.susie').addClass('face-left');
             AnimateService.animateLeft('.susie', 0);
 
-            AnimateService.animateMoonriseRight('.sun-moon', 2);
-            AnimateService.animateRight('.stars', 1);
+            AnimateService.animateMoonriseRight('.sun-moon', 25);
+            AnimateService.animateRight('.stars-clouds', 25);
 
             AnimateService.animateRight('.med-moving-items', speedMed);
             AnimateService.animateRight('.slow-moving-items', speedSlow);
@@ -248,8 +244,8 @@ angular.module("interactiveCv", [])
             AnimateService.animateRight('.susie', 0);
 
             //AnimateService.animateLeft('.sun-moon', 1);
-            AnimateService.animateMoonriseLeft('.sun-moon', 2);
-            AnimateService.animateLeft('.stars', 1);
+            AnimateService.animateMoonriseRight('.sun-moon', 25);
+            AnimateService.animateLeft('.stars-clouds', 25);
 
             AnimateService.animateLeft('.med-moving-items', speedMed);
             AnimateService.animateLeft('.slow-moving-items', speedSlow);
