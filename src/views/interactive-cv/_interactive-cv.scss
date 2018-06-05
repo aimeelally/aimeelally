@@ -11,11 +11,23 @@
   $width_of_sky: 9500px;
   $width_of_ground: calc(#{$width_of_sky} + 500px);
 
+  $light-purple: #9b84db;
   $light-blue: #fff;
   $med-purple: #65568f;
   $med-orange: #c85316;
   $med-blue: #c0eaff;
   $med-yellow: #ffc80d;
+  $dark-purple: #38304f;
+
+  .sky { z-index: 1 }
+  .sun-moon { z-index: 2 }
+  .stars-clouds { z-index: 3 }
+  .hill { z-index: 4 }
+  .slow-moving-items { z-index: 3 }
+  .susie, .susie-shadow { z-index: 5 }
+  .rock-1 { z-index: 6 }
+  .ground-container { z-index: 7 }
+  .susie-speech-container { z-index: 8 }
 
 
   &.morning {
@@ -47,20 +59,31 @@
     .sky { background: linear-gradient($med-purple, $med-orange); }
     .hill { background: url(/assets/interactive-cv/evening-hill.png); }
     .grass { background: url(/assets/interactive-cv/evening-grass.png); }
-    .stars-clouds { background: url(/assets/interactive-cv/evening-stars.png); }
+    .stars-clouds { 
+      z-index: 2;
+      background: url(/assets/interactive-cv/evening-stars.png); 
+    }
     .sun-moon {
+      z-index: 3;
+      bottom: 20%;
+      right: 43%;
       background: url(/assets/interactive-cv/evening-moon.png);
     }
   }
   &.night {
-    .sky { background: url(/assets/interactive-cv/night-sky.png); }
+    .sky { background: $med-purple }
+    .sky { background: linear-gradient($dark-purple, $med-purple); }
     .hill { background: url(/assets/interactive-cv/night-hill.png); }
     .grass { background: url(/assets/interactive-cv/night-grass.png); }
+    .stars-clouds { 
+      z-index: 2;
+      background: url(/assets/interactive-cv/night-stars.png); 
+    }
     .sun-moon {
-      background: url(/assets/interactive-cv/night-moon.png);
-      background-repeat: no-repeat;
+      z-index: 3;
       top: 20%;
       right: 43%;
+      background: url(/assets/interactive-cv/night-moon.png);
     }
   }
 
@@ -103,17 +126,7 @@
     left: 45%;
   }
 
-  .sky { z-index: 1 }
-  .sun-moon { z-index: 2 }
-  .stars-clouds { z-index: 3 }
   
-  .hill { z-index: 4 }
-  .slow-moving-items { z-index: 3 }
-  .susie, .susie-shadow { z-index: 5 }
-  .rock-1 { z-index: 6 }
-  .ground-container { z-index: 7 }
-  
-  .susie-speech-container { z-index: 9 }
 
 
 

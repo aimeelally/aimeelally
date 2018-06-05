@@ -9,6 +9,7 @@ angular.module("interactiveCv", [])
         const FARTHEST_POINT_LEFT = 200;
         const FARTHEST_POINT_RIGHT = -8000;
 
+        var timeOfDay = '';
         var movLeft = 0;
         var movRight = 0;
         var speedVSlow = 0,
@@ -51,26 +52,31 @@ angular.module("interactiveCv", [])
         function makeBackground(time) {
           $('#interactive-cv')
             .removeClass('day night morning evening')
-            .addClass('day');
+            .addClass('night');
         }
 
         function getTimeBasedStyleSheet() {
           
           var currentTime = new Date().getHours();
           if (0 <= currentTime&&currentTime < 5) {
-            makeBackground('night');
+            timeOfDay = 'night';
+            makeBackground(timeOfDay);
           }
           if (5 <= currentTime&&currentTime < 11) {
-            makeBackground('morning');
+            timeOfDay = 'morning';
+            makeBackground(timeOfDay);
           }
           if (11 <= currentTime&&currentTime < 16) {
-            makeBackground('day');
+            timeOfDay = 'day';
+            makeBackground(timeOfDay);
           }
           if (16 <= currentTime&&currentTime < 22) {
-            makeBackground('evening');
+            timeOfDay = 'evening';
+            makeBackground(timeOfDay);
           }
           if (22 <= currentTime&&currentTime <= 24) {
-            makeBackground('night');
+            timeOfDay = 'night';
+            makeBackground(timeOfDay);
           }
           
         }
@@ -229,12 +235,18 @@ angular.module("interactiveCv", [])
             $('.susie').addClass('face-left');
             AnimateService.animateLeft('.susie', 0);
 
-            AnimateService.animateMoonriseRight('.sun-moon', 25);
             AnimateService.animateRight('.stars-clouds', 25);
 
             AnimateService.animateRight('.med-moving-items', speedMed);
             AnimateService.animateRight('.slow-moving-items', speedSlow);
             AnimateService.animateRight('.v-slow-moving-items', speedVSlow);
+
+            if(timeOfDay == 'morning' || timeOfDay == 'evening') {
+              AnimateService.animateMoonriseRight('.sun-moon', 25, 25);
+            }
+            else {
+              AnimateService.animateMoonriseRight('.sun-moon', 1, 0);
+            }
           }
 
           function activateMovingRightAnimations() {
@@ -244,12 +256,19 @@ angular.module("interactiveCv", [])
             AnimateService.animateRight('.susie', 0);
 
             //AnimateService.animateLeft('.sun-moon', 1);
-            AnimateService.animateMoonriseRight('.sun-moon', 25);
+            
             AnimateService.animateLeft('.stars-clouds', 25);
 
             AnimateService.animateLeft('.med-moving-items', speedMed);
             AnimateService.animateLeft('.slow-moving-items', speedSlow);
             AnimateService.animateLeft('.v-slow-moving-items', speedVSlow);
+            //debugger;
+            if(timeOfDay == 'morning' || timeOfDay == 'evening') {
+              AnimateService.animateMoonriseRight('.sun-moon', 25, 25);
+            }
+            else {
+              AnimateService.animateMoonriseRight('.sun-moon', 1, 0);
+            }
           }
 
 
