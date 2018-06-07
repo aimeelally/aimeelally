@@ -1,6 +1,7 @@
 ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
+    height: 0;
 }
 
 #interactive-cv {
@@ -32,10 +33,17 @@
   .sun-moon { z-index: 2 }
   .stars-clouds { z-index: 3 }
   .hill { z-index: 4 }
-  .slow-moving-items { z-index: 3 }
-  .susie, .susie-shadow { z-index: 5 }
-  .rock-1, .sign-container { z-index: 6 }
-  .susie-speech-container { z-index: 7 }
+  
+  .susie, 
+  .susie-shadow,
+  .susie-speech-container { z-index: 5 }
+
+  .sign-container, 
+  .tree-about,
+  .rock-1,
+  .section-container { z-index: 6 }
+  //.rock-1, .sign-container { z-index: 6 }
+  //.susie-speech-container { z-index: 7 }
   .ground-container { z-index: 8 }
   
 
@@ -84,7 +92,7 @@
     .sky { background: $med-purple }
     .sky { background: linear-gradient($dark-purple, $med-purple); }
     .hill { background: url(/assets/interactive-cv/night-hill.png); }
-    .grass { background: url(/assets/interactive-cv/night-grass.png); }
+    .grass { background: url(/assets/interactive-cv/sketch-grass.png); }
     .stars-clouds { 
       z-index: 2;
       background: url(/assets/interactive-cv/night-stars.png); 
@@ -117,6 +125,7 @@
 
   
   .v-slow-moving-items,
+  .med-slow-moving-items,
   .slow-moving-items,
   .med-moving-items {
     position: absolute;
@@ -168,9 +177,7 @@
 
   .tree-about {
     left: $pos_of_first_section;
-    width: 558px;
-    height: 681px;
-    z-index: 999;
+    height: 100%;
     top: 0;
     background: url(/assets/interactive-cv/tree-about.png);
     background-size: contain;
@@ -265,7 +272,7 @@
   }
   .grass {
     width: 100%;
-    height: 50px;
+    height: 100px;
     left: -1000px;
     background: url(/assets/interactive-cv/grass.png);
   }

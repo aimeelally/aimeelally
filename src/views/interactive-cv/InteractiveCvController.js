@@ -17,6 +17,7 @@ angular.module("interactiveCv", [])
         var movLeft = 0;
         var movRight = 0;
         var speedVSlow = 0,
+            speedMedSlow = 100,
             speedSlow = 200,
             speedMed = 300,
             speedFast = 800,
@@ -273,6 +274,7 @@ angular.module("interactiveCv", [])
 
             AnimateService.animateRight('.med-moving-items', speedMed);
             AnimateService.animateRight('.slow-moving-items', speedSlow);
+            AnimateService.animateRight('.med-slow-moving-items', speedMedSlow);
             AnimateService.animateRight('.v-slow-moving-items', speedVSlow);
 
             if(timeOfDay == 'morning' || timeOfDay == 'evening') {
@@ -295,6 +297,8 @@ angular.module("interactiveCv", [])
 
             AnimateService.animateLeft('.med-moving-items', speedMed);
             AnimateService.animateLeft('.slow-moving-items', speedSlow);
+            AnimateService.animateLeft('.med-slow-moving-items', speedMedSlow);
+            
             AnimateService.animateLeft('.v-slow-moving-items', speedVSlow);
             //debugger;
             if(timeOfDay == 'morning' || timeOfDay == 'evening') {
