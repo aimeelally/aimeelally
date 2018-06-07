@@ -9,6 +9,10 @@ angular.module("interactiveCv", [])
         const FARTHEST_POINT_LEFT = 200;
         const FARTHEST_POINT_RIGHT = -8000;
 
+        // $scope.showFirstSpeechBubble = false;
+        // $scope.showSecondSpeechBubble = false;
+        // $scope.showThirdSpeechBubble = false;
+
         var timeOfDay = '';
         var movLeft = 0;
         var movRight = 0;
@@ -20,12 +24,16 @@ angular.module("interactiveCv", [])
 
         $scope.contactForm = {};
 
-        $scope.yes = function() {
-          var response = ChatbotService.yes();
+        $scope.yesShesLooking = function() {
+          var response = ChatbotService.yesShesLooking();
+          $('.susie').addClass('happy');
+          showSpeechBubble(2)
         }
 
-        $scope.no = function() {
-          var response = ChatbotService.no();
+        $scope.noShesNotLooking = function() {
+          var response = ChatbotService.noShesNotLooking();
+          $('.susie').addClass('angry');
+          showSpeechBubble(3)
         }
 
         var keysdown = {},
@@ -47,34 +55,59 @@ angular.module("interactiveCv", [])
             $('.susie').addClass('show-animation');
             $('.susie-shadow').addClass('show-animation');
           },1000);
+
+          showSpeechBubble(1);
+
+          //$scope.showFirstSpeechBubble = true;
+        }
+
+        function showSpeechBubble(num) {
+          // var speechBubbleToShow = 'showSpeechBubble'+num;
+
+          // $scope.showSpeechBubble1 = false;
+          // $scope.showSpeechBubble2 = false;
+          // $scope.showSpeechBubble3 = false;
+          // $scope.showSpeechBubble4 = false;
+          // for(speechBubble in speechBubbles) {
+          //   speechBubble = false;
+          // }
+          // speechBubbles.speechBubbleToShow = true;
+          //debugger;
+          $scope.speechBubbleToShow = num;
         }
 
 
         function makeBackground(time) {
           $('#interactive-cv')
             .removeClass('day night morning evening')
-            .addClass('night');
+            .addClass(time);
         }
 
         function getTimeBasedStyleSheet() {
           
           var currentTime = new Date().getHours();
+
+          // 12AM - 4:59AM
           if (0 <= currentTime&&currentTime < 5) {
             timeOfDay = 'night';
             makeBackground(timeOfDay);
           }
+          // 5AM - 10:59AM
           if (5 <= currentTime&&currentTime < 11) {
             timeOfDay = 'morning';
             makeBackground(timeOfDay);
           }
+          // 11AM - 3:59PM
           if (11 <= currentTime&&currentTime < 16) {
             timeOfDay = 'day';
             makeBackground(timeOfDay);
           }
+          // 4PM - 9:59PM
           if (16 <= currentTime&&currentTime < 22) {
             timeOfDay = 'evening';
             makeBackground(timeOfDay);
           }
+          // 10PM - 11:59PM
           if (22 <= currentTime&&currentTime <= 24) {
             timeOfDay = 'night';
             makeBackground(timeOfDay);
@@ -243,7 +276,7 @@ angular.module("interactiveCv", [])
             AnimateService.animateRight('.v-slow-moving-items', speedVSlow);
 
             if(timeOfDay == 'morning' || timeOfDay == 'evening') {
-              AnimateService.animateMoonriseRight('.sun-moon', 25, 25);
+              AnimateService.animateMoonriseRight('.sun-moon', 40, 10);
             }
             else {
               AnimateService.animateMoonriseRight('.sun-moon', 1, 0);
@@ -265,7 +298,7 @@ angular.module("interactiveCv", [])
             AnimateService.animateLeft('.v-slow-moving-items', speedVSlow);
             //debugger;
             if(timeOfDay == 'morning' || timeOfDay == 'evening') {
-              AnimateService.animateMoonriseRight('.sun-moon', 25, 25);
+              AnimateService.animateMoonriseRight('.sun-moon', 10, 10);
             }
             else {
               AnimateService.animateMoonriseRight('.sun-moon', 1, 0);

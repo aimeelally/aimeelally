@@ -41,13 +41,19 @@ export default ['$state', '$rootScope',function($state, $rootScope){
       );
   }
 
-  function animateMoonriseLeft(element, distance) {
+  function animateMoonriseLeft(element, distanceRight, distanceUp) {
+    var posFromTop = $(element).position().top / $(window).height()  * 100;//$(element).position().top;
+    var posFromLeft = $(element).position().left / $(window).width()  * 100;//$(element).position().left;
+    //debugger;
+    if( posFromTop < 10 || posFromLeft > 70 ) {
+      return;
+    }
     $(element)
       .stop()
       .animate( 
         { 
-          left: '-='+distance,
-          top: '-='+distance 
+          left: '-='+distanceRight,
+          top: '-='+distanceUp
         }, 
         'slow', 
         'linear' 

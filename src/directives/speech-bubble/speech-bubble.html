@@ -1,0 +1,57 @@
+<div class="index-{{index}} talk-bubble tri-right border round {{trianglePosition}}">
+  <p 
+    ng-if="bubbleContentOne"
+    class="talktext">
+    {{bubbleContentOne}}
+  </p>
+  <p 
+    ng-if="bubbleContentTwo"
+    class="talktext">
+    {{bubbleContentTwo}}
+  </p>
+  <p 
+    ng-if="bubbleContentThree"
+    class="talktext">
+    {{bubbleContentThree}}
+  </p>
+  <p 
+    ng-if="bubbleContentFour"
+    class="talktext">
+    {{bubbleContentFour}}
+  </p>
+  <p 
+    ng-if="bubbleContentFive"
+    class="talktext">
+    {{bubbleContentFive}}
+  </p>
+
+  <div ng-if="firstChoiceContent || secondChoiceContent">
+    <hr>
+    
+    <div 
+      ng-if="firstChoiceContent"
+      class="span-12">
+      <button
+        class="btn-4 talktext"
+        ng-click="firstChoiceAction()">
+        {{firstChoiceContent}}
+      </button>
+    </div>
+
+    <hr>
+
+    <div 
+      ng-if="secondChoiceContent"
+      class="span-12">
+      <button
+        class="btn-4 talktext"
+        ng-click="secondChoiceAction()">
+        {{secondChoiceContent}}
+      </button>
+    </div>
+
+  </div>
+
+  
+
+</div>

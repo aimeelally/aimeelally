@@ -11,7 +11,7 @@
   $width_of_sky: 9500px;
   $width_of_ground: calc(#{$width_of_sky} + 500px);
 
-  $pos_of_first_section: 1000px;
+  $pos_of_first_section: 1500px;
 
   $light-purple: #9b84db;
   $light-blue: #fff;
@@ -34,9 +34,10 @@
   .hill { z-index: 4 }
   .slow-moving-items { z-index: 3 }
   .susie, .susie-shadow { z-index: 5 }
-  .rock-1 { z-index: 6 }
-  .ground-container { z-index: 7 }
-  .susie-speech-container { z-index: 8 }
+  .rock-1, .sign-container { z-index: 6 }
+  .susie-speech-container { z-index: 7 }
+  .ground-container { z-index: 8 }
+  
 
 
   &.morning {
@@ -99,16 +100,18 @@
   .sign-container {
     width: 400px;
     height: 400px;
+    position: absolute;
+    bottom: 0;
   }
 
   .sign {
     position: absolute;
     width: 100%;
     height: 100%;
-    left: 500px;
-    z-index: 999;
-    background-size: contain;
+    left: 800px;
     background: url(/assets/interactive-cv/sign.png);
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
 
@@ -160,14 +163,25 @@
     width: 1000px;
   }
   .details {
+    left: calc( #{$pos_of_first_section} + 650px );
+  }
+
+  .tree-about {
     left: $pos_of_first_section;
+    width: 558px;
+    height: 681px;
+    z-index: 999;
+    top: 0;
+    background: url(/assets/interactive-cv/tree-about.png);
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   .education {
-    left: calc( #{$pos_of_first_section} + 500px );
+    left: calc( #{$pos_of_first_section} + 1500px );
   }
   .work-experience {
-    left: calc( #{$pos_of_first_section} + 1000px );
+    left: calc( #{$pos_of_first_section} + 2000px );
   }
   .skills {
     left: calc( #{$pos_of_first_section} + 2000px );

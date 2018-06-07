@@ -12,8 +12,8 @@ module.exports = function(grunt) {
           {expand: true, cwd: "src/", src: ["index.html", "assets", "aws-sdk"], dest: "dist/"},
           {expand: true, cwd: "src/assets/", src: ["**"], dest: "dist/assets/"},
           {expand: true, cwd: "src/aws-sdk/", src: ["**"], dest: "dist/aws-sdk/"},
-          //{expand: true, cwd: "src/views/", src: ["**"], dest: "dist/views/"}, //@aimee: this is so we can reference questions for the quiz, if no other references then just point directly to that folder
-          //{expand: true, cwd: "src/directives/", src: ["**"], dest: "dist/directives/"}
+          {expand: true, cwd: "src/views/", src: ["**"], dest: "dist/views/"}, //@aimee: this is so we can reference questions for the quiz, if no other references then just point directly to that folder
+          {expand: true, cwd: "src/directives/", src: ["**"], dest: "dist/directives/"}
         ]
       },
      dist:{

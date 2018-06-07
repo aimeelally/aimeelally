@@ -1,12 +1,15 @@
-$susie_face_straight: -355px -19px;
-$susie_face-right: -19px -19px;
-$susie_face_left: -19px -205px;
-$susie_shadow: -355px -205px;
+$susie_face_straight: -336px 0px;
+$susie_face-right: 0px 0px;
+$susie_face_left: 0 -186px;
+$susie_happy: -670px 0;
+$susie_angry: -840px 0;
+$susie_shadow: -336px -186px;
 
-$susie_bounce_left: -522px -205px;
-$susie_bounce_right: -522px -19px;
+$susie_bounce_left: -503px -186px;
+$susie_bounce_right: -503px 0;
 
 $susie_offset_top: 72%;
+$susie_offset_left: 20%;
 
 .susie {
   width: 104px;
@@ -14,8 +17,14 @@ $susie_offset_top: 72%;
   position: fixed;
   background: url(/assets/interactive-cv/susie-sprite-sheet.png);
   background-position: $susie_face_straight;
-  left: 50%;
+  //left: $susie_offset_left;
   top: $susie_offset_top;
+  &.happy {
+    background-position: $susie_happy;
+  } 
+  &.angry {
+    background-position: $susie_angry;
+  } 
   &.face-left {
     background-position: $susie_face_left;
   } 
@@ -44,7 +53,7 @@ $susie_offset_top: 72%;
   height: 169px;
   position: fixed;
   background: url(/assets/interactive-cv/susie-sprite-sheet.png) $susie_shadow;
-  left: 50%;
+  //left: $susie_offset_left;
   top: calc(#{$susie_offset_top} + 0.5%);
   animation: shadowScale 1s infinite alternate;
   transform-origin: center;

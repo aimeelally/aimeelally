@@ -1,21 +1,36 @@
-<div class="susie-speech-container">
-  <div>
-    <p class="margin-bottom">Oh hi I'm Susie!</p>
-    <p class="margin-bottom">I got hopelessly lost when Aimée was <span class="strike">20</span> young.</p>
-    <p class="margin-bottom">I wonder if she's still looking for me?</p>
-    <button
-      ng-click="yes()" 
-      class="btn-4 block sm-margin-bottom">
-      Course she is, you're adorable!
-    </button>
-    <button 
-      ng-click="no()"
-      class="btn-4">
-      Nah, I heard she replaced you.
-    </button>
-  </div>
+<div 
+  ng-show="speechBubbleToShow === 1"
+  class="span-12 bubble-container">
+  <speech-bubble 
+    class="index-1 fade-in" 
+    bubble-content-one="Oh hi I'm Susie."
+    bubble-content-two="Someone robbed me off a bus ten years ago and I haven't been able to find my way home since."
+    bubble-content-three="I wonder if Aimée's still looking for me?"
+    first-choice-action="yesShesLooking()"
+    second-choice-action="noShesNotLooking()"
+    first-choice-content="Course she is, you're adorable!"
+    second-choice-content="Nah, I heard she replaced you.">
+  </speech-bubble>
 </div>
 
+<div 
+  ng-show="speechBubbleToShow === 2"
+  class="span-12 bubble-container">
+  <speech-bubble 
+    class="index-1 fade-in" 
+    bubble-content-one="Thanks! I knew she would be."
+    bubble-content-two="I've found her CV so she must be close by!"
+    bubble-content-three="Scroll right or press the right arrow key so we can find out what she got upto while I've been away.">
+  </speech-bubble>
+</div>
 
-<div class="susie"></div>
-<div class="susie-shadow"></div>
+<div 
+  ng-show="speechBubbleToShow === 3"
+  class="span-12 bubble-container">
+  <speech-bubble 
+    class="index-1 fade-in" 
+    bubble-content-one="Well you clearly don't know Aimée at all!"
+    bubble-content-two="Lucky for you I've found her CV so you can learn a bit about her."
+    bubble-content-three="Scroll right or press the right arrow key so we can find out what she got upto while I've been away.">
+  </speech-bubble>
+</div>

@@ -1,14 +1,14 @@
 export default ['$state', '$rootScope',function($state, $rootScope){
   var that= {
-              yes: yes,
-              no: no 
+              yesShesLooking: yesShesLooking,
+              noShesNotLooking: noShesNotLooking 
             };
 
-  function yes() {
+  function yesShesLooking() {
     console.log('great');
   }
 
-  function no() {
+  function noShesNotLooking() {
     console.log('what would you know');
   }
 

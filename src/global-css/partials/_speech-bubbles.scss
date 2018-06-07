@@ -1,8 +1,8 @@
 /* CSS talk bubble */
-speech-bubble:last-of-type .talk-bubble{
-  background-color: $color-neutral-0;
-  box-shadow: 0px 5px 20px $color-neutral-5;
-}
+// speech-bubble:last-of-type .talk-bubble{
+//   background-color: $color-neutral-0;
+//   box-shadow: 0px 5px 20px $color-neutral-5;
+// }
 speech-bubble:last-of-type .tri-right.btm-left-in:after {
   border-top-color: $color-neutral-0;
 }
@@ -17,30 +17,34 @@ speech-bubble:last-of-type .tri-right.btm-left-in:after {
 }
 
 //add a wobble to the last speech bubble unless it also has an animated order of entry
-speech-bubble:last-of-type {
-  animation-name: wobble;
-  animation-duration: 1000ms;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-}
+// speech-bubble:last-of-type {
+//   animation-name: wobble;
+//   animation-duration: 1000ms;
+//   animation-iteration-count: 1;
+//   animation-timing-function: ease-in-out;
+// }
 
 .talk-bubble {
   display: inline-block;
   position: relative;
-  float: right;
+  //float: right;
+  width: 100%;
   height: auto;
   margin-bottom: 2em;
-  background-color: $color-neutral-2;
+  background-color: $color-neutral-0;
 }
 
 .border{
-  border: 2px solid $color-neutral-5;
+  //border: 2px solid $color-neutral-5;
+  border: 5px solid;
+  border-image-source: url(/assets/interactive-cv/speech-bubble-top.png);
+  border-image-slice: 45;
+  border-image-width: 13px;
+  border-image-outset: 1;
+  border-image-repeat: round;
 }
 .round{
-  border-radius: 40px;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-
+  @include rounded(20px);
 }
 
 
@@ -48,31 +52,31 @@ speech-bubble:last-of-type {
 .tri-right.border.btm-left-in:before {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 70%;
-  width: 0;
-  height: 0;
-  border: 24px solid transparent;
-  border-top-color: $color-neutral-5;
+  bottom: -27px;
+  left: 110px;
+  border: 17px solid;
+  border-image-source: url(/assets/interactive-cv/speech-bubble-bottom.png);
+  border-image-slice: 50;
+  border-image-width: 14px;
+  border-image-outset: 1;
+  border-image-repeat: stretch;
   border-bottom: 0;
   border-left: 0;
-  margin-left: -12px;
-  margin-bottom: -25px;
 }
-.tri-right.btm-left-in:after{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 70%;
-  width: 0;
-  height: 0;
-  border: 20px solid transparent;
-  border-top-color: $color-neutral-2;
-  border-bottom: 0;
-  border-left: 0;
-  margin-left: -10px;
-  margin-bottom: -20px;
-}
+// .tri-right.btm-left-in:after{
+//   content: '';
+//   position: absolute;
+//   bottom: 0;
+//   left: 70%;
+//   width: 0;
+//   height: 0;
+//   border: 20px solid transparent;
+//   border-top-color: $color-neutral-2;
+//   border-bottom: 0;
+//   border-left: 0;
+//   margin-left: -10px;
+//   margin-bottom: -20px;
+// }
 
 .tri-right.border.top:before {
   content: '';
@@ -159,9 +163,9 @@ speech-bubble:last-of-type {
 /* talk bubble contents */
 .talktext{
   font-family: $font;
-  padding: 1em;
-  text-align: left;
-  line-height: 1.5em;
+  padding: 0.5em;
+  text-align: center;
+  //line-height: 1.5em;
 }
 .talktext p{
   /* remove webkit p margins */

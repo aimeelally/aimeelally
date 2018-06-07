@@ -1,12 +1,13 @@
 .susie-speech-container {
   position: fixed;
-  bottom: 0;
+  bottom: 25%;
   //height: 100px;
-  left: -40%;
+  left: 1em;
   width: 40%;
+  max-width: 350px;
   padding: 0.5em;
-  background: rgba(255,255,255, 0.9);
-  animation: slideIn 1s forwards;
+  //background: rgba(255,255,255, 0.9);
+  //animation: slideIn 1s forwards;
 
   .strike {
     text-decoration: line-through;
@@ -19,6 +20,21 @@
     to {
       left: 0;
     }
+  }
+
+  /* .bubble-container {
+    height: calc(100vh - 250px);
+    // overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  } */
+
+  $max-speech-bubbles: 5;
+  @for $i from 1 through $max-speech-bubbles {
+    .index-#{$i}.fade-in { 
+      animation-delay: calc(#{$i}s / 2);
+    } 
   }
 
 }
