@@ -31,7 +31,7 @@ speech-bubble:last-of-type .tri-right.btm-left-in:after {
   width: 100%;
   height: auto;
   margin-bottom: 2em;
-  background-color: $color-neutral-0;
+  background-color: rgba(255,255,255,0.7);
 }
 
 .border{
@@ -41,10 +41,10 @@ speech-bubble:last-of-type .tri-right.btm-left-in:after {
   border-image-slice: 45;
   border-image-width: 13px;
   border-image-outset: 1;
-  border-image-repeat: round;
+  border-image-repeat: stretch;
 }
 .round{
-  @include rounded(20px);
+  @include rounded(1em);
 }
 
 

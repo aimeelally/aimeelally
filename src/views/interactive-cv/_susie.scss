@@ -8,13 +8,13 @@ $susie_shadow: -336px -186px;
 $susie_bounce_left: -503px -186px;
 $susie_bounce_right: -503px 0;
 
-$susie_offset_top: 72%;
+$susie_offset_top: 95%;
 $susie_offset_left: 20%;
 
 .susie {
   width: 104px;
   height: 169px;
-  position: fixed;
+  position: absolute;
   background: url(/assets/interactive-cv/susie-sprite-sheet.png);
   background-position: $susie_face_straight;
   //left: $susie_offset_left;

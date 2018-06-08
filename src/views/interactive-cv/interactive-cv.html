@@ -1,168 +1,74 @@
 <div id="preloader">loading...</div>
-<div id="interactive-cv" class="span-12">
+<div id="interactive-cv">
 
 
+  <div class="horizontal-scroll-wrapper squares">
+     
     <div class="v-slow-moving-items">
-      <div class="sun-moon"></div>
-      <div class="stars-clouds"></div>
-      <div class="sky"></div>
-      
-    </div>
-
-    <div class="med-slow-moving-items">
-      <div class="hill"></div>
-
-    </div>
-    
-    <div class="evergreen-2"></div>
-    <div class="evergreen-1"></div>
-
-
-    <div class="slow-moving-items">
-      <div id="stop-scroll"></div>
-      <div class="creepy-tree-1"></div>
-      
-
-      <div class="sign-container"><div class="sign"></div></div>
-      
-      <div class="section-container tree-about"></div>
-
-      <div class="section-container details">
-
-        <h1>AIMÉE LALLY</h1>
-        <h2>is 340ish months</h2>
-        <h2>is kinda short</h2>
-        <h2>likes her husband</h2>
-        <h2>loves CSS</h2>
+        <div class="sun-moon"></div>
+        <div class="stars-clouds"></div>
+        <div class="sky"></div>
       </div>
 
-      <div class="section-container education">
-        <h1>Education</h1>
-        <h2>CERT: JavaScript - Understanding the Weird Parts</h2>
-        <h2>CERT: SAP Terp10</h2>
-        <h2>CERT: Enterprise Solutions Development</h2>
-        <h2>HDIP: Creative Multimedia Programming</h2>
-        <h2>BA: Fine Art Printmaking</h2>
-      </div>
+      <div class="med-slow-moving-items">
+        <div class="hill"></div>
 
-      <div class="section-container work-experience">
-        <h1>Experience</h1>
-        <h2>PROJECT LEAD: Adaptemy</h2>
-        <p>June 2017 - December 2017</p>
+      </div>
+      
+      <div class="evergreen-2"></div>
+      <div class="evergreen-1"></div>
+
+
+      <div class="slow-moving-items">
+        <div id="stop-scroll"></div>
+        <div class="creepy-tree-1"></div>
         
-        <h2>UI DEVELOPER: Adaptemy</h2>
-        <p>June 2015 - June 2017</p>
 
-        <h2>WEBSITE MAINTENANCE: Rua Red</h2>
-        <p>November 2016 - August 2017</p>
+        <div class="sign-container"><div class="sign"></div></div>
+        
+        <!-- <div class="section-container tree-about"></div> -->
 
-        <h2>ANIMATOR & DESIGNER: Ostia Software Solutions</h2>
-        <p>October 2013 - May 2015</p>
-      </div>
-
-      <div class="section-container skills">
-        <h1>Skills</h1>
-
-        <h2>LEADING A FRONTEND TEAM</h2>
-        <p>Managing the development team’s agile workflows</p>
-        <P>Managing the development team’s customer facing communications</P>
-        <p>Identifying and smoothing bottlenecks</p>
-
-        <h2>WEB DEVELOPMENT</h2>
-        <p>HTML, CSS, Javascript, Angular</p>
-        <p>UX development</p>
-
-        <h2>ANIMATION & DESIGN</h2>
-        <p>Photoshop, Illustrator, Premiere Pro, Blender, Unity</p>
-      </div>
-
-      <div class="testimonials-header">
-        <h1>MY FAVE TESTIMONIALS</h1>
-      </div>
-      <div class="section-container testimonials">
-        <div class="testimonial-text inline-block">
-          <h2>John Craddock</h2>
-          <h3>Development Manager at Adaptemy</h3>
-          <p>"Aimée is the most knowledgeable CSS developer I have worked with (or met, for that matter). Her methodology is to first implement a design system and to use that as a foundation for building component libraries and then complex interfaces."</P>
-          <p>"Aimee has a talent for improving the flow of work, identifying & smoothing bottlenecks and removing impediments. She is particularly strong at recognising and dealing with the ‘soft’ constraints caused by policy or people issues. She is a natural leader and would be an asset to any organisation."</p>
+        <div ng-include src="'/views/interactive-cv/sections/details.html'"></div>
+        <div ng-include src="'/views/interactive-cv/sections/education.html'"></div>
+        <div ng-include src="'/views/interactive-cv/sections/work-experience.html'"></div>
+        <div ng-include src="'/views/interactive-cv/sections/skills.html'"></div>
+        
+        <div class="testimonials-header">
+          <h1>MY FAVE TESTIMONIALS</h1>
         </div>
-
-        <div class="testimonial-text">
-          <h2>Maurice Glennon</h2>
-          <h3>UX/UI Designer</h3>
-          <p>"Aimée always gave insightful and valuable feedback on UX problems and designs solutions.
-          Many of these projects were complex, she handled them with creativity, patience, positivity and energy."</P>
-          <p>"As a team member or a leader, Aimée earns my highest recommendation."</p>
-        </div>
-
-        <div class="testimonial-text">
-          <h2>Tiina Lynch</h2>
-          <h3>Research Analyst at Adaptemy</h3>
-          <p>"Rarely have I worked with someone as efficient as Aimée. She was truly the super glue that kept the project together and the wheels that kept it rolling past the finish line."</p>
-          <p>"Aimée showed wonderful leadership amazing and time management skills, while simultaneously managing the human relations between the technical staff and the not-so technical staff."</p>
-        </div>
-
-        <div class="testimonial-text">
-          <h2>John O'Rourke</h2>
-          <h3>Software Engineer</h3>
-          <p>"Aimee is a very highly motivated individual with excellent people skills and great eye for design and attention to detail. I worked with Aimee on a number of different projects."</p>
-          <p>"She has a great talent for web design and aesthetics of the look and feel of a web based product. Aimee is a great person to have on any team not just for professionalism, but for her great humor and attitude she incorporates into the workplace."</p>
-        </div>
-
+        <div ng-include src="'/views/interactive-cv/sections/testimonials.html'"></div>
+        <div ng-include src="'/views/interactive-cv/sections/contact.html'"></div>
+        
       </div>
 
-      <div class="section-container contact details">
-        <h1>Get In Touch</h1>
-        <!-- <form>
-          <input type="text" name="msg" id="input-msg"/>
-          <button ng-click="send()">Send to SNS topic</button>
-        </form> -->
-        <form ng-submit="submitContactForm()" class="fancy-input-boxes">
-          <label class="block sm-margin-bottom">Who are you?</label>
-          <input 
-            type="text" 
-            class="span-12 margin-bottom"
-            ng-model="contactForm.uname" />
-          
-          <label class="block sm-margin-bottom">Your email</label>
-          <input 
-            type="email" 
-            class="span-12 margin-bottom"
-            ng-model="contactForm.email" />
-          
-          <label class="block sm-margin-bottom">What do you want to say?</label>
-          <textarea 
-            type="text"  
-            class="span-12 margin-bottom"
-            ng-model="contactForm.message">
-          </textarea>
-          <button class="btn-1 block" type="submit">Submit</button>
-        </form>
+      
+
+
+
+      <div class="med-moving-items">
+        
+        
+        <div class="ground-container">
+          <!-- <div class="path"></div> -->
+          <div class="grass-2"></div>
+          <div class="grass-1"></div>
+
+          <!-- <div class="ground"></div> -->
+        </div>
+        <!-- <div class="rock-1"></div> -->
+        <div class="mushroom"></div>
       </div>
-
-
-    </div>
-
-    <div class="med-moving-items">
       
       
-      <div class="ground-container">
-        <!-- <div class="path"></div> -->
-        <div class="grass"></div>
-        <!-- <div class="ground"></div> -->
+      
+      <div class="susie-speech-container">
+        <div ng-include src="'/views/interactive-cv/susie-chat-bot.html'"></div>
+
+        <div class="susie"></div>
+        <div class="susie-shadow"></div>
       </div>
-      <!-- <div class="rock-1"></div> -->
-    </div>
-    
-    
-    
-    <div class="susie-speech-container">
-      <div ng-include src="'/views/interactive-cv/susie-chat-bot.html'"></div>
 
-      <div class="susie"></div>
-      <div class="susie-shadow"></div>
-    </div>
-
+  </div>
     
 
 

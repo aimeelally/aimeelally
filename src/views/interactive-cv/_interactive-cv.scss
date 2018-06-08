@@ -4,6 +4,8 @@
     height: 0;
 }
 
+
+
 #interactive-cv {
 
   @import 'susie';
@@ -11,8 +13,15 @@
 
   $width_of_sky: 9500px;
   $width_of_ground: calc(#{$width_of_sky} + 500px);
+  $offset_left_for_scroll: -1000px;
 
   $pos_of_first_section: 1500px;
+  $pos_of_second_section: calc( #{$pos_of_first_section} + 700px);
+  $pos_of_third_section: calc( #{$pos_of_second_section} + 700px);
+  $pos_of_fourth_section: calc( #{$pos_of_third_section} + 700px);
+  $pos_of_fifth_section: calc( #{$pos_of_fourth_section} + 700px);
+  $pos_of_sixth_section: calc( #{$pos_of_fifth_section} + 700px);
+  $pos_of_seventh_section: calc( #{$pos_of_sixth_section} + 700px);
 
   $light-purple: #9b84db;
   $light-blue: #fff;
@@ -33,18 +42,22 @@
   .sun-moon { z-index: 2 }
   .stars-clouds { z-index: 3 }
   .hill, .evergreen-1, .evergreen-2 { z-index: 4 }
-  
-  .susie, 
-  .susie-shadow,
-  .susie-speech-container { z-index: 5 }
 
   .sign-container, 
   .tree-about,
-  .rock-1,
-  .section-container { z-index: 6 }
+  .rock-1 { z-index: 5 }
+  
+
+  .susie, 
+  .susie-shadow,
+  .susie-speech-container { z-index: 6 }
+
+  .mushroom { z-index: 7 }
+
+  .section-container { z-index: 8 }
   //.rock-1, .sign-container { z-index: 6 }
   //.susie-speech-container { z-index: 7 }
-  .ground-container { z-index: 8 }
+  .ground-container { z-index: 9 }
   
 
 
@@ -52,7 +65,8 @@
     .sky { background: $med-blue }
     .sky { background: linear-gradient($med-blue, $med-yellow); }
     .hill { background: url(/assets/interactive-cv/morning-hill.png); }
-    .grass { background: url(/assets/interactive-cv/sketch-grass.png); }
+    .grass-1 { background: url(/assets/interactive-cv/sketch-grass.png); }
+    .grass-2 { background: url(/assets/interactive-cv/morning-grass.png); }
     .evergreen-1 { 
       background: url(/assets/interactive-cv/day-evergreen.png); 
       background-repeat-x: repeat;
@@ -76,7 +90,8 @@
     .sky { background: $med-blue }
     .sky { background: linear-gradient($med-blue, $light-blue); }
     .hill { background: url(/assets/interactive-cv/day-hill.png); }
-    .grass { background: url(/assets/interactive-cv/sketch-grass.png); }
+    .grass-1 { background: url(/assets/interactive-cv/sketch-grass.png); }
+    .grass-2 { background: url(/assets/interactive-cv/day-grass.png); }
     .evergreen-1 { 
       background: url(/assets/interactive-cv/day-evergreen.png); 
       background-repeat-x: repeat;
@@ -100,7 +115,8 @@
     .sky { background: $med-orange }
     .sky { background: linear-gradient($med-purple, $med-orange); }
     .hill { background: url(/assets/interactive-cv/evening-hill.png); }
-    .grass { background: url(/assets/interactive-cv/sketch-grass.png); }
+    .grass-1 { background: url(/assets/interactive-cv/sketch-grass.png); }
+    .grass-2 { background: url(/assets/interactive-cv/evening-grass.png); }
     .evergreen-1 { 
       background: url(/assets/interactive-cv/evening-evergreen.png); 
       background-repeat-x: repeat;
@@ -128,7 +144,8 @@
     .sky { background: $med-purple }
     .sky { background: linear-gradient($dark-purple, $med-purple); }
     .hill { background: url(/assets/interactive-cv/night-hill.png); }
-    .grass { background: url(/assets/interactive-cv/sketch-grass.png); }
+    .grass-1 { background: url(/assets/interactive-cv/sketch-grass.png); }
+    .grass-2 { background: url(/assets/interactive-cv/night-grass.png); }
     .evergreen-1 { 
       background: url(/assets/interactive-cv/night-evergreen.png); 
       background-repeat-x: repeat;
@@ -154,17 +171,18 @@
   }
 
   .sign-container {
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
     position: absolute;
     bottom: 0;
+    left: 90%;
   }
 
   .sign {
     position: absolute;
     width: 100%;
     height: 100%;
-    left: 800px;
+    //left: 110%;
     background: url(/assets/interactive-cv/sign.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -189,11 +207,10 @@
 
   .hill, 
   .sky,
-  .stars-clouds,
   .evergreen-1,
   .evergreen-2 {
     position: absolute;
-    left: -1000px;
+    left: $offset_left_for_scroll;
     top: 0;
     width: $width_of_sky;
     height: 100%;
@@ -206,6 +223,11 @@
 
   .stars-clouds {
     position: fixed;
+    left: $offset_left_for_scroll;
+    top: 0;
+    width: $width_of_sky;
+    height: 100%;
+    background-repeat: repeat;
   }
 
   .sun-moon {
@@ -222,41 +244,51 @@
 
   .section-container {
     position: absolute;
-    top: 20px;
-    width: 1000px;
+    top: 1em;
+    display: table;
+    background: rgba(255,255,255,0.7);
+    padding: 1em;
+    min-width: 45%;
+    border: 5px solid;
+    border-image-source: url(/assets/interactive-cv/speech-bubble-top.png);
+    border-image-slice: 45;
+    border-image-width: 13px;
+    border-image-outset: 1;
+    border-image-repeat: stretch;
+    @include rounded(1em);
   }
   .details {
-    left: calc( #{$pos_of_first_section} + 650px );
+    left: $pos_of_first_section;
   }
 
-  .tree-about {
-    left: $pos_of_first_section;
-    height: 100%;
-    top: 0;
-    background: url(/assets/interactive-cv/tree-about.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
+  // .tree-about {
+  //   left: $pos_of_first_section;
+  //   height: 100%;
+  //   top: 0;
+  //   background: url(/assets/interactive-cv/tree-about.png);
+  //   background-size: contain;
+  //   background-repeat: no-repeat;
+  // }
 
   .education {
-    left: calc( #{$pos_of_first_section} + 1500px );
+    left: $pos_of_second_section;
   }
   .work-experience {
-    left: calc( #{$pos_of_first_section} + 2000px );
+    left: $pos_of_third_section;
   }
   .skills {
-    left: calc( #{$pos_of_first_section} + 2000px );
+    left: $pos_of_fourth_section;
   }
   .testimonials-header {
     position: absolute;
     top: 267px;
     width: 100px;
-    left: calc( #{$pos_of_first_section} + 3500px );
+    left: $pos_of_fifth_section;
     transform: rotate(-90deg);
     h1 { width: 400px; }
   }
   .testimonials {
-    left: calc( #{$pos_of_first_section} + 4000px );
+    left: $pos_of_sixth_section;
     width: 3000px;
     p { margin-bottom: 2em; }
     .testimonial-text {
@@ -266,7 +298,7 @@
     }
   }
   .contact {
-    left: calc( #{$pos_of_first_section} + 7000px );
+    left: $pos_of_seventh_section;
     width: 500px;
     textarea {
       min-height: 120px;
@@ -305,6 +337,17 @@
     background-repeat: no-repeat;
   }
 
+  .mushroom {
+    position: absolute;
+    left: 90%;
+    bottom: 0;
+    width: 15%;
+    height: 15%;
+    background: url(/assets/interactive-cv/mushroom.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
   .creepy-tree-1 {
     // position: absolute;
     // left: 500px;
@@ -320,14 +363,23 @@
 
   .ground-container {
     position: absolute;
-    left: -1000px;
+    left: $offset_left_for_scroll;
     bottom: 0;
     width: $width_of_ground;
   }
-  .grass {
+  .grass-1 {
     width: 100%;
     height: 100px;
-    left: -1000px;
+    position: absolute;
+    bottom: 0;
+    left: $offset_left_for_scroll;
+  }
+  .grass-2 {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: $offset_left_for_scroll;
     background: url(/assets/interactive-cv/grass.png);
   }
   .ground {
@@ -343,7 +395,69 @@
     background: url(/assets/interactive-cv/path.png);
     background-size: contain;
   }
+  .section-container,
+  .v-slow-moving-items,
+  .slow-moving-items,
+  .med-slow-moving-items,
+  .hill {
+    content: "";
+    display: table;
+    clear: both;
+  }
   
-  
+
+}
+
+
+#interactive-cv {
+  @media screen and (max-width:800px) {
+    $finalHeight: 100%;
+    $finalWidth: $finalHeight;
+    $scrollBarHeight: 1px;
+
+    ::-webkit-scrollbar {
+      width: $scrollBarHeight;
+      height: $scrollBarHeight;
+    }
+
+    ::-webkit-scrollbar-button {
+      width: $scrollBarHeight;
+      height: $scrollBarHeight;
+    }
+
+
+    .horizontal-scroll-wrapper {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: calc(#{$finalHeight} + #{$scrollBarHeight});
+      max-height: $finalWidth;
+      margin: 0;
+      padding-top: $scrollBarHeight;
+      background: #abc;
+      overflow-y: auto;
+      overflow-x: hidden;
+      transform: rotate(-90deg) translateY(-$finalHeight);
+      transform-origin: right top;
+      & > div {
+        display: block;
+        padding: 5px;
+        background: #cab;
+        transform: rotate(90deg);
+        transform-origin: right top;
+      }
+    }
+
+    .squares {
+      padding: $finalHeight 0 0 0;
+      & > div {
+        width: $finalHeight;
+        height: $finalHeight;
+        margin: 10px 0;
+      }
+    }
+
+  }
 
 }
