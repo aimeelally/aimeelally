@@ -28,6 +28,7 @@ angular.module("interactiveCv", [])
         //var arrOfElements = 
 
         $scope.contactForm = {};
+        $scope.mobile = false;
 
         $scope.yesShesLooking = function() {
           var response = ChatbotService.yesShesLooking();

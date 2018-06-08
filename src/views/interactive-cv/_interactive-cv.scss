@@ -409,8 +409,9 @@
 }
 
 
-#interactive-cv {
+#interactive-cv.mobile {
   @media screen and (max-width:800px) {
+    transform: scaleY(0.9);
     $finalHeight: 100%;
     $finalWidth: $finalHeight;
     $scrollBarHeight: 1px;
@@ -457,6 +458,7 @@
         margin: 10px 0;
       }
     }
+
 
   }
 

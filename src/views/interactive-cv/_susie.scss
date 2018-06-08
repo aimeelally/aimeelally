@@ -11,6 +11,8 @@ $susie_bounce_right: -503px 0;
 $susie_offset_top: 95%;
 $susie_offset_left: 20%;
 
+
+
 .susie {
   width: 104px;
   height: 169px;
@@ -97,3 +99,184 @@ $susie_offset_left: 20%;
     background-position: $susie_face_right; 
   }
 }
+
+
+// @media screen and (max-width: 800px) {
+//   $susie_offset_top: 0%;
+//   .susie {
+//     width: 104px;
+//     height: 169px;
+//     position: absolute;
+//     background: url(/assets/interactive-cv/susie-sprite-sheet.png);
+//     background-position: $susie_face_straight;
+//     //left: $susie_offset_left;
+//     //top: $susie_offset_top;
+//     &.happy {
+//       background-position: $susie_happy;
+//     } 
+//     &.angry {
+//       background-position: $susie_angry;
+//     } 
+//     &.face-left {
+//       background-position: $susie_face_left;
+//     } 
+//     &.face-right {
+//       background-position: $susie_face_right;
+//     } 
+//     &.show-animation {
+//       animation: bounce 1s infinite alternate; 
+//     }
+//     &.animate-in {
+//       animation: dropIn 1s forwards;
+//     }
+//   }
+
+//   @keyframes dropIn {
+//     from {
+//       top: 0;
+//     }
+//     to {
+//       top: $susie_offset_top;
+//     }
+//   }
+
+//   .susie-shadow.show-animation {
+//     width: 104px;
+//     height: 169px;
+//     position: fixed;
+//     background: url(/assets/interactive-cv/susie-sprite-sheet.png) $susie_shadow;
+//     //left: $susie_offset_left;
+//     top: calc(#{$susie_offset_top} + 0.5%);
+//     animation: shadowScale 1s infinite alternate;
+//     transform-origin: center;
+//   }
+
+//   @keyframes bounce {
+//     from {
+//       transform: translateY(0px);
+//     }
+//     to {
+//       transform: translateY(-15px);
+//     }
+//   }
+
+//   @keyframes shadowScale {
+//     from {
+//       transform: scaleX(1.5);
+//     }
+//     to {
+//       transform: scaleX(1);
+//     }
+//   }
+
+
+//   .susie.left{
+//     background-position: $susie_bounce_left;
+//     top: calc(#{$susie_offset_top} - 1%);
+//     animation: moveleft .8s steps(1) infinite;  
+//   }
+//   @keyframes moveleft {
+//     100% { background-position: $susie_face_left; }
+//   }
+
+//   .susie.right{
+//     background-position: $susie_bounce_right;
+//     top: calc(#{$susie_offset_top} - 1%);
+//     animation: moveright .8s steps(1) infinite;
+//   }
+//   @keyframes moveright {
+//     100% { 
+//       background-position: $susie_face_right; 
+//     }
+//   }
+// }
+// @media screen and (min-width: 801px) {
+//   $susie_offset_top: 95%;
+//   .susie {
+//     width: 104px;
+//     height: 169px;
+//     position: absolute;
+//     background: url(/assets/interactive-cv/susie-sprite-sheet.png);
+//     background-position: $susie_face_straight;
+//     //left: $susie_offset_left;
+//     //top: $susie_offset_top;
+//     &.happy {
+//       background-position: $susie_happy;
+//     } 
+//     &.angry {
+//       background-position: $susie_angry;
+//     } 
+//     &.face-left {
+//       background-position: $susie_face_left;
+//     } 
+//     &.face-right {
+//       background-position: $susie_face_right;
+//     } 
+//     &.show-animation {
+//       animation: bounce 1s infinite alternate; 
+//     }
+//     &.animate-in {
+//       animation: dropIn 1s forwards;
+//     }
+//   }
+
+//   @keyframes dropIn {
+//     from {
+//       top: 0;
+//     }
+//     to {
+//       top: $susie_offset_top;
+//     }
+//   }
+
+//   .susie-shadow.show-animation {
+//     width: 104px;
+//     height: 169px;
+//     position: fixed;
+//     background: url(/assets/interactive-cv/susie-sprite-sheet.png) $susie_shadow;
+//     //left: $susie_offset_left;
+//     top: calc(#{$susie_offset_top} + 0.5%);
+//     animation: shadowScale 1s infinite alternate;
+//     transform-origin: center;
+//   }
+
+//   @keyframes bounce {
+//     from {
+//       transform: translateY(0px);
+//     }
+//     to {
+//       transform: translateY(-15px);
+//     }
+//   }
+
+//   @keyframes shadowScale {
+//     from {
+//       transform: scaleX(1.5);
+//     }
+//     to {
+//       transform: scaleX(1);
+//     }
+//   }
+
+
+//   .susie.left{
+//     background-position: $susie_bounce_left;
+//     top: calc(#{$susie_offset_top} - 1%);
+//     animation: moveleft .8s steps(1) infinite;  
+//   }
+//   @keyframes moveleft {
+//     100% { background-position: $susie_face_left; }
+//   }
+
+//   .susie.right{
+//     background-position: $susie_bounce_right;
+//     top: calc(#{$susie_offset_top} - 1%);
+//     animation: moveright .8s steps(1) infinite;
+//   }
+//   @keyframes moveright {
+//     100% { 
+//       background-position: $susie_face_right; 
+//     }
+//   }
+// }
+
