@@ -32,7 +32,7 @@
   .sky { z-index: 1 }
   .sun-moon { z-index: 2 }
   .stars-clouds { z-index: 3 }
-  .hill { z-index: 4 }
+  .hill, .evergreen-1, .evergreen-2 { z-index: 4 }
   
   .susie, 
   .susie-shadow,
@@ -52,7 +52,19 @@
     .sky { background: $med-blue }
     .sky { background: linear-gradient($med-blue, $med-yellow); }
     .hill { background: url(/assets/interactive-cv/morning-hill.png); }
-    .grass { background: url(/assets/interactive-cv/morning-grass.png); }
+    .grass { background: url(/assets/interactive-cv/sketch-grass.png); }
+    .evergreen-1 { 
+      background: url(/assets/interactive-cv/day-evergreen.png); 
+      background-repeat-x: repeat;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%;
+    }
+    .evergreen-2 { 
+      background: url(/assets/interactive-cv/morning-evergreen.png); 
+      background-repeat-x: repeat;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%;
+    }
     .stars-clouds { background: url(/assets/interactive-cv/morning-clouds.png); }
     .sun-moon {
       background: url(/assets/interactive-cv/morning-sun.png);
@@ -64,7 +76,19 @@
     .sky { background: $med-blue }
     .sky { background: linear-gradient($med-blue, $light-blue); }
     .hill { background: url(/assets/interactive-cv/day-hill.png); }
-    .grass { background: url(/assets/interactive-cv/day-grass.png); }
+    .grass { background: url(/assets/interactive-cv/sketch-grass.png); }
+    .evergreen-1 { 
+      background: url(/assets/interactive-cv/day-evergreen.png); 
+      background-repeat-x: repeat;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%;
+    }
+    .evergreen-2 { 
+      background: url(/assets/interactive-cv/night-evergreen.png); 
+      background-repeat-x: repeat;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%;
+    }
     .stars-clouds { background: url(/assets/interactive-cv/morning-clouds.png); }
     .sun-moon {
       background: url(/assets/interactive-cv/day-sun.png);
@@ -76,7 +100,19 @@
     .sky { background: $med-orange }
     .sky { background: linear-gradient($med-purple, $med-orange); }
     .hill { background: url(/assets/interactive-cv/evening-hill.png); }
-    .grass { background: url(/assets/interactive-cv/evening-grass.png); }
+    .grass { background: url(/assets/interactive-cv/sketch-grass.png); }
+    .evergreen-1 { 
+      background: url(/assets/interactive-cv/evening-evergreen.png); 
+      background-repeat-x: repeat;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%;
+    }
+    .evergreen-2 { 
+      background: url(/assets/interactive-cv/night-evergreen.png); 
+      background-repeat-x: repeat;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%;
+    }
     .stars-clouds { 
       z-index: 2;
       background: url(/assets/interactive-cv/evening-stars.png); 
@@ -93,6 +129,18 @@
     .sky { background: linear-gradient($dark-purple, $med-purple); }
     .hill { background: url(/assets/interactive-cv/night-hill.png); }
     .grass { background: url(/assets/interactive-cv/sketch-grass.png); }
+    .evergreen-1 { 
+      background: url(/assets/interactive-cv/night-evergreen.png); 
+      background-repeat-x: repeat;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%;
+    }
+    .evergreen-2 { 
+      background: url(/assets/interactive-cv/evening-evergreen.png); 
+      background-repeat-x: repeat;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%;
+    }
     .stars-clouds { 
       z-index: 2;
       background: url(/assets/interactive-cv/night-stars.png); 
@@ -141,13 +189,19 @@
 
   .hill, 
   .sky,
-  .stars-clouds {
+  .stars-clouds,
+  .evergreen-1,
+  .evergreen-2 {
     position: absolute;
     left: -1000px;
     top: 0;
     width: $width_of_sky;
     height: 100%;
     background-repeat: repeat;
+  }
+
+  .evergreen-2 {
+    left: -907px;
   }
 
   .stars-clouds {

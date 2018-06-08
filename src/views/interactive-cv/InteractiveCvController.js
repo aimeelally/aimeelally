@@ -1,5 +1,7 @@
 "use strict";
 
+import ARRAY_OF_ELEMENTS from './elements';
+
 angular.module("interactiveCv", [])
   .component("interactiveCv", {
     template: require("./interactive-cv.html"), 
@@ -22,6 +24,8 @@ angular.module("interactiveCv", [])
             speedMed = 300,
             speedFast = 800,
             speedVFast = 1000;
+
+        //var arrOfElements = 
 
         $scope.contactForm = {};
 
@@ -81,7 +85,7 @@ angular.module("interactiveCv", [])
         function makeBackground(time) {
           $('#interactive-cv')
             .removeClass('day night morning evening')
-            .addClass(time);
+            .addClass('night');
         }
 
         function getTimeBasedStyleSheet() {
@@ -268,14 +272,18 @@ angular.module("interactiveCv", [])
             $('.susie-shadow').removeClass('show-animation');
             $('.susie').removeClass('face-right');
             $('.susie').addClass('face-left');
+
             AnimateService.animateLeft('.susie', 0);
+            AnimateService.animateArrayOfElementsRight(ARRAY_OF_ELEMENTS);
 
-            AnimateService.animateRight('.stars-clouds', 25);
+            //AnimateService.animateRight('.stars-clouds', 25);
+            //AnimateService.animateRight('.evergreen-1', 30);
+            //AnimateService.animateRight('.evergreen-2', 45);
 
-            AnimateService.animateRight('.med-moving-items', speedMed);
-            AnimateService.animateRight('.slow-moving-items', speedSlow);
-            AnimateService.animateRight('.med-slow-moving-items', speedMedSlow);
-            AnimateService.animateRight('.v-slow-moving-items', speedVSlow);
+            //AnimateService.animateRight('.med-moving-items', speedMed);
+            //AnimateService.animateRight('.slow-moving-items', speedSlow);
+            //AnimateService.animateRight('.med-slow-moving-items', speedMedSlow);
+            //AnimateService.animateRight('.v-slow-moving-items', speedVSlow);
 
             if(timeOfDay == 'morning' || timeOfDay == 'evening') {
               AnimateService.animateMoonriseRight('.sun-moon', 40, 10);
@@ -289,17 +297,22 @@ angular.module("interactiveCv", [])
             $('.susie-shadow').removeClass('show-animation');
             $('.susie').removeClass('face-left');
             $('.susie').addClass('face-right');
+
+            AnimateService.animateArrayOfElementsLeft(ARRAY_OF_ELEMENTS);
+
             AnimateService.animateRight('.susie', 0);
 
             //AnimateService.animateLeft('.sun-moon', 1);
             
-            AnimateService.animateLeft('.stars-clouds', 25);
+            // AnimateService.animateLeft('.stars-clouds', 25);
+            // AnimateService.animateLeft('.evergreen-1', 30);
+            // AnimateService.animateLeft('.evergreen-2', 45);
 
-            AnimateService.animateLeft('.med-moving-items', speedMed);
-            AnimateService.animateLeft('.slow-moving-items', speedSlow);
-            AnimateService.animateLeft('.med-slow-moving-items', speedMedSlow);
+            // AnimateService.animateLeft('.med-moving-items', speedMed);
+            // AnimateService.animateLeft('.slow-moving-items', speedSlow);
+            // AnimateService.animateLeft('.med-slow-moving-items', speedMedSlow);
             
-            AnimateService.animateLeft('.v-slow-moving-items', speedVSlow);
+            // AnimateService.animateLeft('.v-slow-moving-items', speedVSlow);
             //debugger;
             if(timeOfDay == 'morning' || timeOfDay == 'evening') {
               AnimateService.animateMoonriseRight('.sun-moon', 10, 10);

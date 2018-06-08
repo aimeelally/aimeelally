@@ -1,0 +1,30 @@
+[
+  {
+    "el": ".stars-clouds",
+    "dist": 25
+  },
+  {
+    "el": ".sky",
+    "dist": 0
+  },
+  {
+    "el": ".evergreen-1",
+    "dist": 120
+  },
+  {
+    "el": ".evergreen-2",
+    "dist": 110
+  },
+  {
+    "el": ".med-moving-items",
+    "dist": 300
+  },
+  {
+    "el": ".slow-moving-items",
+    "dist": 200
+  },
+  {
+    "el": ".hill",
+    "dist": 100
+  }
+]

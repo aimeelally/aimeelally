@@ -3,7 +3,9 @@ export default ['$state', '$rootScope',function($state, $rootScope){
               animateRight: animateRight,
               animateLeft: animateLeft,
               animateMoonriseRight: animateMoonriseRight,
-              animateMoonriseLeft: animateMoonriseLeft
+              animateMoonriseLeft: animateMoonriseLeft,
+              animateArrayOfElementsRight: animateArrayOfElementsRight,
+              animateArrayOfElementsLeft: animateArrayOfElementsLeft
             };
 
   function animateRight(element, distance) {
@@ -58,6 +60,26 @@ export default ['$state', '$rootScope',function($state, $rootScope){
         'slow', 
         'linear' 
       );
+  }
+
+  function animateArrayOfElementsRight(elements) {
+    return elements.forEach(function(element) {
+      $(element.el)
+        .addClass('right')
+        .removeClass('left')
+        .stop()
+        .animate( { left: '+='+element.dist }, 'slow', 'linear' );
+    });
+  }
+
+  function animateArrayOfElementsLeft(elements) {
+    return elements.forEach(function(element) {
+      $(element.el)
+        .addClass('left')
+        .removeClass('right')
+        .stop()
+        .animate( { left: '-='+element.dist }, 'slow', 'linear' );
+    });
   }
  
   return that;
