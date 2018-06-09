@@ -15,7 +15,7 @@
   $width_of_ground: calc(#{$width_of_sky} + 500px);
   $offset_left_for_scroll: -1000px;
 
-  $pos_of_first_section: 1500px;
+  $pos_of_first_section: 110%;
   $pos_of_second_section: calc( #{$pos_of_first_section} + 700px);
   $pos_of_third_section: calc( #{$pos_of_second_section} + 700px);
   $pos_of_fourth_section: calc( #{$pos_of_third_section} + 700px);
@@ -64,7 +64,12 @@
   &.morning {
     .sky { background: $med-blue }
     .sky { background: linear-gradient($med-blue, $med-yellow); }
-    .hill { background: url(/assets/interactive-cv/morning-hill.png); }
+    .hill { 
+      background: url(/assets/interactive-cv/morning-hill.png);
+      background-size: contain;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%; 
+    }
     .grass-1 { background: url(/assets/interactive-cv/sketch-grass.png); }
     .grass-2 { background: url(/assets/interactive-cv/morning-grass.png); }
     .evergreen-1 { 
@@ -72,16 +77,23 @@
       background-repeat-x: repeat;
       background-repeat-y: no-repeat;
       background-position-y: 100%;
+      background-size: contain;
     }
     .evergreen-2 { 
       background: url(/assets/interactive-cv/morning-evergreen.png); 
       background-repeat-x: repeat;
       background-repeat-y: no-repeat;
       background-position-y: 100%;
+      background-size: contain;
     }
-    .stars-clouds { background: url(/assets/interactive-cv/morning-clouds.png); }
+    .stars-clouds { 
+      background: url(/assets/interactive-cv/morning-clouds.png);
+      background-size: contain;
+    }
     .sun-moon {
       background: url(/assets/interactive-cv/morning-sun.png);
+      background-repeat: no-repeat;
+      background-size: contain;
       bottom: 20%;
       right: 43%;
     }
@@ -89,7 +101,12 @@
   &.day {
     .sky { background: $med-blue }
     .sky { background: linear-gradient($med-blue, $light-blue); }
-    .hill { background: url(/assets/interactive-cv/day-hill.png); }
+    .hill { 
+      background: url(/assets/interactive-cv/day-hill.png);
+      background-size: contain;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%; 
+    }
     .grass-1 { background: url(/assets/interactive-cv/sketch-grass.png); }
     .grass-2 { background: url(/assets/interactive-cv/day-grass.png); }
     .evergreen-1 { 
@@ -97,16 +114,23 @@
       background-repeat-x: repeat;
       background-repeat-y: no-repeat;
       background-position-y: 100%;
+      background-size: contain;
     }
     .evergreen-2 { 
       background: url(/assets/interactive-cv/night-evergreen.png); 
       background-repeat-x: repeat;
       background-repeat-y: no-repeat;
       background-position-y: 100%;
+      background-size: contain;
     }
-    .stars-clouds { background: url(/assets/interactive-cv/morning-clouds.png); }
+    .stars-clouds { 
+      background: url(/assets/interactive-cv/morning-clouds.png);
+      background-size: contain;
+    }
     .sun-moon {
       background: url(/assets/interactive-cv/day-sun.png);
+      background-repeat: no-repeat;
+      background-size: contain;
       top: 20%;
       right: 43%;
     }
@@ -114,7 +138,12 @@
   &.evening {
     .sky { background: $med-orange }
     .sky { background: linear-gradient($med-purple, $med-orange); }
-    .hill { background: url(/assets/interactive-cv/evening-hill.png); }
+    .hill { 
+      background: url(/assets/interactive-cv/evening-hill.png);
+      background-size: contain;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%; 
+    }
     .grass-1 { background: url(/assets/interactive-cv/sketch-grass.png); }
     .grass-2 { background: url(/assets/interactive-cv/evening-grass.png); }
     .evergreen-1 { 
@@ -122,28 +151,38 @@
       background-repeat-x: repeat;
       background-repeat-y: no-repeat;
       background-position-y: 100%;
+      background-size: contain;
     }
     .evergreen-2 { 
       background: url(/assets/interactive-cv/night-evergreen.png); 
       background-repeat-x: repeat;
       background-repeat-y: no-repeat;
       background-position-y: 100%;
+      background-size: contain;
     }
     .stars-clouds { 
       z-index: 2;
       background: url(/assets/interactive-cv/evening-stars.png); 
+      background-size: contain;
     }
     .sun-moon {
       z-index: 3;
       bottom: 20%;
       right: 43%;
       background: url(/assets/interactive-cv/evening-moon.png);
+      background-repeat: no-repeat;
+      background-size: contain;
     }
   }
   &.night {
     .sky { background: $med-purple }
     .sky { background: linear-gradient($dark-purple, $med-purple); }
-    .hill { background: url(/assets/interactive-cv/night-hill.png); }
+    .hill { 
+      background: url(/assets/interactive-cv/night-hill.png);
+      background-size: contain;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%; 
+    }
     .grass-1 { background: url(/assets/interactive-cv/sketch-grass.png); }
     .grass-2 { background: url(/assets/interactive-cv/night-grass.png); }
     .evergreen-1 { 
@@ -151,31 +190,36 @@
       background-repeat-x: repeat;
       background-repeat-y: no-repeat;
       background-position-y: 100%;
+      background-size: contain;
     }
     .evergreen-2 { 
       background: url(/assets/interactive-cv/evening-evergreen.png); 
       background-repeat-x: repeat;
       background-repeat-y: no-repeat;
       background-position-y: 100%;
+      background-size: contain;
     }
     .stars-clouds { 
       z-index: 2;
       background: url(/assets/interactive-cv/night-stars.png); 
+      background-size: contain;
     }
     .sun-moon {
       z-index: 3;
       top: 20%;
       right: 43%;
       background: url(/assets/interactive-cv/night-moon.png);
+      background-repeat: no-repeat;
+      background-size: contain;
     }
   }
 
   .sign-container {
-    width: 200px;
-    height: 200px;
+    width: 30%;
+    height: 30%;
     position: absolute;
     bottom: 0;
-    left: 90%;
+    left: 60%;
   }
 
   .sign {
@@ -206,15 +250,25 @@
 
 
   .hill, 
-  .sky,
-  .evergreen-1,
-  .evergreen-2 {
+  .sky {
     position: absolute;
     left: $offset_left_for_scroll;
     top: 0;
     width: $width_of_sky;
     height: 100%;
     background-repeat: repeat;
+  }
+
+  .evergreen-1,
+  .evergreen-2 {
+    position: absolute;
+    left: $offset_left_for_scroll;
+    //bottom: 0;
+    width: $width_of_sky;
+    //height: 100%;
+    background-repeat: repeat;
+    height: 40%;
+    bottom: 0;
   }
 
   .evergreen-2 {
@@ -232,8 +286,10 @@
 
   .sun-moon {
     position: fixed;
-    width: 108px;
-    height: 108px;
+    // width: 108px;
+    // height: 108px;
+    width: 15%;
+    height: 15%;
     bottom: 30%;
     left: 45%;
   }
@@ -404,62 +460,87 @@
     display: table;
     clear: both;
   }
+
+  .mushroom,
+  .sign {
+    background-position: bottom;
+  }
   
 
 }
 
 
 #interactive-cv.mobile {
-  @media screen and (max-width:800px) {
-    transform: scaleY(0.9);
-    $finalHeight: 100%;
-    $finalWidth: $finalHeight;
-    $scrollBarHeight: 1px;
-
-    ::-webkit-scrollbar {
-      width: $scrollBarHeight;
-      height: $scrollBarHeight;
-    }
-
-    ::-webkit-scrollbar-button {
-      width: $scrollBarHeight;
-      height: $scrollBarHeight;
-    }
-
-
-    .horizontal-scroll-wrapper {
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 0;
-      width: calc(#{$finalHeight} + #{$scrollBarHeight});
-      max-height: $finalWidth;
-      margin: 0;
-      padding-top: $scrollBarHeight;
-      background: #abc;
-      overflow-y: auto;
-      overflow-x: hidden;
-      transform: rotate(-90deg) translateY(-$finalHeight);
-      transform-origin: right top;
-      & > div {
-        display: block;
-        padding: 5px;
-        background: #cab;
-        transform: rotate(90deg);
-        transform-origin: right top;
-      }
-    }
-
-    .squares {
-      padding: $finalHeight 0 0 0;
-      & > div {
-        width: $finalHeight;
-        height: $finalHeight;
-        margin: 10px 0;
-      }
-    }
-
-
+  .susie-speech-container {
+    transform: scale(2.5);
+    transform-origin: bottom left;
   }
-
+  .chat-bot {
+    position: absolute;
+    bottom: 9%;
+  }
+  .section-container {
+    transform: scale(2);
+    transform-origin: left top;
+  }
+  .grass-1,
+  .grass-2 {
+    transform: scale(2);
+    transform-origin: bottom;
+  }
 }
+
+// #interactive-cv.mobile {
+//   @media screen and (max-width:800px) {
+//     transform: scaleY(0.9);
+//     $finalHeight: 100%;
+//     $finalWidth: $finalHeight;
+//     $scrollBarHeight: 1px;
+
+//     ::-webkit-scrollbar {
+//       width: $scrollBarHeight;
+//       height: $scrollBarHeight;
+//     }
+
+//     ::-webkit-scrollbar-button {
+//       width: $scrollBarHeight;
+//       height: $scrollBarHeight;
+//     }
+
+
+//     .horizontal-scroll-wrapper {
+//       position: absolute;
+//       display: block;
+//       top: 0;
+//       left: 0;
+//       width: calc(#{$finalHeight} + #{$scrollBarHeight});
+//       max-height: $finalWidth;
+//       margin: 0;
+//       padding-top: $scrollBarHeight;
+//       background: #abc;
+//       overflow-y: auto;
+//       overflow-x: hidden;
+//       transform: rotate(-90deg) translateY(-$finalHeight);
+//       transform-origin: right top;
+//       & > div {
+//         display: block;
+//         padding: 5px;
+//         background: #cab;
+//         transform: rotate(90deg);
+//         transform-origin: right top;
+//       }
+//     }
+
+//     .squares {
+//       padding: $finalHeight 0 0 0;
+//       & > div {
+//         width: $finalHeight;
+//         height: $finalHeight;
+//         margin: 10px 0;
+//       }
+//     }
+
+
+//   }
+
+// }

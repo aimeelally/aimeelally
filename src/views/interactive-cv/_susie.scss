@@ -11,7 +11,10 @@ $susie_bounce_right: -503px 0;
 $susie_offset_top: 95%;
 $susie_offset_left: 20%;
 
-
+// .stretchy-susie {
+//   width: 50%;
+//   height: 50%;
+// }
 
 .susie {
   width: 104px;
@@ -20,7 +23,8 @@ $susie_offset_left: 20%;
   background: url(/assets/interactive-cv/susie-sprite-sheet.png);
   background-position: $susie_face_straight;
   //left: $susie_offset_left;
-  top: $susie_offset_top;
+  //top: $susie_offset_top;
+  bottom: 0;
   &.happy {
     background-position: $susie_happy;
   } 
@@ -43,10 +47,10 @@ $susie_offset_left: 20%;
 
 @keyframes dropIn {
   from {
-    top: 0;
+    bottom: 100%;
   }
   to {
-    top: $susie_offset_top;
+    bottom: 0;
   }
 }
 
@@ -56,7 +60,8 @@ $susie_offset_left: 20%;
   position: fixed;
   background: url(/assets/interactive-cv/susie-sprite-sheet.png) $susie_shadow;
   //left: $susie_offset_left;
-  top: calc(#{$susie_offset_top} + 0.5%);
+  //top: calc(#{$susie_offset_top} + 0.5%);
+  bottom: 0;
   animation: shadowScale 1s infinite alternate;
   transform-origin: center;
 }
@@ -82,7 +87,8 @@ $susie_offset_left: 20%;
 
 .susie.left{
   background-position: $susie_bounce_left;
-  top: calc(#{$susie_offset_top} - 1%);
+  //top: calc(#{$susie_offset_top} - 1%);
+  bottom: 0;
   animation: moveleft .8s steps(1) infinite;  
 }
 @keyframes moveleft {
@@ -91,7 +97,8 @@ $susie_offset_left: 20%;
 
 .susie.right{
   background-position: $susie_bounce_right;
-  top: calc(#{$susie_offset_top} - 1%);
+  //top: calc(#{$susie_offset_top} - 1%);
+  bottom: 0;
   animation: moveright .8s steps(1) infinite;
 }
 @keyframes moveright {

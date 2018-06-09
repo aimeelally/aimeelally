@@ -1,13 +1,20 @@
 .susie-speech-container {
   position: fixed;
-  bottom: 25%;
+  //bottom: 25%;
+  bottom: 0;
   //height: 100px;
   left: 1em;
   width: 40%;
+  height: 100%;
   max-width: 350px;
   padding: 0.5em;
   //background: rgba(255,255,255, 0.9);
   //animation: slideIn 1s forwards;
+
+  .chat-bot {
+    position: absolute;
+    bottom: 25%;
+  }
 
   .strike {
     text-decoration: line-through;
