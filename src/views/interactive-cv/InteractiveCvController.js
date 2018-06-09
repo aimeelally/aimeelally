@@ -17,7 +17,7 @@ angular.module("interactiveCv", [])
       function InteractiveCvController($scope, ContactService, ChatbotService, AnimateService) {
 
         const FARTHEST_POINT_LEFT = 200;
-        const FARTHEST_POINT_RIGHT = -8000;
+        const FARTHEST_POINT_RIGHT = -7000;
 
         // $scope.showFirstSpeechBubble = false;
         // $scope.showSecondSpeechBubble = false;
@@ -49,7 +49,38 @@ angular.module("interactiveCv", [])
           var response = ChatbotService.noShesNotLooking();
           $('.susie').removeClass('right left face-left face-right');
           $('.susie').addClass('angry');
-          showSpeechBubble(3)
+          showSpeechBubble(3);
+        }
+
+        $scope.activateSusieDetails = function() {
+          $('.susie').removeClass('right left face-left face-right');
+          $('.susie').addClass('looking-up');
+          showSpeechBubble(4);
+        }
+        $scope.activateSusieEducation = function() {
+          $('.susie').removeClass('right left face-left face-right');
+          $('.susie').addClass('looking-up');
+          showSpeechBubble(5);
+        }
+        $scope.activateSusieWorkExp = function() {
+          $('.susie').removeClass('right left face-left face-right');
+          $('.susie').addClass('looking-up');
+          showSpeechBubble(6);
+        }
+        $scope.activateSusieSkills = function() {
+          $('.susie').removeClass('right left face-left face-right');
+          $('.susie').addClass('looking-up');
+          showSpeechBubble(7);
+        }
+        $scope.activateSusieTestimonials = function() {
+          $('.susie').removeClass('right left face-left face-right');
+          $('.susie').addClass('looking-up');
+          showSpeechBubble(8);
+        }
+        $scope.activateSusieContact = function() {
+          $('.susie').removeClass('right left face-left face-right');
+          $('.susie').addClass('looking-up');
+          showSpeechBubble(9);
         }
 
         var keysdown = {},
@@ -134,6 +165,7 @@ angular.module("interactiveCv", [])
         
 
         function isValidMove(direction) {
+          return true; //until i can get the function to work correctly
           
           var blockerPosition = $("#stop-scroll").offset().left;
           var blockerPositionAfterMove = blockerPosition - speedMed;
@@ -156,7 +188,8 @@ angular.module("interactiveCv", [])
           $('.susie').removeClass('right left happy angry');
           $('.susie-shadow').addClass('show-animation');
         }
-        
+
+
         $(document).ready(function(){
 
           /*$(window).on('swipeleft', function() {

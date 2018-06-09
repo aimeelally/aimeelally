@@ -64,6 +64,10 @@ export default ['$state', '$rootScope',function($state, $rootScope){
 
   function animateArrayOfElementsRight(elements) {
     return elements.forEach(function(element) {
+      // if($(element.el).position().left <= 0) {
+      //   return;
+      // }
+      //debugger;
       $(element.el)
         .addClass('right')
         .removeClass('left')
@@ -74,6 +78,9 @@ export default ['$state', '$rootScope',function($state, $rootScope){
 
   function animateArrayOfElementsLeft(elements) {
     return elements.forEach(function(element) {
+      // if($(element.el).position().left <= 0) {
+      //   return;
+      // }
       $(element.el)
         .addClass('left')
         .removeClass('right')

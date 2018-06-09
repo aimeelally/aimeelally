@@ -7,12 +7,13 @@
             round 
             {{trianglePosition}}"
      ng-class="{'close': !speechBubbleIsActive}">
-  <button 
-    class="btn-4 pull-right"
-
-    ng-click="closeBubble()">
-    Close
-  </button>
+  <span class="pull-right close-button padding-standard">
+    <button 
+      class="btn-4"
+      ng-click="closeBubble()">
+      <ng-include src="'/assets/interactive-cv/close.svg'" />
+    </button>
+  </span>
   <p 
     ng-if="bubbleContentOne"
     class="talktext">
