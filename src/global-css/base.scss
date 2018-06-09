@@ -34,7 +34,7 @@ $ff-color-initial-state: #a1a1a1;
 
 
 // DIRECTIVES
-           
+@import '../directives/speech-bubble/speech-bubble';         
 			
 // VIEWS
 @import '../views/landing-page/landing-page',

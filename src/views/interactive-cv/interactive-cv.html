@@ -21,16 +21,42 @@
 
       <div class="slow-moving-items">
         <div id="stop-scroll"></div>
-        <div class="creepy-tree-1"></div>
+
+        <!-- <div class="creepy-tree-1"></div> -->
         
 
         <div class="sign-container"><div class="sign"></div></div>
         
         <!-- <div class="section-container tree-about"></div> -->
-
-        <div ng-include src="'/views/interactive-cv/sections/details.html'"></div>
-        <!-- <div ng-include src="'/views/interactive-cv/sections/education.html'"></div>
-        <div ng-include src="'/views/interactive-cv/sections/work-experience.html'"></div>
+        <div class="all-about-aimee-container">
+          <div 
+            class="inline-block margin-between-sections" 
+            ng-include src="'/views/interactive-cv/sections/details.html'">
+          </div>
+          <div 
+            class="inline-block margin-between-sections" 
+            ng-include src="'/views/interactive-cv/sections/education.html'">
+          </div>
+          <div 
+            class="inline-block margin-between-sections" 
+            ng-include src="'/views/interactive-cv/sections/work-experience.html'">
+          </div>
+          <div 
+            class="inline-block margin-between-sections" 
+            ng-include src="'/views/interactive-cv/sections/skills.html'">
+          </div>
+          <div 
+            class="inline-block margin-between-sections" 
+            ng-include src="'/views/interactive-cv/sections/testimonials.html'">
+          </div>
+          <div
+            id="contact" 
+            class="inline-block margin-between-sections" 
+            ng-include src="'/views/interactive-cv/sections/contact.html'">
+          </div>
+        </div>
+        
+        <!-- <div ng-include src="'/views/interactive-cv/sections/work-experience.html'"></div>
         <div ng-include src="'/views/interactive-cv/sections/skills.html'"></div>
         
         <div class="testimonials-header">

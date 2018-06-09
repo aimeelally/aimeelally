@@ -137,11 +137,14 @@ angular.module("interactiveCv", [])
           
           var blockerPosition = $("#stop-scroll").offset().left;
           var blockerPositionAfterMove = blockerPosition - speedMed;
+          //console.log(blockerPositionAfterMove);
+          // var blockerPositionFromContact = ($(window).width() - ($('#contact').offset().left + $('#contact').outerWidth()));
+          // var blockerPositionAfterContact = blockerPositionFromContact - speedMed;
           
           if(direction === 'left' && blockerPositionAfterMove <= FARTHEST_POINT_LEFT) {
             return true;
           }
-          else if(direction === 'right' && blockerPositionAfterMove >= FARTHEST_POINT_RIGHT) {
+          if(direction === 'right' && blockerPositionAfterMove >= FARTHEST_POINT_RIGHT) {
             return true;
           }
 
@@ -173,15 +176,6 @@ angular.module("interactiveCv", [])
                 scrollPosition = currentScrolledPosition;
                 activateMovingLeftAnimations();
 
-                // $('.susie-shadow').removeClass('show-animation');
-                // $('.susie').removeClass('face-right');
-                // $('.susie').addClass('face-left');
-                // AnimateService.animateLeft('.susie', 0);
-
-                // AnimateService.animateRight('.med-moving-items', speedMed);
-                // AnimateService.animateRight('.slow-moving-items', speedSlow);
-                // AnimateService.animateRight('.v-slow-moving-items', speedVSlow);
-
                 setTimeout(function() {
                   stoppedScrolling();
                   scrollTracker.isScrolling = false;
@@ -191,16 +185,6 @@ angular.module("interactiveCv", [])
                 //console.log('scroll left');
                 scrollPosition = currentScrolledPosition;
                 activateMovingRightAnimations();
-
-                // $('.susie-shadow').removeClass('show-animation');
-                // $('.susie').removeClass('face-left');
-                // $('.susie').addClass('face-right');
-                // AnimateService.animateRight('.susie', 0);
-
-                // AnimateService.animateLeft('.med-moving-items', speedMed);
-                // AnimateService.animateLeft('.slow-moving-items', speedSlow);
-                // AnimateService.animateLeft('.v-slow-moving-items', speedVSlow);
-
 
                 setTimeout(function() {
                   stoppedScrolling();

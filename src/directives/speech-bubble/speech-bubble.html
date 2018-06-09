@@ -1,4 +1,18 @@
-<div class="index-{{index}} talk-bubble tri-right border round {{trianglePosition}}">
+<div class="
+            speech-bubble
+            index-{{index}} 
+            talk-bubble 
+            tri-right 
+            border 
+            round 
+            {{trianglePosition}}"
+     ng-class="{'close': !speechBubbleIsActive}">
+  <button 
+    class="btn-4 pull-right"
+
+    ng-click="closeBubble()">
+    Close
+  </button>
   <p 
     ng-if="bubbleContentOne"
     class="talktext">

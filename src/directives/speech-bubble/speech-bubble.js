@@ -7,6 +7,11 @@ export default function speechBubble($state) {
     var speechBubbles = Array.prototype.slice.call(document.querySelectorAll('speech-bubble'));
     $scope.index = getThisSpeechBubblesIndex() + 1;
     $scope.trianglePosition = getTrianglePosition();
+    
+    $scope.speechBubbleIsActive = true;
+    $scope.closeBubble = function() {
+      $scope.speechBubbleIsActive = false;
+    }
 
     function getTrianglePosition() {
       return 'btm-left-in';
