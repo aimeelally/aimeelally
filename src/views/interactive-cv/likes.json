@@ -1,0 +1,30 @@
+[
+  {
+    "likes": ".stars-clouds",
+    "quantity": 25
+  },
+  {
+    "likes": ".sky",
+    "quantity": 0
+  },
+  {
+    "likes": ".evergreen-1",
+    "quantity": 120
+  },
+  {
+    "likes": ".evergreen-2",
+    "quantity": 110
+  },
+  {
+    "likes": ".med-moving-items",
+    "quantity": 300
+  },
+  {
+    "likes": ".slow-moving-items",
+    "quantity": 200
+  },
+  {
+    "likes": ".hill",
+    "quantity": 100
+  }
+]

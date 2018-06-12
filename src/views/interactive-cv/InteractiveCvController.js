@@ -1,6 +1,7 @@
 "use strict";
 
 import ARRAY_OF_ELEMENTS from './elements';
+import LIKES from './likes';
 
 /**
  * jQuery.browser.mobile (http://detectmobilebrowser.com/)
@@ -13,8 +14,8 @@ import ARRAY_OF_ELEMENTS from './elements';
 angular.module("interactiveCv", [])
   .component("interactiveCv", {
     template: require("./interactive-cv.html"), 
-    controller: [ '$scope', 'ContactService', 'ChatbotService', 'AnimateService',
-      function InteractiveCvController($scope, ContactService, ChatbotService, AnimateService) {
+    controller: [ '$scope', 'ContactService', 'ChatbotService', 'AnimateService', "AnalyticsService", "ChartsService",
+      function InteractiveCvController($scope, ContactService, ChatbotService, AnimateService, AnalyticsService, ChartsService) {
 
         const FARTHEST_POINT_LEFT = 200;
         const FARTHEST_POINT_RIGHT = -7000;
@@ -94,6 +95,9 @@ angular.module("interactiveCv", [])
         init();
 
         function init() {
+          //debugger;
+          testchart();
+          //debugger;
           getTimeBasedStyleSheet();
           $('.susie').addClass('animate-in');
 
@@ -107,6 +111,17 @@ angular.module("interactiveCv", [])
 
           //$scope.showFirstSpeechBubble = true;
         }
+
+
+        function testchart() {
+          var colors = ['red', 'yellow'];
+          var data = LIKES;
+          ChartsService.buildGroupedBarChart(data, '#activeSchoolsAndTeachersChart', 'likes', colors);
+        }
+
+
+
+
 
         function showSpeechBubble(num) {
           // var speechBubbleToShow = 'showSpeechBubble'+num;
@@ -162,9 +177,22 @@ angular.module("interactiveCv", [])
           
         }
 
-        
-
         function isValidMove(direction) {
+          var susieCurrPosition = $('.susie').offset().left;
+          var docWidth = $(document).width();
+          var susiePercentagePosOfWidth = +(susieCurrPosition/docWidth*100).toFixed(3);
+          //debugger;
+          if(direction === 'left' && susiePercentagePosOfWidth <= 0.1) {
+            return false;
+          }
+          if(direction === 'right' && susiePercentagePosOfWidth >= 99) {
+            return false;
+          }
+
+          return true;
+        }
+
+        /*function isValidMove(direction) {
           return true; //until i can get the function to work correctly
           
           var blockerPosition = $("#stop-scroll").offset().left;
@@ -182,7 +210,7 @@ angular.module("interactiveCv", [])
 
           return;
 
-        }
+        }*/
 
         function stoppedScrolling() {
           $('.susie').removeClass('right left happy angry');
@@ -192,19 +220,21 @@ angular.module("interactiveCv", [])
 
         $(document).ready(function(){
 
-          /*$(window).on('swipeleft', function() {
-            //console.log('swiped left');
-          });*/
-
           var scrollPosition = 0;
           $(window).scroll(function() {
             //dont do the scroll animation if also pressing keys
             if (keysdown.keydown) return;
 
+            
+
             scrollTracker.isScrolling = true;
             
             var currentScrolledPosition = $(document).scrollLeft();
               if (scrollPosition > currentScrolledPosition) {
+
+                if(!isValidMove('right')) {
+                  return;
+                }
                 //console.log('scroll right');
                 scrollPosition = currentScrolledPosition;
                 activateMovingLeftAnimations();
@@ -215,6 +245,11 @@ angular.module("interactiveCv", [])
                 },500);
               }
               else if (scrollPosition < currentScrolledPosition) {
+
+                if(!isValidMove('left')) {
+                  return;
+                }
+
                 //console.log('scroll left');
                 scrollPosition = currentScrolledPosition;
                 activateMovingRightAnimations();
@@ -294,6 +329,8 @@ angular.module("interactiveCv", [])
 
 
           });
+          // end of doc ready func
+          
 
           
           function activateMovingLeftAnimations() {
@@ -327,6 +364,76 @@ angular.module("interactiveCv", [])
               AnimateService.animateMoonriseRight('.sun-moon', 1, 0);
             }
           }
+
+          //////////////////
+
+
+
+          /*function isElementInViewport(elem) {
+              var $elem = $(elem);
+
+              // Get the scroll position of the page.
+              var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
+              var viewportTop = $(scrollElem).scrollTop();
+              var viewportBottom = viewportTop + $(window).height();
+
+              if($elem.length) {
+                // Get the position of the element on the page.
+                var elemTop = Math.round( $elem.offset().top );
+                var elemBottom = elemTop + $elem.height();
+
+                return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
+              }
+              
+          }*/
+
+          function isElementInViewport(elem) {
+              var $elem = $(elem);
+
+              // Get the scroll position of the page.
+              var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
+              var viewportLeft = $(scrollElem).scrollLeft();
+              var viewportRight = viewportLeft + $(window).width();
+
+              if($elem.length) {
+                // Get the position of the element on the page.
+                var elemLeft = Math.round( $elem.offset().left );
+                var elemRight = elemLeft + $elem.width();
+
+                //debugger;
+
+                return ((elemLeft < viewportRight) || (elemRight > viewportLeft));
+              }
+              
+          }
+
+          // Check if it's time to start the animation.
+          function checkAnimation() {
+              var $elem = $('.section-container.details');
+
+              if (isElementInViewport($elem)) {
+                  // Start the animation
+                  $elem.addClass('start');
+              } 
+              // else {
+              //     $elem.removeClass('start');
+              // }
+          }
+
+          // Capture scroll events
+          $(window).scroll(function(){
+              checkAnimation();
+          });
+
+
+
+
+
+
+
+
+
+          ///////////////////////
 
 
 

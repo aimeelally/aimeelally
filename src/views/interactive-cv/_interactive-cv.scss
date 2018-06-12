@@ -4,6 +4,21 @@
     height: 0;
 }
 
+@keyframes zoom-in{
+  from{
+    transform: perspective(30px) translateZ(0);
+  }
+  to{
+    transform: translateZ(50px);
+  }
+}
+
+.section-container {
+  //transform: perspective(1px) translateZ(-100px);
+}
+.section-container.details.start {
+  animation: zoom-in 0.5s ease-out forwards;
+}
 
 
 #interactive-cv {
@@ -11,10 +26,10 @@
   @import 'susie';
   @import 'susie-chat-bot';
 
-  $width_of_sky: 18000px;
-  $width_of_ground: calc(#{$width_of_sky} + 1000px);
+  $width_of_sky: 800%;
+  $width_of_ground: calc(#{$width_of_sky} + 100%);
   $width_of_about: $width_of_ground;
-  //$offset_left_for_scroll: -1000px;
+  $offset_left_for_scroll: -1000px;
 
   $pos_of_first_section: 110%;
   // $pos_of_second_section: calc( #{$pos_of_first_section} + 700px);
@@ -273,8 +288,8 @@
   .hill, 
   .sky {
     position: absolute;
-    //left: $offset_left_for_scroll;
-    left: 0;
+    left: $offset_left_for_scroll;
+    //left: 0;
     top: 0;
     width: $width_of_sky;
     height: 100%;
@@ -284,8 +299,8 @@
   .evergreen-1,
   .evergreen-2 {
     position: absolute;
-    //left: $offset_left_for_scroll;
-    left: 0;
+    left: $offset_left_for_scroll;
+    //left: 0;
     //bottom: 0;
     width: $width_of_sky;
     //height: 100%;
@@ -301,8 +316,8 @@
 
   .stars-clouds {
     position: fixed;
-    //left: $offset_left_for_scroll;
-    left: 0;
+    left: $offset_left_for_scroll;
+    //left: 0;
     top: 0;
     width: $width_of_sky;
     height: 100%;
@@ -473,8 +488,8 @@
 
   .ground-container {
     position: absolute;
-    //left: $offset_left_for_scroll;
-    left: 0;
+    left: $offset_left_for_scroll;
+    //left: 0;
     bottom: 0;
     width: $width_of_ground;
   }
@@ -483,16 +498,16 @@
     height: 100px;
     position: absolute;
     bottom: 0;
-    left: 0;
-    //left: $offset_left_for_scroll;
+    //left: 0;
+    left: $offset_left_for_scroll;
   }
   .grass-2 {
     width: 100%;
     height: 50px;
     position: absolute;
     bottom: 0;
-    left: 0;
-    //left: $offset_left_for_scroll;
+    //left: 0;
+    left: $offset_left_for_scroll;
     background: url(/assets/interactive-cv/grass.png);
   }
   .ground {

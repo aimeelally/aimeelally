@@ -26,22 +26,60 @@
         
 
         <div class="sign-container"><div class="sign"></div></div>
+
         
         <!-- <div class="section-container tree-about"></div> -->
         <div class="all-about-aimee-container">
-          
-          <div class="
+
+          <!-- <div class="
                       inline-block
                       vertical-align-top
                       margin-between-sections" 
-            ng-include src="'/views/interactive-cv/sections/details.html'">
+            ng-include src="'/views/interactive-cv/sections/details.html'"> -->
+          <div class="
+                      inline-block
+                      vertical-align-top
+                      margin-between-sections">
+            
+
+            <div class="splan-12 padding-standard">
+              <h3>title</h3>
+              <div 
+                id="activeSchoolsAndTeachersChart" 
+                class="svg-container standardChart white-bg padding-horizontal padding-top">
+              </div>
+              <div class="legend splan-12 white-bg padding-standard">
+                <div class="sm-margin-bottom">
+                  <span class="rf-color-block active-schools"></span>
+                  <span>
+                    <em>{{ 'admin.analytics.activeSchools' | translate }}</em>
+                    {{ 'admin.analytics.numberOfSchoolsThatHaveAtLeastOneActiveStudentDuringTheMonth' | translate }}
+                  </span>
+                </div>
+                <div class="sm-margin-bottom">
+                  <span class="rf-color-block active-teachers"></span>
+                  <span>
+                    <em>{{ 'admin.analytics.activeTeachers' | translate }}</em>
+                    {{ 'admin.analytics.numberOfTeachersWhoAreOnlineDuringTheMonth' | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+
+
+
           </div>
+
+
           <div class="
                       inline-block
                       vertical-align-top
                       margin-between-sections" 
             ng-include src="'/views/interactive-cv/sections/education.html'">
           </div>
+
+
           <div class="
                       inline-block
                       vertical-align-top

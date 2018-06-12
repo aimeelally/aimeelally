@@ -1,4 +1,5 @@
 'use strict';
+import d3 from 'd3';
 import angular from "angular";
 import angularRoute from "angular-route";
 import angularUIRouter from "angular-ui-router";
