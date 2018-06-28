@@ -1,13 +1,15 @@
 // NODE MODULES
 @import '~modularscale-sass/stylesheets/modularscale';
+//@import '~bootstrap/scss/bootstrap';
+//@import '~fancy-forms/styles/fancy-forms/variables-for-fancy-forms';
+@import '~fancy-forms/styles/fancy-forms/base';
 
 $ff-color-primary: #F90093;
 $ff-color-answer-correct: #70C1B3;
 $ff-color-answer-incorrect: #ff6666;
 $ff-color-bg: #ffffff;
 $ff-color-initial-state: #a1a1a1;
-@import '~fancy-forms/styles/fancy-forms/variables-for-fancy-forms';
-@import '~fancy-forms/styles/fancy-forms/base';
+
 
 
 
@@ -19,6 +21,7 @@ $ff-color-initial-state: #a1a1a1;
 // PARTIALS
 @import 'partials/reset',
         'partials/animation',
+        'partials/d3',
         'partials/arrows',
         'partials/global',
         'partials/buttons',

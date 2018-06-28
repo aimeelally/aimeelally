@@ -1,7 +1,10 @@
 #landing-page {
   aside {
     height: 100vh;
-    background: black;
+    background: #2e2e2e;
+    h1, h2, h3, p {
+      color: white;
+    }
   }
 
   .profile {
@@ -16,6 +19,8 @@
   .profile-container {
     background: white;
     border-radius: 100%;
+    width: 200px;
+    height: 200px;
   }
 
 }

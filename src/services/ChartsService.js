@@ -142,7 +142,8 @@ export default ['HelperFunctions', function(HelperFunctions){
           .attr('x', function(d) { return x1(d.name); })
           .attr('y', function(d) { return y(d.value); })
           .attr('height', function(d) { return height - y(d.value); })
-          .style('fill', function(d) { return color(d.name); })
+          .attr('class', 'bar')
+          //.style('fill', function(d) { return color(d.name); })
           .on('mouseover', function(d) { return mouseover(d, tooltip); })  
           .on('mouseout', function(d) { return mouseout(d, tooltip); });
 
@@ -156,24 +157,24 @@ export default ['HelperFunctions', function(HelperFunctions){
           .text(function(d) { return d.value; });
     }
 
-    var legend = chart.selectAll(".legend")
-        .data(groups.slice())
-        .enter().append("g")
-        .attr("class", "legend")
-        .attr("transform", function(d, i) { return "translate(0," + i * 15 + ")"; });
+    // var legend = chart.selectAll(".legend")
+    //     .data(groups.slice())
+    //     .enter().append("g")
+    //     .attr("class", "legend")
+    //     .attr("transform", function(d, i) { return "translate(0," + i * 15 + ")"; });
 
-    legend.append("rect")
-        .attr("x", width + 20)
-        .attr("width", 10)
-        .attr("height", 10)
-        .style("fill", color);
+    // legend.append("rect")
+    //     .attr("x", width + 20)
+    //     .attr("width", 10)
+    //     .attr("height", 10)
+    //     .style("fill", color);
 
-    legend.append("text")
-        .attr("x", width + 15)
-        .attr("y", 5)
-        .attr("dy", ".35em")
-        .style("text-anchor", "end")
-        .text(function(d) { return humanise(d); });
+    // legend.append("text")
+    //     .attr("x", width + 15)
+    //     .attr("y", 5)
+    //     .attr("dy", ".35em")
+    //     .style("text-anchor", "end")
+    //     .text(function(d) { return humanise(d); });
     
   } // BUILD GROUPED BAR CHART
 
@@ -312,85 +313,85 @@ export default ['HelperFunctions', function(HelperFunctions){
   // /********************************************************************************************************************/
 
 
-  // function getTotal(data, parm) {
-  //   return data.filter(function(d) {
-  //     return d.name === parm;
-  //   });
-  // }
+  function getTotal(data, parm) {
+    return data.filter(function(d) {
+      return d.name === parm;
+    });
+  }
 
 
-  // // BUILD DONUT CHART
-  // function buildDonutChart(data, chartId) {
+  // BUILD DONUT CHART
+  function buildDonutChart(data, chartId) {
 
-  //   var self = this;
+    var self = this;
 
-  //   var pie = d3.layout.pie()
-  //               .value(function(d){ return d.total; })
-  //               .sort(null);
-  //   var testVis = d3.select(chartId),
-  //       WIDTH = testVis.node().getBoundingClientRect().height,
-  //       HEIGHT = testVis.node().getBoundingClientRect().height,
-  //       totalCorrect = self.getTotal(data, 'correct')[0].total,
-  //       totalIncorrect = self.getTotal(data, 'incorrect')[0].total;
+    var pie = d3.layout.pie()
+                .value(function(d){ return d.total; })
+                .sort(null);
+    var testVis = d3.select(chartId),
+        WIDTH = testVis.node().getBoundingClientRect().height,
+        HEIGHT = testVis.node().getBoundingClientRect().height,
+        totalCorrect = self.getTotal(data, 'correct')[0].total,
+        totalIncorrect = self.getTotal(data, 'incorrect')[0].total;
 
-  //   var outerRadius = WIDTH/2;
-  //   var innerRadius = WIDTH/3;
+    var outerRadius = WIDTH/2;
+    var innerRadius = WIDTH/3;
 
-  //   var arc = d3.svg.arc()
-  //       .outerRadius(outerRadius)
-  //       .innerRadius(innerRadius);
+    var arc = d3.svg.arc()
+        .outerRadius(outerRadius)
+        .innerRadius(innerRadius);
 
     
-  //   var svg = d3.select(chartId)
-  //       .append("svg")
-  //       .attr('width', WIDTH)
-  //       .attr('height', HEIGHT)
-  //       .attr('class', 'donut-chart')
-  //       .append('g')
-  //       .attr({ transform:'translate(' + WIDTH/2 + ',' + HEIGHT/2 +')' });
+    var svg = d3.select(chartId)
+        .append("svg")
+        .attr('width', WIDTH)
+        .attr('height', HEIGHT)
+        .attr('class', 'donut-chart')
+        .append('g')
+        .attr({ transform:'translate(' + WIDTH/2 + ',' + HEIGHT/2 +')' });
 
-  //   var path = svg.selectAll('path')
-  //       .data(pie(data))
-  //       .enter()
-  //       .append('path')
-  //       .attr('class', function(d) { return d.data.name + '-segment'; });
+    var path = svg.selectAll('path')
+        .data(pie(data))
+        .enter()
+        .append('path')
+        .attr('class', function(d) { return d.data.name + '-segment'; });
 
-  //   path.transition()
-  //       .duration(1000)
-  //       .attrTween('d', function(d) {
-  //         var interpolate = d3.interpolate({startAngle: 0, endAngle: 0}, d);
-  //         return function(t) {
-  //           return arc(interpolate(t));
-  //         };
-  //       });
+    path.transition()
+        .duration(1000)
+        .attrTween('d', function(d) {
+          var interpolate = d3.interpolate({startAngle: 0, endAngle: 0}, d);
+          return function(t) {
+            return arc(interpolate(t));
+          };
+        });
 
 
-  //   var restOfTheData = function() {
-  //     var legend = svg.selectAll('text.correct')
-  //         .data(pie(data))
-  //         .enter()
-  //         .append('text')
-  //         .attr('x', -35)
-  //         .attr('y', 15)
-  //         .text(function(){ return totalCorrect; })
-  //         .attr('class', 'text-correct');
+    var restOfTheData = function() {
+      var legend = svg.selectAll('text.correct')
+          .data(pie(data))
+          .enter()
+          .append('text')
+          .attr('x', -35)
+          .attr('y', 15)
+          .text(function(){ return totalCorrect; })
+          .attr('class', 'text-correct');
 
-  //     legend = svg.selectAll('text.total')
-  //       .data(pie(data))
-  //       .enter()
-  //       .append('text')
-  //       .attr('x', 0)
-  //       .attr('y', 15)
-  //       .text(function(){ return  ' / ' + (Number(totalIncorrect)+Number(totalCorrect)); })
-  //       .attr('class', 'text-total');
-  //   };
+      legend = svg.selectAll('text.total')
+        .data(pie(data))
+        .enter()
+        .append('text')
+        .attr('x', 0)
+        .attr('y', 15)
+        .text(function(){ return  ' / ' + (Number(totalIncorrect)+Number(totalCorrect)); })
+        .attr('class', 'text-total');
+    };
 
-  //   setTimeout(restOfTheData,1000);
+    setTimeout(restOfTheData,1000);
 
       
-  // }// BUILD DONUT CHART
+  }// BUILD DONUT CHART
 
-  // /********************************************************************************************************************/
+  /********************************************************************************************************************/
 
 
 

@@ -1,0 +1,119 @@
+.d3 {
+  
+  &.max-width-1200{
+    max-width: 1200px;
+  }
+
+
+  .svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    min-width: 500px;
+    vertical-align: top;
+    overflow: hidden;
+  }
+  .svg-content {
+    display: inline-block;
+  }
+
+  .title{
+    padding: .5em;
+    background-color: $color-3;
+    color: $color-neutral-0;
+    border-radius: .4em .4em 0 0;
+  }
+  .white-bg{
+    background-color: $color-neutral-0;
+  }
+  .legend {
+    .color-block {
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px;
+      height: 16px;
+      /* &.active-students { background: $color-strand-1 }
+      &.full-licences-activated { background: $color-strand-3 }
+      &.all-licences-activated { background: $color-1 }
+      &.licences-sold { background: $color-strand-4 }
+      
+      &.active-classrooms { background: $color-strand-1 }
+      &.active-classroom-sessions { background: $color-strand-3 }
+      
+      &.active-schools { background: $color-strand-2 }
+      &.active-teachers { background: $color-strand-3 }
+      
+      &.y-1 { background: #f7bdb7 }
+      &.y-2 { background: #f39c93 }
+      &.y-3 { background: #ef7a6e }
+      &.y-4 { background: #eb5a4b }
+
+      &.course-progress-page { background: #ff6531 }
+      &.live-class-page { background: $color-strand-1 }
+      &.student-activity-page { background: $color-strand-3 }
+      &.view-reports-page { background: $color-strand-4 } 
+      &.view-assignments-page { background: $color-strand-2 } 
+      &.preview-content-page { background: $color-1 } 
+
+      &.concepts-in-class { background: $color-strand-1 }
+      &.concepts-at-home { background: #ff6531 }
+      &.learning-hours-in-class { background: $color-strand-2 }
+      &.learning-hours-at-home { background: $color-strand-3 }
+      &.assignments-completed { background: $color-strand-4 }
+      &.assignments-tried-but-not-completed { background: $color-1 }
+      &.teachers-with-assignments { background: #ff6531 }
+      &.teachers-without-assignments { background: $color-1 } */
+    }
+  }
+  
+  .bar {
+    fill: $color-1;
+  }
+
+  div.tooltip { 
+    position: absolute;     
+    text-align: center; 
+    padding: 0.5em;  
+    background: $color-neutral-3; 
+    border-radius: 2px;     
+    pointer-events: none;     
+  }
+
+
+  .standardChart {
+    text {
+      fill: $color-font;
+      //font: 10px sans-serif;
+      text-anchor: start;
+    }
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: $color-font;
+      shape-rendering: crispEdges;
+    }
+
+    .x.axis path {
+      display: none;
+    }
+
+    .x.axis .tick text {
+      text-anchor: start;
+      //font-size: 10px;
+    }
+    .y.axis .tick text {
+      //font-size: 10px;
+      font-size: 0;
+      text-anchor: end !important;
+    }
+    .y.axis line {
+      stroke: $color-neutral-3;
+    }
+    .legend text {
+      font-size: 10px;
+    }
+  }
+
+  
+
+}

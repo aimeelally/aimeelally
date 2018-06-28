@@ -153,43 +153,43 @@
     }
   }
   &.evening {
-    .sky { background: $med-orange }
-    .sky { background: linear-gradient($med-purple, $med-orange); }
-    .hill { 
-      background: url(/assets/interactive-cv/evening-hill.png);
-      background-size: contain;
-      background-repeat-y: no-repeat;
-      background-position-y: 100%; 
-    }
+    // .sky { background: $med-orange }
+    // .sky { background: linear-gradient($med-purple, $med-orange); }
+    // .hill { 
+    //   background: url(/assets/interactive-cv/evening-hill.png);
+    //   background-size: contain;
+    //   background-repeat-y: no-repeat;
+    //   background-position-y: 100%; 
+    // }
     .grass-1 { background: url(/assets/interactive-cv/sketch-grass.png); }
-    .grass-2 { background: url(/assets/interactive-cv/evening-grass.png); }
-    .evergreen-1 { 
-      background: url(/assets/interactive-cv/evening-evergreen.png); 
-      background-repeat-x: repeat;
-      background-repeat-y: no-repeat;
-      background-position-y: 100%;
-      background-size: contain;
-    }
-    .evergreen-2 { 
-      background: url(/assets/interactive-cv/night-evergreen.png); 
-      background-repeat-x: repeat;
-      background-repeat-y: no-repeat;
-      background-position-y: 100%;
-      background-size: contain;
-    }
-    .stars-clouds { 
-      z-index: 2;
-      background: url(/assets/interactive-cv/evening-stars.png); 
-      background-size: contain;
-    }
-    .sun-moon {
-      z-index: 3;
-      bottom: 20%;
-      right: 43%;
-      background: url(/assets/interactive-cv/evening-moon.png);
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
+    //.grass-2 { background: url(/assets/interactive-cv/evening-grass.png); }
+    // .evergreen-1 { 
+    //   background: url(/assets/interactive-cv/evening-evergreen.png); 
+    //   background-repeat-x: repeat;
+    //   background-repeat-y: no-repeat;
+    //   background-position-y: 100%;
+    //   background-size: contain;
+    // }
+    // .evergreen-2 { 
+    //   background: url(/assets/interactive-cv/night-evergreen.png); 
+    //   background-repeat-x: repeat;
+    //   background-repeat-y: no-repeat;
+    //   background-position-y: 100%;
+    //   background-size: contain;
+    // }
+    // .stars-clouds { 
+    //   z-index: 2;
+    //   background: url(/assets/interactive-cv/evening-stars.png); 
+    //   background-size: contain;
+    // }
+    // .sun-moon {
+    //   z-index: 3;
+    //   bottom: 20%;
+    //   right: 43%;
+    //   background: url(/assets/interactive-cv/evening-moon.png);
+    //   background-repeat: no-repeat;
+    //   background-size: contain;
+    // }
   }
   &.night {
     .sky { background: $med-purple }

@@ -2,154 +2,132 @@
 <div id="interactive-cv" ng-class="{'mobile': mobile}">
 
 
-  <div class="horizontal-scroll-wrapper squares">
-     
-    <div class="v-slow-moving-items">
-        <div class="sun-moon"></div>
-        <div class="stars-clouds"></div>
-        <div class="sky"></div>
-      </div>
+  <div class="v-slow-moving-items">
+    <div class="sun-moon"></div>
+    <div class="stars-clouds"></div>
+    <div class="sky"></div>
+  </div>
 
-      <div class="med-slow-moving-items">
-        <div class="hill"></div>
-
-      </div>
-      
-      <div class="evergreen-2"></div>
-      <div class="evergreen-1"></div>
-
-
-      <div class="slow-moving-items">
-        <div id="stop-scroll"></div>
-
-        <!-- <div class="creepy-tree-1"></div> -->
-        
-
-        <div class="sign-container"><div class="sign"></div></div>
-
-        
-        <!-- <div class="section-container tree-about"></div> -->
-        <div class="all-about-aimee-container">
-
-          <!-- <div class="
-                      inline-block
-                      vertical-align-top
-                      margin-between-sections" 
-            ng-include src="'/views/interactive-cv/sections/details.html'"> -->
-          <div class="
-                      inline-block
-                      vertical-align-top
-                      margin-between-sections">
-            
-
-            <div class="splan-12 padding-standard">
-              <h3>title</h3>
-              <div 
-                id="activeSchoolsAndTeachersChart" 
-                class="svg-container standardChart white-bg padding-horizontal padding-top">
-              </div>
-              <div class="legend splan-12 white-bg padding-standard">
-                <div class="sm-margin-bottom">
-                  <span class="rf-color-block active-schools"></span>
-                  <span>
-                    <em>{{ 'admin.analytics.activeSchools' | translate }}</em>
-                    {{ 'admin.analytics.numberOfSchoolsThatHaveAtLeastOneActiveStudentDuringTheMonth' | translate }}
-                  </span>
-                </div>
-                <div class="sm-margin-bottom">
-                  <span class="rf-color-block active-teachers"></span>
-                  <span>
-                    <em>{{ 'admin.analytics.activeTeachers' | translate }}</em>
-                    {{ 'admin.analytics.numberOfTeachersWhoAreOnlineDuringTheMonth' | translate }}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-
-
-
-          </div>
-
-
-          <div class="
-                      inline-block
-                      vertical-align-top
-                      margin-between-sections" 
-            ng-include src="'/views/interactive-cv/sections/education.html'">
-          </div>
-
-
-          <div class="
-                      inline-block
-                      vertical-align-top
-                      margin-between-sections" 
-            ng-include src="'/views/interactive-cv/sections/work-experience.html'">
-          </div>
-          <div class="
-                      inline-block
-                      vertical-align-top
-                      margin-between-sections" 
-            ng-include src="'/views/interactive-cv/sections/skills.html'">
-          </div>
-
-
-          <div class="
-                      inline-block
-                      vertical-align-top
-                      margin-between-sections" 
-            ng-include src="'/views/interactive-cv/sections/testimonials.html'">
-          </div>
-          <div class="
-                      inline-block
-                      vertical-align-top
-                      margin-between-sections" 
-            ng-include src="'/views/interactive-cv/sections/contact.html'">
-          </div>
-        </div>
-        
-        <!-- <div ng-include src="'/views/interactive-cv/sections/work-experience.html'"></div>
-        <div ng-include src="'/views/interactive-cv/sections/skills.html'"></div>
-        
-        <div class="testimonials-header">
-          <h1>MY FAVE TESTIMONIALS</h1>
-        </div>
-        <div ng-include src="'/views/interactive-cv/sections/testimonials.html'"></div>
-        <div ng-include src="'/views/interactive-cv/sections/contact.html'"></div> -->
-        
-      </div>
-
-      
-
-
-
-      <div class="med-moving-items">
-        
-        
-        <div class="ground-container">
-          <!-- <div class="path"></div> -->
-          <div class="grass-2"></div>
-          <div class="grass-1"></div>
-
-          <!-- <div class="ground"></div> -->
-        </div>
-        <!-- <div class="rock-1"></div> -->
-        <div class="mushroom"></div>
-      </div>
-      
-      
-      
-      <div class="susie-speech-container">
-        <div class="chat-bot" ng-include src="'/views/interactive-cv/susie-chat-bot.html'"></div>
-        <div class="stretchy-susie">
-          <div class="susie"></div>
-        </div>
-        
-        <div class="susie-shadow"></div>
-      </div>
+  <div class="med-slow-moving-items">
+    <div class="hill"></div>
 
   </div>
+  
+  <div class="evergreen-2"></div>
+  <div class="evergreen-1"></div>
+
+
+  <div class="slow-moving-items">
+    <div id="stop-scroll"></div>
+
+    <!-- <div class="creepy-tree-1"></div> -->
     
 
+    <div class="sign-container"><div class="sign"></div></div>
+
+    
+    <!-- <div class="section-container tree-about"></div> -->
+    <div class="all-about-aimee-container">
+
+      <!-- <div class="
+                  inline-block
+                  vertical-align-top
+                  margin-between-sections" 
+        ng-include src="'/views/interactive-cv/sections/details.html'"> -->
+      <div class="
+                  inline-block
+                  vertical-align-top
+                  margin-between-sections">
+        
+
+        <div class="section-container details d3">
+          <h3>Aimée Likes:</h3>
+          <div 
+            id="activeSchoolsAndTeachersChart" 
+            class="svg-container standardChart">
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+      <div class="
+                  inline-block
+                  vertical-align-top
+                  margin-between-sections" 
+        ng-include src="'/views/interactive-cv/sections/education.html'">
+      </div>
+
+
+      <div class="
+                  inline-block
+                  vertical-align-top
+                  margin-between-sections" 
+        ng-include src="'/views/interactive-cv/sections/work-experience.html'">
+      </div>
+      <div class="
+                  inline-block
+                  vertical-align-top
+                  margin-between-sections" 
+        ng-include src="'/views/interactive-cv/sections/skills.html'">
+      </div>
+
+
+      <div class="
+                  inline-block
+                  vertical-align-top
+                  margin-between-sections" 
+        ng-include src="'/views/interactive-cv/sections/testimonials.html'">
+      </div>
+      <div class="
+                  inline-block
+                  vertical-align-top
+                  margin-between-sections" 
+        ng-include src="'/views/interactive-cv/sections/contact.html'">
+      </div>
+    </div>
+    
+    <!-- <div ng-include src="'/views/interactive-cv/sections/work-experience.html'"></div>
+    <div ng-include src="'/views/interactive-cv/sections/skills.html'"></div>
+    
+    <div class="testimonials-header">
+      <h1>MY FAVE TESTIMONIALS</h1>
+    </div>
+    <div ng-include src="'/views/interactive-cv/sections/testimonials.html'"></div>
+    <div ng-include src="'/views/interactive-cv/sections/contact.html'"></div> -->
+    
+  </div>
+
+  
+
+
+
+  <div class="med-moving-items">
+    
+    
+    <div class="ground-container">
+      <!-- <div class="path"></div> -->
+      <div class="grass-2"></div>
+      <div class="grass-1"></div>
+
+      <!-- <div class="ground"></div> -->
+    </div>
+    <!-- <div class="rock-1"></div> -->
+    <div class="mushroom"></div>
+  </div>
+  
+  
+  
+  <div class="susie-speech-container">
+    <div class="chat-bot" ng-include src="'/views/interactive-cv/susie-chat-bot.html'"></div>
+    <div class="stretchy-susie">
+      <div class="susie"></div>
+    </div>
+    
+    <div class="susie-shadow"></div>
+  </div>
 
 </div>

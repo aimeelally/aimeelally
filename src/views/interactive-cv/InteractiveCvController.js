@@ -1,7 +1,7 @@
 "use strict";
 
-import ARRAY_OF_ELEMENTS from './elements';
-import LIKES from './likes';
+import ARRAY_OF_ELEMENTS from '../../json/elements';
+import LIKES from '../../json/likes';
 
 /**
  * jQuery.browser.mobile (http://detectmobilebrowser.com/)
