@@ -38,7 +38,7 @@
   @import 'susie';
   @import 'susie-chat-bot';
 
-  $width_of_sky: 800%;
+  $width_of_sky: 1500%;
   $width_of_ground: calc(#{$width_of_sky} + 100%);
   $width_of_about: $width_of_ground;
   $offset_left_for_scroll: -500px;
@@ -414,6 +414,7 @@
     position: absolute;
     top: 267px;
     width: 100px;
+    margin-left: -6em;
     //left: $pos_of_fifth_section;
     transform: rotate(-90deg);
     h1 { width: 400px; }

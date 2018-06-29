@@ -233,7 +233,7 @@ angular.module("interactiveCv", [])
               var moved = 0;
               if (movRight) { 
 
-                if(isRightBlockElementInViewport('#right-blocker')) {
+                if(isElementInViewport('#right-blocker')) {
                   activateMovingLeftAnimations();
                   moved = 0;
                 }
@@ -247,7 +247,7 @@ angular.module("interactiveCv", [])
               }
 
               if (movLeft) { 
-                if(isLeftBlockElementInViewport('#left-blocker')) {
+                if(isElementInViewport('#left-blocker')) {
                   activateMovingRightAnimations();
                   moved = 0;
                 }
@@ -314,55 +314,22 @@ angular.module("interactiveCv", [])
               var viewportLeft = $(scrollElem).scrollLeft();
               var viewportRight = viewportLeft + $(window).width();
 
-              if($elem.length) {
-                // Get the position of the element on the page.
+              // Get the position of the element on the page.
                 var elemLeft = Math.round( $elem.offset().left );
                 var elemRight = elemLeft + $elem.width();
 
                 //debugger;
-
-                return ((elemLeft < viewportRight) || (elemRight > viewportLeft));
-              }
+                
+                if (elem == '#right-blocker') {
+                  return elemLeft < viewportRight;
+                }
+                else if (elem == '#left-blocker') {
+                  return elemRight > viewportLeft;
+                }
+                else {
+                  return ((elemLeft < viewportRight) || (elemRight > viewportLeft));
+                }
               
-          }
-
-          function isLeftBlockElementInViewport(elem) {
-              var $elem = $(elem);
-
-              // Get the scroll position of the page.
-              var scrollElem = 'html';//((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
-              var viewportLeft = $(scrollElem).scrollLeft();
-              var viewportRight = viewportLeft + $(window).width();
-
-              if($elem.length) {
-                // Get the position of the element on the page.
-                var elemLeft = Math.round( $elem.offset().left );
-                var elemRight = elemLeft + $elem.width();
-
-                //debugger;
-
-                return elemRight > viewportLeft;
-              }
-              
-          }
-
-          function isRightBlockElementInViewport(elem) {
-              var $elem = $(elem);
-
-              // Get the scroll position of the page.
-              var scrollElem = 'html';//((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
-              var viewportLeft = $(scrollElem).scrollLeft();
-              var viewportRight = viewportLeft + $(window).width();
-
-              if($elem.length) {
-                // Get the position of the element on the page.
-                var elemLeft = Math.round( $elem.offset().left );
-                var elemRight = elemLeft + $elem.width();
-
-                //debugger;
-
-                return elemLeft < viewportRight;
-              }
               
           }
 
@@ -394,7 +361,7 @@ angular.module("interactiveCv", [])
             var currentScrolledPosition = $(document).scrollLeft();
               if (scrollPosition > currentScrolledPosition) {
 
-                if(isLeftBlockElementInViewport('#left-blocker')) {
+                if(isElementInViewport('#left-blocker')) {
                   //debugger;
                   document.body.style.overflow = "hidden";
                   console.log('left-block');
@@ -424,11 +391,8 @@ angular.module("interactiveCv", [])
               }
               else if (scrollPosition < currentScrolledPosition) {
 
-                // if(!isValidMove('left')) {
-                //   return;
-                // }
-
-                if(isRightBlockElementInViewport('#right-blocker')) {
+                // BLOCKER ON RIGHT IS SHOWING, STOP ANIMATIONS AND MOVE CHARACTER 
+                if(isElementInViewport('#right-blocker')) {
                   //debugger;
                   document.body.style.overflow = "hidden";
                   console.log('right-block');
