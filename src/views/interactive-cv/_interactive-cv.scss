@@ -13,6 +13,18 @@
   }
 }
 
+
+.right-blocker,
+.left-blocker {
+  width: 300px;
+  background: transparent;
+}
+
+.left-blocker {
+  position: absolute;
+  left: -300px;
+}
+
 .section-container {
   //transform: perspective(1px) translateZ(-100px);
 }
@@ -29,15 +41,9 @@
   $width_of_sky: 800%;
   $width_of_ground: calc(#{$width_of_sky} + 100%);
   $width_of_about: $width_of_ground;
-  $offset_left_for_scroll: -1000px;
+  $offset_left_for_scroll: -500px;
 
   $pos_of_first_section: 110%;
-  // $pos_of_second_section: calc( #{$pos_of_first_section} + 700px);
-  // $pos_of_third_section: calc( #{$pos_of_second_section} + 700px);
-  // $pos_of_fourth_section: calc( #{$pos_of_third_section} + 700px);
-  // $pos_of_fifth_section: calc( #{$pos_of_fourth_section} + 700px);
-  // $pos_of_sixth_section: calc( #{$pos_of_fifth_section} + 700px);
-  // $pos_of_seventh_section: calc( #{$pos_of_sixth_section} + 700px);
 
   $light-purple: #9b84db;
   $light-blue: #fff;
@@ -153,43 +159,43 @@
     }
   }
   &.evening {
-    // .sky { background: $med-orange }
-    // .sky { background: linear-gradient($med-purple, $med-orange); }
-    // .hill { 
-    //   background: url(/assets/interactive-cv/evening-hill.png);
-    //   background-size: contain;
-    //   background-repeat-y: no-repeat;
-    //   background-position-y: 100%; 
-    // }
+    .sky { background: $med-orange }
+    .sky { background: linear-gradient($med-purple, $med-orange); }
+    .hill { 
+      background: url(/assets/interactive-cv/evening-hill.png);
+      background-size: contain;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%; 
+    }
     .grass-1 { background: url(/assets/interactive-cv/sketch-grass.png); }
-    //.grass-2 { background: url(/assets/interactive-cv/evening-grass.png); }
-    // .evergreen-1 { 
-    //   background: url(/assets/interactive-cv/evening-evergreen.png); 
-    //   background-repeat-x: repeat;
-    //   background-repeat-y: no-repeat;
-    //   background-position-y: 100%;
-    //   background-size: contain;
-    // }
-    // .evergreen-2 { 
-    //   background: url(/assets/interactive-cv/night-evergreen.png); 
-    //   background-repeat-x: repeat;
-    //   background-repeat-y: no-repeat;
-    //   background-position-y: 100%;
-    //   background-size: contain;
-    // }
-    // .stars-clouds { 
-    //   z-index: 2;
-    //   background: url(/assets/interactive-cv/evening-stars.png); 
-    //   background-size: contain;
-    // }
-    // .sun-moon {
-    //   z-index: 3;
-    //   bottom: 20%;
-    //   right: 43%;
-    //   background: url(/assets/interactive-cv/evening-moon.png);
-    //   background-repeat: no-repeat;
-    //   background-size: contain;
-    // }
+    .grass-2 { background: url(/assets/interactive-cv/evening-grass.png); }
+    .evergreen-1 { 
+      background: url(/assets/interactive-cv/evening-evergreen.png); 
+      background-repeat-x: repeat;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%;
+      background-size: contain;
+    }
+    .evergreen-2 { 
+      background: url(/assets/interactive-cv/night-evergreen.png); 
+      background-repeat-x: repeat;
+      background-repeat-y: no-repeat;
+      background-position-y: 100%;
+      background-size: contain;
+    }
+    .stars-clouds { 
+      z-index: 2;
+      background: url(/assets/interactive-cv/evening-stars.png); 
+      background-size: contain;
+    }
+    .sun-moon {
+      z-index: 3;
+      bottom: 20%;
+      right: 43%;
+      background: url(/assets/interactive-cv/evening-moon.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
   &.night {
     .sky { background: $med-purple }

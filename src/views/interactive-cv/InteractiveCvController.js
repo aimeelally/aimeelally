@@ -124,17 +124,6 @@ angular.module("interactiveCv", [])
 
 
         function showSpeechBubble(num) {
-          // var speechBubbleToShow = 'showSpeechBubble'+num;
-
-          // $scope.showSpeechBubble1 = false;
-          // $scope.showSpeechBubble2 = false;
-          // $scope.showSpeechBubble3 = false;
-          // $scope.showSpeechBubble4 = false;
-          // for(speechBubble in speechBubbles) {
-          //   speechBubble = false;
-          // }
-          // speechBubbles.speechBubbleToShow = true;
-          //debugger;
           $scope.speechBubbleToShow = num;
         }
 
@@ -192,25 +181,6 @@ angular.module("interactiveCv", [])
           return true;
         }
 
-        /*function isValidMove(direction) {
-          return true; //until i can get the function to work correctly
-          
-          var blockerPosition = $("#stop-scroll").offset().left;
-          var blockerPositionAfterMove = blockerPosition - speedMed;
-          //console.log(blockerPositionAfterMove);
-          // var blockerPositionFromContact = ($(window).width() - ($('#contact').offset().left + $('#contact').outerWidth()));
-          // var blockerPositionAfterContact = blockerPositionFromContact - speedMed;
-          
-          if(direction === 'left' && blockerPositionAfterMove <= FARTHEST_POINT_LEFT) {
-            return true;
-          }
-          if(direction === 'right' && blockerPositionAfterMove >= FARTHEST_POINT_RIGHT) {
-            return true;
-          }
-
-          return;
-
-        }*/
 
         function stoppedScrolling() {
           $('.susie').removeClass('right left happy angry');
@@ -220,47 +190,7 @@ angular.module("interactiveCv", [])
 
         $(document).ready(function(){
 
-          var scrollPosition = 0;
-          $(window).scroll(function() {
-            //dont do the scroll animation if also pressing keys
-            if (keysdown.keydown) return;
-
-            
-
-            scrollTracker.isScrolling = true;
-            
-            var currentScrolledPosition = $(document).scrollLeft();
-              if (scrollPosition > currentScrolledPosition) {
-
-                if(!isValidMove('right')) {
-                  return;
-                }
-                //console.log('scroll right');
-                scrollPosition = currentScrolledPosition;
-                activateMovingLeftAnimations();
-
-                setTimeout(function() {
-                  stoppedScrolling();
-                  scrollTracker.isScrolling = false;
-                },500);
-              }
-              else if (scrollPosition < currentScrolledPosition) {
-
-                if(!isValidMove('left')) {
-                  return;
-                }
-
-                //console.log('scroll left');
-                scrollPosition = currentScrolledPosition;
-                activateMovingRightAnimations();
-
-                setTimeout(function() {
-                  stoppedScrolling();
-                  scrollTracker.isScrolling = false;
-                },500);
-              }
-              
-          });
+          
             
             $('body').keydown(function(e) {
               
@@ -303,22 +233,30 @@ angular.module("interactiveCv", [])
               var moved = 0;
               if (movRight) { 
 
-                if(!isValidMove('right')) {
-                  return;
+                if(isRightBlockElementInViewport('#right-blocker')) {
+                  activateMovingLeftAnimations();
+                  moved = 0;
+                }
+                else {
+                  activateMovingRightAnimations();
+                  moved = 1;  
                 }
 
-                activateMovingRightAnimations();
-                moved = 1;
+                
 
               }
 
               if (movLeft) { 
-                if(!isValidMove('left')) {
-                  return;
+                if(isLeftBlockElementInViewport('#left-blocker')) {
+                  activateMovingRightAnimations();
+                  moved = 0;
+                }
+                else {
+                  activateMovingLeftAnimations();
+                  moved = 1;
                 }
 
-                activateMovingLeftAnimations();
-                moved = 1;
+                
 
               }
               
@@ -368,30 +306,11 @@ angular.module("interactiveCv", [])
           //////////////////
 
 
-
-          /*function isElementInViewport(elem) {
-              var $elem = $(elem);
-
-              // Get the scroll position of the page.
-              var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
-              var viewportTop = $(scrollElem).scrollTop();
-              var viewportBottom = viewportTop + $(window).height();
-
-              if($elem.length) {
-                // Get the position of the element on the page.
-                var elemTop = Math.round( $elem.offset().top );
-                var elemBottom = elemTop + $elem.height();
-
-                return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
-              }
-              
-          }*/
-
           function isElementInViewport(elem) {
               var $elem = $(elem);
 
               // Get the scroll position of the page.
-              var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
+              var scrollElem = 'html';//((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
               var viewportLeft = $(scrollElem).scrollLeft();
               var viewportRight = viewportLeft + $(window).width();
 
@@ -407,24 +326,137 @@ angular.module("interactiveCv", [])
               
           }
 
-          // Check if it's time to start the animation.
-          function checkAnimation() {
-              var $elem = $('.section-container.details');
+          function isLeftBlockElementInViewport(elem) {
+              var $elem = $(elem);
 
-              if (isElementInViewport($elem)) {
-                  // Start the animation
-                  $elem.addClass('start');
-              } 
-              // else {
-              //     $elem.removeClass('start');
-              // }
+              // Get the scroll position of the page.
+              var scrollElem = 'html';//((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
+              var viewportLeft = $(scrollElem).scrollLeft();
+              var viewportRight = viewportLeft + $(window).width();
+
+              if($elem.length) {
+                // Get the position of the element on the page.
+                var elemLeft = Math.round( $elem.offset().left );
+                var elemRight = elemLeft + $elem.width();
+
+                //debugger;
+
+                return elemRight > viewportLeft;
+              }
+              
           }
 
-          // Capture scroll events
-          $(window).scroll(function(){
-              checkAnimation();
-          });
+          function isRightBlockElementInViewport(elem) {
+              var $elem = $(elem);
 
+              // Get the scroll position of the page.
+              var scrollElem = 'html';//((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
+              var viewportLeft = $(scrollElem).scrollLeft();
+              var viewportRight = viewportLeft + $(window).width();
+
+              if($elem.length) {
+                // Get the position of the element on the page.
+                var elemLeft = Math.round( $elem.offset().left );
+                var elemRight = elemLeft + $elem.width();
+
+                //debugger;
+
+                return elemLeft < viewportRight;
+              }
+              
+          }
+
+          // Check if it's time to start the animation.
+          function checkAnimation(elem) {
+            var $elem = $(elem);
+
+            if (isElementInViewport($elem)) {
+              // Start the animation
+              $elem.addClass('start');
+            }
+          }
+
+
+    
+        // Capture scroll events when document is loaded
+        $(document).ready(function() {
+          
+          var scrollPosition = 0;
+          $(window).scroll(function() {
+
+            
+            checkAnimation('.section-container.details');
+            //dont do the scroll animation if also pressing keys
+            if (keysdown.keydown) return;
+
+            scrollTracker.isScrolling = true;
+            
+            var currentScrolledPosition = $(document).scrollLeft();
+              if (scrollPosition > currentScrolledPosition) {
+
+                if(isLeftBlockElementInViewport('#left-blocker')) {
+                  //debugger;
+                  document.body.style.overflow = "hidden";
+                  console.log('left-block');
+                  stoppedScrolling();
+                  scrollTracker.isScrolling = false;
+                  activateMovingRightAnimations();
+
+                  setTimeout(function() {
+                    document.body.style.overflow = "auto";
+                  },500);
+                }
+                else {
+                  scrollPosition = currentScrolledPosition;
+                  activateMovingLeftAnimations();
+
+                  setTimeout(function() {
+                    stoppedScrolling();
+                    scrollTracker.isScrolling = false;
+                  },500);
+                }
+
+                // if(!isValidMove('right')) {
+                //   return;
+                // }
+                //console.log('scroll right');
+                
+              }
+              else if (scrollPosition < currentScrolledPosition) {
+
+                // if(!isValidMove('left')) {
+                //   return;
+                // }
+
+                if(isRightBlockElementInViewport('#right-blocker')) {
+                  //debugger;
+                  document.body.style.overflow = "hidden";
+                  console.log('right-block');
+                  stoppedScrolling();
+                  scrollTracker.isScrolling = false;
+                  activateMovingLeftAnimations();
+                  
+                  setTimeout(function() {
+                    document.body.style.overflow = "auto";
+                  },500);
+                }
+                else {
+                  scrollPosition = currentScrolledPosition;
+                  activateMovingRightAnimations();
+
+                  setTimeout(function() {
+                    stoppedScrolling();
+                    scrollTracker.isScrolling = false;
+                  },500);
+                }
+
+                //console.log('scroll left');
+                
+              }
+              
+          });
+        });
+          
 
 
 
