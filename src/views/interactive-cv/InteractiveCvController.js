@@ -364,7 +364,7 @@ angular.module("interactiveCv", [])
                 if(isElementInViewport('#left-blocker')) {
                   //debugger;
                   document.body.style.overflow = "hidden";
-                  console.log('left-block');
+                  //console.log('left-block');
                   stoppedScrolling();
                   scrollTracker.isScrolling = false;
                   activateMovingRightAnimations();
@@ -395,7 +395,7 @@ angular.module("interactiveCv", [])
                 if(isElementInViewport('#right-blocker')) {
                   //debugger;
                   document.body.style.overflow = "hidden";
-                  console.log('right-block');
+                  //console.log('right-block');
                   stoppedScrolling();
                   scrollTracker.isScrolling = false;
                   activateMovingLeftAnimations();

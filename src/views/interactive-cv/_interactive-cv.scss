@@ -24,6 +24,9 @@
   position: absolute;
   left: -300px;
 }
+.right-blocker {
+  margin-left: 1000px
+}
 
 .section-container {
   //transform: perspective(1px) translateZ(-100px);
@@ -317,7 +320,7 @@
 
   .evergreen-2 {
     //left: -907px;
-    left: 175px;
+    left: 250px;
   }
 
   .stars-clouds {
@@ -414,10 +417,11 @@
     position: absolute;
     top: 267px;
     width: 100px;
-    margin-left: -6em;
-    //left: $pos_of_fifth_section;
     transform: rotate(-90deg);
     h1 { width: 400px; }
+  }
+  .make-space-for-header {
+    margin-left: 6em;
   }
   .testimonials {
     //left: $pos_of_sixth_section;
